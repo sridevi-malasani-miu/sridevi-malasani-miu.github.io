@@ -1,4 +1,4 @@
-module.exports={isVowel,subtract,pow};
+module.exports={isVowel,computeSalesCommission,calcDownpayment};
 
 function isVowel(string){
 }
@@ -7,5 +7,5 @@ function computeSalesCommission(isSalariedAccount,salesAmount){
 }
 
 function calcDownpayment(){
-    
+
 }
