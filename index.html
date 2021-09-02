@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Mocha Tests</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+</head>
+
+<body>
+    <div id="mocha"></div>
+
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+    </script>
+    <script>
+        let assert = chai.assert;
+        function pow(x, n) {
+            let result = 1;
+            for (let i = 0; i < n; i++) {
+                result *= x;
+            }
+            return result;
+        }
+        describe("pow", function () {
+
+            it("2 raised to power 3 is 8", function () {
+                assert.equal(8, pow(2, 3));
+            });
+
+            it("3 raised to power 3 is 27", function () {
+                assert.equal(27, pow(3, 3));
+            });
+
+        });
+    </script>
+
+    <script class="mocha-exec">
+        mocha.run();
+    </script>
+</body>
+
+</html>
