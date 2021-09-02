@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <title>Arrays lab</title>
+    <!-- download style info to make the page look nice -->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://unpkg.com/mocha/mocha.css" />
+</head>
+
+<body>
+    <div id="mocha"></div> <!-- placeholder used by mocha to insert test results on page-->
+
+    <!-- download mocha and chai libraries -->
+    <script src="https://unpkg.com/chai/chai.js"></script>
+    <script src="https://unpkg.com/mocha/mocha.js"></script>
+
+
+    <!-- some setup code -->
+    <script class="mocha-init">
+        mocha.setup('bdd');
+        mocha.checkLeaks();
+        let assert = chai.assert;
+    </script>
+
+    <!-- put links to your code and tests here -->
+    <script src="arrays.js"></script>
+    <script src="arrayTests.js"></script>
+
+    <script class="mocha-exec">
+        mocha.run();
+    </script>
+</body>
+
+</html>
