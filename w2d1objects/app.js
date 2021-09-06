@@ -46,4 +46,3 @@ function addBook(title,author,libraryID){
    // const title = document.getElementById("title"); //retrieves the book title from the title textbox
     //finish the implementation -- get the author, create a book object, and add to the library array
 }
-© 2021 GitHub, Inc.
