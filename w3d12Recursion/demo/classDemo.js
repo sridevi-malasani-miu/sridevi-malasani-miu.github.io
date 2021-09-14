@@ -109,16 +109,41 @@ let company = {
     development: {
         sites: [{name: 'Peter', salary: 2000}, 
                 {name: 'Alex', salary: 1800 }], //subdepartments
-        internals: [{name: 'Jack', salary: 1300}],
-         myDept:{subDep:[{name: 'subDep', salary: 500}] }
+        internals: [{name: 'Jack', salary: 1300}] ,
+        myDept:{subDep:[{name: 'subDep', salary: 500}]}
     }
 }
+//,
 function secondEmp(company){
     if(!company.sales)
         return {};
     company.sales[1].name, 
     company.sites[1].name,  company.sites[1].salary
 }
+function sumTotalWithoutRecursion(company){
+    let totalSalary = 0;
+    for(let key in company){
+       console.log(key, company[key]);
+       let obj = company[key]
+       if(Array.isArray(obj))
+            totalSalary+=obj.reduce((sum,current)=> sum+current.salary,0);
+       else
+           for(let key2 in obj){
+            console.log(` key2 ${key2} `);
+            let obj2 =  obj[key2];
+            if(Array.isArray( obj2))
+                totalSalary+= obj2.reduce((sum,current)=> sum+current.salary,0);
+            else
+                for(let key3 in obj2){
+                    console.log(` key2 ${key2} `);
+                    if(Array.isArray( obj2[key3]))
+                        totalSalary+= obj2[key3].reduce((sum,current)=> sum+current.salary,0);
+                }
+            }
+    }
+    return totalSalary;
+}
+
 function sumTotal(company){
     let totalSalary = 0;
     for(let key in company){
@@ -135,6 +160,8 @@ function sumTotal(company){
     }
     return totalSalary;
 }
+
+
 //function call execution context           recursive call return
 
 //sumTotal(company.development)  totalSarlay = 5100         5100
@@ -163,11 +190,12 @@ function linkedList(){
     console.log(a);
     a.next=a.next.next;
     console.log(a);
-    delete b.next;
+    //delete b.next;
+    b.next =null;
     a.next.next = b;
     c.next = {value:"Z"};
-    c.next.next={value:"B"};
-    console.log(JSON.stringify(a))
+    c.next.next=b;
+    console.log(JSON.stringify(a));
 }
 
 function fibonacci(n){
@@ -262,10 +290,11 @@ function run(){
     //foo();
     // console.log(findLengthRecursive("Hello"));
     //console.log(findMinRecursion([3,1,67,0,-1,23,45]))
-    console.log(fibonacci(6));
+    //console.log(fibonacci(6));
     //console.log( fibonacciLoop(6));
     //console.log(countOccurences("hello","l"));
-   // console.log("TOtal ",sumTotal(company))
+    //console.log(sumTotal(company));
+    //linkedList();
 }
 run()
 
@@ -275,3 +304,119 @@ function findsum(array) {
   }
 
   console.log(" dfdfd ",findsum([31,2,3,40]));
+
+//   let list = {value:1};
+//   list.next = {value:2};
+//   list.next.next = {value:3};
+//   list.next.next.next = {value:4};
+//   list.next.next.next.next = {value:5};
+
+// let newList = list.next.next;
+//  list.next.next= null;
+//  console.log(list,newList);
+//  list.next.next =newList;
+
+//  console.log(list);
+//   console.log(JSON.stringify(list));
+// list = {value:"new item",next:list}
+// console.log(list);
+
+// // write a linked list with three nodes, A, B, C
+// ➢ let a = {value: "A", next: b}; … 
+// ➢ write expression(s) to remove B from the list
+// ➢ write expression(s) to add B to the end of the list
+// ➢ write expression(s) to insert Z between C and 
+
+function fn (x){
+    console.log(x);
+}
+
+fn(1,2);
+fn();
+x = 3;
+x = 5;
+x = 6;
+console.log(x);
+// function log() {
+//     console.log("No Arguments");
+//     }
+//     function log(x) {
+//     console.log("1 Argument: " + x);
+//     }
+//     function log(x, y) {
+//     console.log("2 Arguments: " + x + ", " + y);
+//     }
+//     log();
+//     log(5);
+//     log(6, 7);
+
+    function findMax() {
+        let max = -Infinity;
+        console.log(arguments)
+        for (let i = 0; i < arguments.length; i++) {
+            console.log(arguments[i]);
+        if (arguments[i] > max) {
+            max = arguments[i];
+        }
+        }
+        return max;
+    }
+
+
+       // const max1 = findMax(1, 123, 500, 115, 66, 88);
+        //const max2 = findMax(3, 6, 8);
+       // console.log("  max element ",max1)
+      // const mix = findMax(1,"string",true,4,5);
+     // const mix = findMax([1,"string",true,4,5],[1,2]);
+    
+     // findsum(1,2,3,4)->10
+
+     function sum(x, y, ...more) {
+        //"more" is array of all extra passed params
+        let total = x + y;
+        console.log(total,x,y,more.length);
+        if (more.length > 0) {
+        for (let i = 0; i < arguments.length; i++) {
+        total += arguments[i];
+        }
+        }
+        console.log("Total: " + total);
+        return total;
+        }
+        //sum(5, 5, 5);
+       // sum(6, 6, 6, 6, 6);
+        // sum(3) //-> x, y, more, arguments-[3]
+
+        // evenSum(..more){
+        //     if(index%2==0)
+        // }
+
+        let a = [1,2,3];
+        a.push([5,6]);
+
+        a= a.concat([5,6])
+        console.log(a);
+
+        let b = [...a];
+        b.splice(0,1);
+        a.splice(0,0,"add");
+        console.log(a,b);
+        console.log(a==b);
+        
+        let str = "Hello";
+        console.log(typeof ([...str].join("&")));
+
+        let spread1 =[1,2,3];
+        let string = "dog";
+        let numberN = 2;
+        let booleanB = true;
+        let spread2 = [4,5];
+        console.log([...spread1,...spread2,string,numberN]);
+        console.log(spread1.concat(spread2,string));
+
+        abb = {a:1, b:2, c:3, d: 44}
+baa = {...abb }
+console.log(baa) // {a:1, b:2, c:3, d: 44}
+baa.a = 100;
+console.log(abb) // {a:1, b:2, c:3, d: 44} 
+
