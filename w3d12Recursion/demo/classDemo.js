@@ -120,7 +120,20 @@ function secondEmp(company){
     company.sites[1].name,  company.sites[1].salary
 }
 function sumTotal(company){
-   
+    let totalSalary = 0;
+    for(let key in company){
+       console.log(key, company[key]);
+       let obj = company[key]
+       if(Array.isArray(obj)){
+        totalSalary+=obj.reduce((sum,current)=> 
+            sum+current.salary,0);
+        console.log("first for loop", totalSalary)
+       }
+       else{
+            totalSalary+=sumTotal(company[key]);
+       }
+    }
+    return totalSalary;
 }
 //function call execution context           recursive call return
 
