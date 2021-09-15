@@ -1,19 +1,27 @@
+function TreeNode(value) {
+    this.value = value;
+    this.descendents = [];
+}
+   // create nodes with values
+const abe = new TreeNode('Abe');
+const homer = new TreeNode('Homer');
+const bart = new TreeNode('Bart');
+const lisa = new TreeNode('Lisa');
+const maggie = new TreeNode('Maggie');
+// associate root with is descendents
+abe.descendents.push(homer);
+homer.descendents.push(bart, lisa, maggie);
+
 function contains(tree,name){
-    let match = false;
     if(tree.value===name)
         return true;
-    if(Array.isArray(tree)){
-        tree.forEach(function(item){
-            if(item.value===name){
-                match= true;
-            }else if(!match && item.descendents.length>0)
-            {
-                match = containsRecursion(item.descendents,name);
-            } 
-        });
-
-    }else if(tree.descendents.length>0){
-        match= containsRecursion(tree.descendents,name);
+    if(tree.descendents && tree.descendents.length>0){
+        for(let item of tree.descendents){
+            console.log(item)
+            if(contains(item,name))
+                return true;
+        }
     }
-    return match;
+    return false;
 }
+
