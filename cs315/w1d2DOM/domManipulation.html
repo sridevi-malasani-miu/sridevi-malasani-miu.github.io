@@ -1,0 +1,71 @@
+<html>
+<head>
+<body>
+    <p>1. Change Elements -> Copies First Name to Second Name</p>
+    <p>2. Create Elements -> Adds the values of all input fields at the end.</p>
+    <p>3. Delete Elements -> Replace First Name with label, delete the Second Name</p>
+    <p>3. after Before -> Task: Add Node after Second Name text field and one element before the second name field</p>
+    <p>First Name:</p>
+    <p><input id="firstName" type="text" value="" /></p>
+    <p>Second Name:</p>
+    <!--Default Value of Input Text field-->
+    <p><input type="text" id="secondName" value="Second Name" /></p>
+    <p>My Interests</p>
+    <p><textarea rows="4" cols="20">Javascript</textarea></p>
+    <p><input type="button" value="change Elements" onclick="change()" />
+        <input type="button" value="create Elements" onclick="create()"/>
+        <input type="button" value="delete Elements" onclick="deleteElement()"/>
+        <input type="button" value="after Before" onclick="afterBefore()"/>
+    </p>
+    <script>
+        function change() {
+            //Get Element By Id
+            let firstName = document.getElementById("firstName");
+            //show the value of FirstName
+            //alert(firstName.value);
+
+            //change the value of firstName to "Mahesh"
+            //firstName.value ="Mahesh";
+            
+            //Copy the first name to second name
+            let secondName = document.getElementById("secondName");
+            secondName.value = firstName.value;
+        }
+        function create() {
+            console.log(" here create")
+            //Create new element div
+            let div = document.createElement("div");
+            //Add div to the last of body
+            document.body.append(div);
+
+            let nameDisplayMap = {firstName:"First Name", secondName:"Second Name"};
+            let inputElements = document.querySelectorAll("input[type='text']");
+            console.log(inputElements.length)
+            for(let eachInput of inputElements){
+                //Create new element label
+                let label = document.createElement("label");
+                //Add label to the div
+                div.append(label);
+                //Set text of the label
+                label.innerText = nameDisplayMap[eachInput.id] +" : "+ eachInput.value;
+                console.log(label);
+                div.append(document.createElement("br"))
+            }
+        }
+
+        function deleteElement(){
+            let firstName = document.getElementById("firstName");
+            let secondName = document.getElementById("secondName");
+            let newElement = document.createElement("p");
+            //Set the text of newElement to be first Name + second Name
+            newElement.innerText = "Full Name: "+firstName.value + " : "+secondName.value; 
+            //Replace One element with another
+            firstName.replaceWith(newElement);
+            //Remove the second Name
+            secondName.remove();
+        }
+    </script>
+
+</body>
+</head>
+</html>
