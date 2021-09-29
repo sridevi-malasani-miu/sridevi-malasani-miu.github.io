@@ -1,0 +1,68 @@
+<html>
+    <head>
+        <style>
+            p { padding:10px;}
+            input {margin:10px;}
+        </style>
+    </head>
+    <body>
+        <p>
+            Name
+            <input name="inputElement" type ="text" value=""/>
+            ID
+            <input id ="test" type ="text" value="" />
+            Type
+            <input type ="text" value="" />
+            <input type ="radio" value="" />
+            
+            <button onclick="submit()">Submit</button>
+            <div>
+                <p>Inside div
+                    <label>this is label</label>
+                    <p> This P
+                        <p> Innermost P</p>
+                    </p>
+                </p>
+
+                <p>Inside 3rd div
+                    <label>this is 3 label</label>
+                    <p> This 3 P
+                        <p> Innermost 3 P</p>
+                    </p>
+                </p>
+            </div>
+        </p>
+        <ul>
+            <li>The</li>
+            <li>test</li>
+          </ul>
+          <ul>
+            <li>has</li>
+            <li>passed</li>
+          </ul>
+        <script>
+            function submit(){
+                let ol = document.createElement("ol");
+                document.body.append(ol);
+                // let element = document.querySelectorAll("#test");
+                // alert(element.length+ element[0].type);
+
+                // let element = document.querySelectorAll("input[type ='text']");
+                // alert(element.length+ element[0].type);
+
+                let element = document.querySelectorAll("div p");
+                for(let myDiv of element){
+                    alert( myDiv.innerHTML);
+                }
+               
+                //create li, append to ol, li text should be the input text
+            }
+
+            let elements = document.querySelectorAll('ul > li:last-child');
+  
+            // for (let elem of elements) {
+            // alert(elem.innerHTML); // "test", "passed"
+            // }
+        </script>
+    </body>
+</html>
