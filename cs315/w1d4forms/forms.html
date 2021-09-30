@@ -1,0 +1,94 @@
+<html>
+
+<head>
+</head>
+
+<body>
+    <input type="checkbox" name="checkboxName" value="lettuce" /> Lettuce Vegetable​
+    <input type="checkbox" name="checkboxName" value="Tomato​" /> Tomato​
+    <input type="checkbox" name="checkboxName" value="Pickles​" /> Pickles​
+
+    <br />
+    <br />
+    <input type="radio" id="html" name="fav_language" value="HTML">
+    <label for="html">HTML</label><br>
+    <input type="radio" id="css" name="fav_language" value="CSS">
+    <label for="css">CSS</label><br>
+    <input type="radio" id="javascript" name="fav_language" value="JavaScript">
+    <label for="javascript">JavaScript</label>
+
+    <br />
+    <br />
+    <select name="favoritecharacter">​
+        <option>Jerry</option> ​
+        <option>George</option> ​
+        <option selected>Kramer</option>​
+        <option>Elaine</option> ​
+    </select>
+
+    <br />
+    <br />
+    <select name="favoritecharacterMultiple" size="5" multiple>​
+        <option>Jerry</option> ​
+        <option>George</option> ​
+        <option>Kramer</option> ​
+        <option selected>Elaine</option> ​
+        <option selected>Newman</option> ​
+    </select>
+    <br />
+    <br />
+    <select name="favoritecharacterOpt"> ​
+        <optgroup label="Major Characters"> ​
+            <option>Jerry</option> ​
+            <option>George</option>​
+            <option>Kramer</option>​
+            <option>Elaine</option>​
+        </optgroup> ​
+        <optgroup label="Minor Characters"> ​
+            <option>Newman</option> ​
+            <option>Susan</option> ​
+        </optgroup> ​
+    </select>
+    <br />
+    <br />
+    <!-- <div id ="displaySelected"> </div> -->
+    <input type="text" id="myButton" value="My Button" />
+    <br />
+    <p>
+        <input type="button" onclick="add()" value="click me" />
+    </p>
+    <script>
+        function add() {
+            // let control = document.getElementsByName("checkboxName");
+            // let control = document.getElementsByName("fav_language");
+            // let control = document.getElementsByName("favoritecharacter");
+            // let control = document.getElementsByName("favoritecharacterMultiple");
+            // let control = document.getElementsByName("fav_language");
+            let control = document.getElementsByName("favoritecharacterOpt");
+            let selected;
+            for (let eachRadio of control) {
+                selected = eachRadio.value;
+            }
+            let label = document.getElementById("myButton");
+            label.value = selected;
+            //getSelectValues(control[0])
+        }
+
+        // select is an HTML select element
+        function getSelectValues(select) {
+            var result = [];
+            console.log(select.options)
+            var options = select && select.options;
+            var opt;
+            for (var i = 0, iLen = options.length; i < iLen; i++) {
+                opt = options[i];
+                if (opt.selected) {
+                    result.push(opt.value || opt.text);
+                }
+            }
+            alert(result);
+        }
+    </script>
+</body>
+
+</html>
