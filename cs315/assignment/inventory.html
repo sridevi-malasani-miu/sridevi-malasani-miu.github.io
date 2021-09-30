@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="../styles/myStyle.css">
+</head>
+<body>
+  <h1>Inventory</h1>
+  <div>
+    <p>
+      Item Name: &nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="itemName" />
+    </p>
+    <p>
+      Item Category: &nbsp;
+      <input type="text" value="" id="category" />
+    </p>
+    <p>
+      Quantity: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="quantity" />
+    </p>
+    <p>
+      <input type="submit" value="Add" class="addButton" onclick="add()" />
+    </p>
+    <input type="submit" value="filter" onclick="filter()" />
+    <input type="submit" value="Clear Filter" onclick="clearFilter()" />
+    <br/>
+  </div>
+  <table id="items">
+    <tr>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </table>
+  <script>
+    var array = [];
+    var index = 0;
+
+    function add() {
+      index++;
+      var item = {
+        id: index, name: document.getElementById("itemName").value,
+        category: document.getElementById("category").value,
+        quantity: document.getElementById("quantity").value
+      };
+      array.push(item);
+
+
+      let items = document.getElementById("items");
+      let tr = document.createElement("tr");
+      items.append(tr);
+      let nameTd = document.createElement("td");
+      nameTd.innerHTML = document.getElementById("itemName").value;
+      tr.append(nameTd);
+
+      let categoryTd = document.createElement("td");
+      categoryTd.innerHTML = document.getElementById("category").value;
+      tr.append(categoryTd);
+
+      let quantityTd = document.createElement("td");
+      quantityTd.innerHTML = document.getElementById("quantity").value;
+      tr.append(quantityTd);
+
+      //<tr> <td><button>Edit</button></td>
+      let editTd = document.createElement("td");
+      let button = document.createElement("button");
+      button.innerHTML = "Edit";
+      button.setAttribute("myId", index);
+      button.onclick = function () {
+        console.log(this)//button
+        console.log(this.parentNode)//td
+        console.log(this.parentNode.parentNode)//tr
+        console.log(this.parentNode.parentNode.childNodes)// All 5 columns(td's)
+        let childNodes = this.parentNode.parentNode.childNodes;
+
+        document.getElementById("itemName").value = 1//childNodes[0].innerHTML;
+        document.getElementById("category").value = 2//childNodes[1].innerHTML;
+        document.getElementById("quantity").value = 3//childNodes[2].innerHTML;
+
+        let myId = this.getAttribute("myId");
+        array.forEach(function (item) {
+          if (item.id == myId) {
+            item.name = document.getElementById("itemName").value;
+            item.category = document.getElementById("category").value;
+            item.quantity = document.getElementById("category").value;
+          }
+        })
+
+      }
+      editTd.append(button);
+      tr.append(editTd);
+
+      let td = document.createElement("td");
+      let deleteButton = document.createElement("button");
+      button.setAttribute("myId", index);
+      deleteButton.innerHTML = "Delete";
+      deleteButton.onclick = function () {
+        let myId = this.getAttribute("myId")
+        console.log(this.getAttribute("myId"));
+        array = array.filter((item) => item.id != myId);
+
+        console.log(this.parentNode.parentNode);
+        this.parentNode.parentNode.remove();
+
+      }
+      td.append(deleteButton);
+      tr.append(td);
+    }
+
+    function filter() {
+      console.log(array);
+      let filteredArray = array.filter((item) => Number(item.quantity) > 100);
+      let children = document.getElementById('items').childNodes;
+      for (let i = 2; i < children.length; i++) {
+        let eachTr = children[i];
+        console.log(eachTr.children[2]);
+        if (Number(eachTr.children[2].innerHTML) < 100) {
+          eachTr.style.display = "none";
+        }
+
+      }
+    }
+
+    function clearFilter() {
+      console.log(array);
+      let filteredArray = array.filter((item) => Number(item.quantity) > 100);
+      let children = document.getElementById('items').childNodes;
+      for (let i = 2; i < children.length; i++) {
+        let eachTr = children[i];
+        console.log(eachTr.children[2]);
+        eachTr.style.display = "";
+      }
+
+    }
+  </script>
+</body>
+
+</html>
