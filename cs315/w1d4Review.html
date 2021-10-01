@@ -1,0 +1,159 @@
+<html>
+    <head>
+        <style>
+            p,label{
+      color:blue;
+  }
+  div p{
+      text-decoration:underline;
+  }
+  input[type='text']{
+      background-color :rgb(180, 178, 178);
+  }
+  .myClass{
+      text-decoration:underline;
+  }
+        </style>
+    </head>
+
+<p class="myPClass" id ="myPId" >Hi I am there changed
+    <!-- <p>iNner text</p> -->
+</p>
+<p id ="placeHolder"></p>
+<div>
+    <p> I am here </p>
+</div>
+<input type ="text" value ="hello" id ="myELEMENT" />
+<input type ="button" value ="button" onclick ="validate()"/>
+</html>
+<!-- Properties -[id,value,src,alt,type] setAttribute -->
+<!-- getElementById, getElementsByTagName, getElementsByName,
+QuerySelector  QuerySelectorAll-->
+<!--text field[input type = text], button [input type ='button']- value-->
+<label id="lableId"><p>My LABEL</p></label>
+<div>
+<ol>
+    <li>One</li>
+    <li>Two</li>
+</ol>
+</div>
+
+<ol>
+        <li>Outer 1</li>  
+         <li>Outer 2</li>
+     </ol>
+    
+<script>
+    function validate(){
+        let input =document.getElementById("myELEMENT");
+        if(input.value==""){
+            alert(" Input cant be empty");
+            input.style.backgroundColor ="red"
+            //Add a message before the input filed, "Fill this"
+            let p = document.createElement("p");
+            p.innerHTML = "Fill this";
+            input.before(p);
+        }
+    }
+//find OL
+//let ol = document.getElementsByTagName("ol")[0];
+//.getElementsByTagName("div")
+// let ol = document.querySelector("div > ol");
+// let tagNames = document.getElementsByTagName("div")[0].getElementsByTagName("p");
+// console.log(tagNames);
+//alert(document.getElementsByTagName("div")[0].getElementsByTagName("div"));
+//.getElementsByTagName("div")
+//change content of ol
+// let ol = document.getElementsByTagName("ol")[0];
+// console.log(ol.innerHTML);
+// document.getElementsByTagName("ol")[1].
+// getElementsByTagName("li")[1].innerText = "Outside"
+//console.log(document.querySelectorAll("ol li"));
+
+//Create Ol
+
+
+    //find Input
+    //document.getElementsByTagName("input")[0]
+    //alert(document.querySelector("input[type='text']").value);
+  // alert(document.querySelector("input[value='hello']").value);
+
+  //Change Input
+//   document.getElementsByTagName("input")[0].type="button";
+//   document.getElementsByTagName("input")[0].setAttribute("class","className");
+//   document.getElementsByTagName("input")[0].value
+//   = document.getElementsByTagName("input")[1].value
+// document.getElementsByTagName("label")[0].innerHTML = 
+// "<b>"+document.getElementsByTagName("input")[0].value +"</b>";
+
+//Create Input<input type ="text" value ="hello" />
+// create, assign attributes , append
+// let input = document.createElement("input");
+// input.type="text";
+// input.value ="hello";
+// document.getElementById("lableId").append(input);
+    // Find P
+   // let p = document.getElementById("myPId");
+   // let p = document.getElementsByTagName("p");
+
+    //change the content
+    //document.getElementById("myPId").innerHTML = "Change ";
+    //change Id
+    //document.getElementById("myPId").id = "newID";
+    
+    // document.getElementById("placeHolder").innerHTML = 
+    // document.getElementById("myPId").getAttribute("id");
+
+   // let newP = document.createElement("p");
+   // document.getElementById("myPId").append(newP);
+   // newP.innerHTML = "iNner text";
+//    document.getElementById("myPId").setAttribute("YourOwn","pName")
+//    document.getElementById("myPId").innerHTML = document.getElementById("myPId").innerHTML + "<p>inner text</p>";
+
+   //QuerySelector Examples
+//    document.querySelector(".myPClass")
+//    document.querySelectorAll("#myPId")
+//    document.querySelectorAll("div > p")
+//  document.querySelectorAll("p,label")
+  //let inputs = document.querySelectorAll("input[value='button']");
+  //find images that have alt ="let inputs = document.querySelectorAll("input[type='text']")"
+  //document.querySelectorAll("img[alt='text']")
+  // All  p element style , text to blue->css
+  
+
+
+
+ //let inputs = document.getElementsByTagName("input")
+//   for(let eachInput of inputs){
+//       let element = document.getElementById("placeHolder");
+//       element.innerHTML =  element.innerHTML+ eachInput.value;
+//   }
+
+
+
+</script>
+<!-- Write p tag with content “ Hi I am there” 
+
+Create Text field with value “First” and id, myTextField 
+
+Color text filed with pink  
+
+Create Label with “First Name” 
+
+Create Button with value “Add” 
+
+Create Larger Heading, “My Heading” 
+
+Create Table with 3 rows and 4 columns 
+
+Create ordered list of your favorite restaurants 
+
+Create unordered list of your favorite movies 
+
+Create images with external links, internal images(Images in your system) and add image as a link 
+
+Create anchor tag and link to the files in the same folder, courses dir and  
+
+Current Directory: cs315 
+
+Parent of Current Directory: courses  -->
