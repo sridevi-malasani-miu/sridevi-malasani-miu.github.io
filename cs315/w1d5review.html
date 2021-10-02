@@ -1,0 +1,87 @@
+<html>
+
+<body>
+    <!-- <anyother id ="id" name="name"/>
+        <anyother id ="id" name="name" value="hi"><p>dsfsf</p></anyother> -->
+    <p>sdfdsf</p>
+    <ol id="myOl">
+        <li>Width</li>
+    </ol>
+    jklhkhjj
+    <table id="sample">
+            <!-- <tr>
+                <th>Header 1</th>
+                <th>Header 2</th>
+            </tr> -->
+        <tr>
+            <td>COl 1</td>
+            <td>COl 2</td>
+        </tr>
+        <tr>
+            <td>COl 3</td>
+            <td>COl 4</td>
+        </tr>
+    </table>
+    <div>
+        
+        <label>dsfs</label>
+        <input type="text" value="dsdsf"/>
+    </div>
+    </div>
+    <input type="submit" id="myButton" value="submit"/>
+
+    <script>
+        console.log("DIV HERE ",document.getElementsByTagName("div")[0]);
+        console.log( document.getElementsByTagName("div")[0].innerHTML)
+        window.onload = submit;
+        function submit(){
+            document.getElementById("myButton").onmouseover = function(){
+                alert("Clicked ")
+            }
+        }
+        
+        // document.getElementsByName("name")
+        let table = document.getElementById("sample");
+        let myTD =
+          document.querySelector("table tr td");
+
+       // console.log(table.rows[1].cells[0]);
+        
+
+        console.log(" Tr ",myTD)
+
+       let firstRow = table.childNodes[0];
+
+       // let firstRow = table.childNodes[1].tbody.childNodes
+      // console.log(table.childNodes.length, table.childNodes[1].childNodes);
+         
+      let tr = document.createElement("tr");
+          table.prepend(tr);
+          let td =  document.createElement("td");
+          td.innerHTML ="new 1"
+          let td2 =  document.createElement("td");
+          td2.innerHTML="<input type='text' value ='"
+          +myTD.innerHTML+"'/>"
+
+           tr.append(td)
+           tr.append(td2);
+
+           let myOl = document.getElementById("myOl");
+          // myOl.remove();
+           let textField = document.createElement("input");
+           textField.type ="text"
+            textField.value = "value";
+            document.getElementById("sample").before(textField);
+
+            myOl.style.display="";
+
+            myOl.replaceWith(textField) ;        
+    </script>
+</body>
+
+</html>
+
+<!-- Any Tag add a child ->prepend
+add at the end -> append
+before (not as a child) -> before
+after(not as a child) - after -->
