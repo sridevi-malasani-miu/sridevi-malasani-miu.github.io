@@ -1,0 +1,56 @@
+<html>
+    <head>
+        <script>
+            console.log(document.querySelector("*"));
+        </script>    
+        <style>
+            body{
+                border:2px solid black;
+                position:relative;
+                height:2800px;
+                margin:30px;
+            }
+            .box{
+                border:2px solid green;
+                width:50px;
+                height:50px;
+                background-color: green;
+            }
+            .box2{
+                border:2px solid orange;
+                width:50px;
+                height:50px;
+                right:40px;
+                top: 0px;
+                background-color:orange;
+                position:relative;
+                float:right;
+                bottom:40px;
+            }
+            .someClass{
+                color:red;
+            }
+            p{
+                color:green;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="box">
+            
+        </div>
+        <div class="box2">
+
+        </div>
+        div > p
+        <div class ="inheritDemo" style="text-align:center;border:1px solid; padding:20px;">
+            Some Content
+            <div class="innerDiv" style="text-align:left;border:1px solid;padding:20px;">
+                <p>Some other Content</p>
+            </div>
+        </div>
+        <p class="someClass">SOme Style</p>
+        <p> Without class</p> 
+    </body>
+</html>
+
