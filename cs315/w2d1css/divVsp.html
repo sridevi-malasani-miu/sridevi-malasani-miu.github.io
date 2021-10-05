@@ -1,0 +1,48 @@
+<html>
+
+<head>
+    <style>
+        #item {
+            position: relative;
+            border: 1px solid green;
+        }
+
+        .item .name {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+        }
+
+        /* #item div p {
+            color: blue;
+            position: absolute;
+            right: 0px;
+            bottom: 0px;
+        } */
+    </style>
+</head>
+<body>
+    <div id='item'>
+        <span class='name'>*Scrambled eggs on crusty Italian ciabatta and bruschetta tomato</span>
+        <span id='price'>$12.50</span>
+        <p id='price'>
+            <p> HI </p>
+        </p>
+    </div>
+    <script>
+        console.log(document.querySelector("#item div p"))
+    </script>
+<!-- display:block;
+display:inline;
+display: -->
+    <label style="margin-right:30px;display:inline-block;height:40px;"> My Label</label>
+    Element
+    <div>Hello</div>
+</body>
+</html>
+<!-- 
+div can contain other div elements
+p cannot contain another p element
+Which means that div can be stacked while p cannot! No
+Error if you stack,the elements might not render
+the way you are expecting them-->
