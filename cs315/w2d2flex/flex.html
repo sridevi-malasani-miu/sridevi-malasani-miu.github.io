@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <style>
+            .flexItems{
+                /* display:inline-flex; */
+                display:flex;
+                /* justify-content:space-between; */
+                align-content:flex-start;
+                 /* align-items:stretch; */
+                height:300px;
+                row-gap:2%;
+                column-gap:3%;
+                padding:10px;
+               /* width:300px; */
+                /* flex-direction:column-reverse; */
+                /* flex-direction:row-reverse; */
+                 flex-direction:row;
+                flex-wrap:wrap; 
+                background-color: lightblue;
+            }
+            .box{
+                font-size:20px;
+                width:40px;
+                height:40px;
+                line-height:40px;
+                text-align: center;
+                /* padding:20px; */
+                /* margin:10px; */
+                color:white;
+                background-color: lightcoral;
+            }
+            /* .boxNoStretch{
+                align-self:center;
+            } */
+            /* .box2{
+                height:80px;
+            }
+            .box3{
+                height:20px; */
+                /* margin-top:10px; */
+            
+            /* .box4{
+                height:100px;
+            } */
+            .flextItemContainer{
+                display:flex;
+                border:2px solid green;
+                gap:10px;
+            }
+            .boxItem{
+                background-color:yellow;
+                /* flex: 0 1 100%; */
+            }
+            .one{
+                order:2;
+                flex: 2 1 auto;
+                display:flex;
+                flex-wrap:wrap;
+                flex-direction:row;
+                gap:20px;
+            }
+            .two{
+                order:2;
+                flex: 1 1 auto;
+            }
+            .three{
+                order:1;
+                flex: 1 1 auto;
+            }
+            .nextedItem{
+                background-color:lightpink;
+            }
+
+        </style>
+    </head>
+    <body>
+
+        <div class ="flextItemContainer">
+            <div class="boxItem one">
+                <div class="nextedItem">one</div>
+                <div class="nextedItem">two</div>
+                <div class="nextedItem">three</div>
+                <div class="nextedItem">four</div>
+                <div class="nextedItem">five</div>
+                <div class="nextedItem">six</div>
+            </div>
+            <div class="boxItem two">Sim</div>
+            <div class="boxItem three">Large Large Large Content</div>
+
+        </div>
+        <!-- <div class="flexItems">
+            <div class = "box boxNoStretch">1</div>
+            <div class = "box ">2</div>
+            <div class="box ">3</div>
+             <div class="box box4">4</div>
+            <div class="box box3">5</div>
+             <div class="box ">6</div>
+            <div class="box box2">7</div>
+            <div class="box ">8</div>
+            <div class="box box2">9</div>
+            <div class="box ">10</div> 
+            <div class="box box2 ">11</div>
+            <div class="box ">12</div>
+           <div class="box ">13</div>
+            <div class="box ">14</div>
+            <div class="box ">15</div>
+            <div class="box ">16</div>
+            <div class="box ">17</div>
+            <div class="box ">18</div>  
+        </div> -->
+    </body>
+</html>
+<!-- width for column direction, otherwise will stretch -->
+<!-- width - for shrinking flex items, 
+padding - will cause the items to overflow -->
+<!-- When row direction -> overwrites width?
+when column direction -> overwrites height? -->
+<!-- flex items shrink to minimum width and 
+then expand -->
