@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style>
+    .imgNew {
+        color: white;
+        width: 20px;
+        object-fit: contain;
+        margin-top: 15px;
+    }
+
+    .imgClass {
+        width: 40%;
+        object-fit: contain;
+    }
+
+    footer {
+        display: flex;
+        width:70%;
+        background-color: black;
+        flex-direction: column;
+        padding: 50px 100px;
+    }
+
+    .container {
+        display: grid;
+        grid-template-columns: 1fr 1fr 0.8fr;
+        row-gap: 10px;
+        column-gap: 30px;
+        color: white;
+        justify-content: center;
+        color: gray;
+    }
+
+    .heading {
+        font-size: 20px;
+        color: white;
+    }
+
+    .aboutMeMargin {
+        margin-bottom: 40px;
+    }
+
+    .middleColumngrid {
+        display: grid;
+        column-gap: 20px;
+        align-content:start;
+        /* row-gap:10px; */
+        grid-template-columns: 20px 1fr;
+        font-size: 14px;
+        font-style: italic;
+    }
+    .lastColumn{
+        display:flex;
+        flex-wrap:wrap;
+        gap:5px;
+        align-content:flex-start;
+    }
+    .links{
+        display:flex;
+        justify-content:space-between;
+        color:white;
+    }
+    .emailBox{
+        height:40px;
+        width:90%;
+        color:white;
+        background-color:darkslategray; 
+        display:flex;
+        justify-content:space-between;
+        border-radius:40px;
+    }
+</style>
+
+<body>
+    <footer>
+        <div class="container">
+            <p class="heading">About Me</p>
+            <p class="heading">Latest Tweet</p>
+            <p class="heading">Instagram</p>
+            <div>
+                <p class="aboutMeMargin">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Nulla at volutpat diam ut venenatis tellus. Sed id semper risus
+                    Nulla at volutpat diam ut venenatis tellus. Sed id semper risus
+                </p>
+                <p style="color:white;">
+                    <img src="../images/twitter-white.png" style="width:20px;"> 322323
+                </p>
+                <p style="color:white;">
+                    <img src="../images/twitter-white.png" style="width:20px;"> email.com
+                </p>
+                <div class="emailBox">
+                    <p style="padding:0px 20px;line-height: 10px;">Enter your e-mail</p>
+                    <div style="border-radius:40px;background-color: brown;color:white;">
+                        <p style="padding:0px 30px;line-height: 10px;"> Send</p>
+                    </div>
+                </div>
+            </div>
+            <div class="middleColumngrid">
+                <img src="../images/twitter-white.png" class="imgNew">
+                <p> Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Nulla at volutpat diam ut venenatis tellus. Sed id semper risus</p>
+                <img src="../images/twitter-white.png" class="imgNew">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Nulla at volutpat diam ut venenatis tellus. Sed id semper risus</p>
+                <img src="../images/twitter-white.png" class="imgNew">
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+                    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                    Nulla at volutpat diam ut venenatis tellus. Sed id semper risus</p>
+            </div>
+            <div class="lastColumn">
+                <img src="../images/ryan.jpg" class="imgClass" />
+                <img src="../images/ryan.jpg" class="imgClass" />
+                <img src="../images/ryan.jpg" class="imgClass" />
+                <img src="../images/ryan.jpg" class="imgClass" />
+            </div>
+        </div>
+        <div style="border-top:1px solid #ffffff80">&nbsp;</div>
+        <div class="links">
+            <div style="display:flex;gap:15px;">
+                <label> Home</label>
+                <label> About</label>
+                <label> Our Works</label>
+                <label> Services</label>
+                <label> Blog</label>
+                <label> Contacts</label>
+            </div>
+            <div style="font-size: 18px;">
+                Colorlib
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
