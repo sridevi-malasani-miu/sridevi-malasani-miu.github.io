@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        footer{
+            display:flex;
+            width:60%;
+            background-color: darkmagenta;
+            margin:50px;
+            padding:30px;
+            gap:5%;
+            border-radius:8px;
+        }
+        .container{
+            width:55%;
+        }
+        footer>img{
+            width:40%;
+            object-fit:cover;
+            margin-top:-60px;
+            margin-left:-60px;
+        }
+        .roundBox{
+            display:flex;
+            color:lightpink;
+            border:2px solid lightpink;
+            border-radius:20px;
+            /* height:38px; */
+            justify-content: space-between;
+            margin:15px;
+        }
+        .emailClass{
+            padding:10px;
+            /* line-height: 38px; */
+        }
+        .subscribeClass{
+            background-color: lightpink;
+            color:darkmagenta;
+            border-radius:20px;
+            /* padding:10px 50px; */
+            padding-top:10px;
+            padding-bottom:10px;
+            padding-left:50px;
+            padding-right:50px;
+            float:right;
+        }
+        .listItems {
+            display:inline-grid;
+            margin:15px;    
+            color:white;
+            grid-template-columns: 1fr 1fr 1fr;
+            gap:10px;
+            grid-template-rows: 15% 10% 10% 10%;
+        }
+        .lastLine{
+            /* display:flex; */
+            /* justify-content: space-between; */
+            color:white;
+        }
+        .ligherColor{
+            color:#ffffffae;
+            font-weight: lighter;
+            text-shadow: 1px 1px #FF0000;
+        }
+    </style>
+</head>
+<body>
+    <footer>
+        <img src ="images/whiteFlower.jpg"/>
+        <div class="container">
+            <div class ="roundBox">
+                <label class="emailClass">Your e-mail</label>
+                <label class="subscribeClass">Subscribe Now!</label>
+            </div>
+            <div class="listItems">
+                <p style="text-shadow: 1px red;"><b>Partnership</b></p>
+                <p><b>About</b></p>
+                <p><b>Support</b></p>
+                <p class="ligherColor">Websites</p>
+                <p class="ligherColor">Our Projects</p>
+                <p class="ligherColor">Support Requset</p>
+                <p class="ligherColor">Social Media</p>
+                <p class="ligherColor">Careers</p>
+                <p class="ligherColor">Contact</p>
+                <p class="ligherColor">Branding</p>
+            </div>
+            <!-- <hr> -->
+            <div style="border-top: 0.4px solid #ffffff80; width:100%;">&nbsp;</div>
+            <div class="lastLine">
+                All rights reserved &nbsp; 2020
+                <div style="float:right;display:flow-root;">
+                <img src = "images/twitter.png" style="width:20px;"/>
+                <img src = "images/twitter.png" style="width:20px;"/>
+                <img src = "images/twitter.png" style="width:20px;"/>
+                <img src = "images/twitter.png" style="width:20px;"/>
+                </div>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
