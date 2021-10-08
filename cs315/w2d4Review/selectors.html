@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<!-- div > h1 > r-->
+<body>
+    <div>Hi
+        <div class="classDiv">Hello
+            <div>Inner</div>
+            <div>Inner 2</div>
+            <h1>Heading Hello</h1>
+            
+            <!-- <p> One p</p> -->
+            <div>Inner 3
+                <div>
+                    <h1> Heading h11111</h1>
+                </div>
+                <h2> Heading 2</h2>
+                <h1>Heading 1</h1> 
+                <div> Inner 3.5 </div>
+                <h2> Heading 2</h2>
+                <p> Two P</p>
+                <h1>Heading 3</h1> 
+                <h2>Heading 4</h2> 
+            </div>
+        </div>
+        <article class="classDiv">
+            <div>
+                <h1> HI article</h1>
+            </div>
+        </article>
+        <p> Outside P</p>
+        <h1> Heading 5</h1>
+        <h2>heading 2</h2>
+        <h2>heading 2</h2>
+        <h2>heading 2 </h2>
+        <h1>Heading 111</h1> 
+    </div>
+    <p> Outer Outer P</p>
+    <h1> Heading 6</h1>
+
+    <div>
+        <div>
+            <div> Outside</div>
+        </div>
+    </div>
+
+    <script>
+       // let result = document.querySelectorAll("p ~ h1");
+       let result = document.querySelectorAll(".classDiv > div > h1")
+       console.log(result.length);
+       for(let element of result){
+           console.log(element.innerHTML);
+       }
+    </script>
+</body>
+</html>
