@@ -1,0 +1,113 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Navs & Tabs</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+    <div class ="container-fluid">
+      <p class = "h4">Navs</p>
+      <hr/>
+      <!--Basic Nav-->
+      <p class = "h6">Basic Nav</p>
+      <ul class="nav">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul> 
+
+      <!--Center Nav-->
+      <p class = "h6">Center Nav</p>
+      <ul class="nav justify-content-center">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul> 
+
+      <!--Vertical Nav-->
+      <p class = "h6">Vertical Nav</p>
+      <ul class="nav flex-column">
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul> 
+
+      <p class = "h4">Tabs</p>
+
+      <!--Basic Tab-->
+      <hr/>
+      <p class = "h6">Tabs</p>
+
+      <!-- Toggleable tabs -->
+      <ul class="nav nav-pills" >
+        <li class="nav-item">
+          <button class="nav-link active" data-bs-toggle="pill" data-bs-target="#home" type="button">Home</button>
+        </li>
+        <li class="nav-item" >
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#profile" type="button">Profile</button>
+        </li>
+        <li class="nav-item" >
+          <button class="nav-link" data-bs-toggle="pill" data-bs-target="#contact" type="button" >Contact</button>
+        </li>
+      </ul>
+      <div class="tab-content" id="myTabContent">
+        <div class="tab-pane active" id="home" >TEst</div>
+        <div class="tab-pane fade" id="profile" >TEst3</div>
+        <div class="tab-pane fade" id="contact" >.TEst5</div>
+      </div>
+
+      <!--Nav Pils-->
+      <hr/>
+      <p class = "h6">Pills</p>
+      <ul class="nav nav-pills">
+        <li class="nav-item">
+          <a class="nav-link active" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#">Link</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link disabled" href="#">Disabled</a>
+        </li>
+      </ul> 
+
+    </div>
+  </body>
+</html>

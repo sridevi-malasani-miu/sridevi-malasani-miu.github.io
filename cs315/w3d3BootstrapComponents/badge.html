@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
+
+    <title>Badge</title>
+  </head>
+  <body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
+
+    <p class="h4 text-center">Badge</p>
+    <hr/>
+
+    <div class="container">
+      <button type="button" class="btn btn-primary position-relative">
+        Big Button for spanning good content
+        <span class="position-absolute top-100 start-50 translate-middle badge rounded-pill bg-danger">
+          Bottom middle
+          <span class="visually-hidden">unread messages</span>
+        </span>
+      </button>
+      <hr/>
+      <!--Badge after Button-->
+      <p class="h6">Badge After Button</p>
+      <button type="button" class="btn btn-primary">
+        Notifications <span class="badge bg-secondary">4</span>
+      </button>
+      <!--Badge after link -->
+      <p class="h6">Badge After Link</p>
+      <a href="#" >
+        Notifications <span class="badge bg-secondary">4 Nesting <span class="badge rounded-pill bg-primary">Primary</span></span>
+      </a>
+
+      <span class="badge rounded-pill bg-primary">Primary</span>
+<span class="badge rounded-pill bg-secondary">Secondary</span>
+<span class="badge rounded-pill bg-success">Success</span>
+<span class="badge rounded-pill bg-danger">Danger</span>
+<span class="badge rounded-pill bg-warning text-dark">Warning</span>
+<span class="badge rounded-pill bg-info text-dark">Info</span>
+<span class="badge rounded-pill bg-light text-dark">Light</span>
+<span class="badge rounded-pill bg-dark">Dark</span>
+
+  </div>
+  </body>
+</html>
+
+<!-- Nesting Pills and Buttons, Badges without background doesnt appear, just outline.
+  -- You can also create a button and make it that syle. What is badge default color.
+
