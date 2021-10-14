@@ -15,11 +15,12 @@
         const myParam = urlParams.get('fname');
         console.log(urlParams.get('fname'));
         let label = document.getElementsByTagName("label")[0];
-        label.innerHTML= urlParams.get('fname')+" "+ urlParams.get("lname");
+        label.innerHTML= urlParams.get('fname')+" "+ urlParams.get("lname")
+        +" "+urlParams.get('select');
            
          function edit(){
              window.location.href= 
-             "/cs315/w3d2bootstrapForm/submitForm.html";
+             "/boostrap/submitForm.html" + window.location.search;
          }  
            </script>
 </body>
