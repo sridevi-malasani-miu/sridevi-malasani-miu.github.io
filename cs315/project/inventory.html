@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="stylesheet" href="../styles/myStyle.css">
+</head>
+
+<body>
+  <h1>Inventory</h1>
+  <div>
+    <p>
+      Item Name: &nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="itemName" />
+    </p>
+    <p>
+      Item Category: &nbsp;
+      <input type="text" value="" id="category" />
+    </p>
+    <p>
+      Quantity: &nbsp; &nbsp;&nbsp; &nbsp; &nbsp;
+      <input type="text" value="" id="quantity" />
+    </p>
+    <label id="mode" hidden></label>
+    <p>
+      <input type="submit" value="Add" class="addButton" onclick="add()" />
+    </p>
+    <input type="submit" value="filter" onclick="filter()" />
+    <input type="submit" value="Clear Filter" onclick="clearFilter()" />
+    <br />
+  </div>
+  <table id="items">
+    <tr>
+      <th>Product Name</th>
+      <th>Category</th>
+      <th>Quantity</th>
+      <th>Edit</th>
+      <th>Delete</th>
+    </tr>
+  </table>
+
+  <div>
+    <h4>Project Tasks</h4>
+    Inventory Page Assignment.
+  </div>
+
+  <script>
+    var array = [];
+    var index = 0;
+    var idsOfInputs = ["itemName", "category", "quantity"];
+
+    function createEditButton(){
+      let editTd = document.createElement("td");
+      let button = document.createElement("button");
+      button.innerHTML = "Edit";
+      button.setAttribute("myId", index);
+      button.onclick = function () {
+        //this -> button, this.parentNode->td,this.parentNode.parentNode->tr 
+        let childNodes = this.parentNode.parentNode.childNodes;
+        this.parentNode.parentNode.setAttribute("editing","true");
+        for (let i = 0;i<=2;i++) {
+          document.getElementById(idsOfInputs[i]).value= childNodes[i].innerHTML
+        }
+        document.getElementById("mode").value = "Edit";
+        let myId = this.getAttribute("myId");
+        array.forEach(function (item) {
+          if (item.id == myId) {
+            item.name = document.getElementById("itemName").value;
+            item.category = document.getElementById("category").value;
+            item.quantity = document.getElementById("category").value;
+          }
+        })
+
+      }
+      editTd.append(button);
+      return editTd;
+    }
+    function createDeleteButton(){
+      let td = document.createElement("td");
+      let deleteButton = document.createElement("button");
+      deleteButton.setAttribute("myId", index);
+      deleteButton.innerHTML = "Delete";
+      deleteButton.onclick = function () {
+        document.getElementById("mode").value = "";
+        let myId = this.getAttribute("myId")
+        console.log(this.getAttribute("myId"));
+        array = array.filter((item) => item.id != myId);
+        console.log(this.parentNode.parentNode);
+        this.parentNode.parentNode.remove();
+      }
+      td.append(deleteButton);
+      return td;
+    }
+    function add() {
+      let items = document.getElementById("items");
+
+      if (document.getElementById("mode").value == "Edit") {
+        document.getElementById("mode").value=""
+        let editTr = getEditedRow().childNodes;
+        for (let i = 0;i<=2;i++) {
+          editTr[i].innerHTML = document.getElementById(idsOfInputs[i]).value;
+        }
+      } else {
+        index++;
+        var item = {
+          id: index, name: document.getElementById("itemName").value,
+          category: document.getElementById("category").value,
+          quantity: document.getElementById("quantity").value
+        };
+        array.push(item);
+        let tr = document.createElement("tr");
+        for (let eachInput of idsOfInputs) {
+          
+          items.append(tr);
+          let td = document.createElement("td");
+          td.innerHTML = document.getElementById(eachInput).value;
+          tr.append(td);
+        }
+        tr.append(createEditButton());
+        tr.append(createDeleteButton());
+      }
+    }
+
+    function filter() {
+      document.getElementById("mode").value = "";
+      console.log(array);
+      let filteredArray = array.filter((item) => Number(item.quantity) > 100);
+      let children = document.getElementById('items').childNodes;
+      for (let i = 2; i < children.length; i++) {
+        let eachTr = children[i];
+        console.log(eachTr.children[2]);
+        if (Number(eachTr.children[2].innerHTML) < 100) {
+          eachTr.style.display = "none";
+        }
+      }
+    }
+
+    function getEditedRow(){
+      let children = document.getElementById('items').childNodes;
+      for (let i = 2; i < children.length; i++) {
+        let eachTr = children[i];
+        if(eachTr.getAttribute("editing")==="true"){
+          eachTr.setAttribute("editing","");
+          return eachTr;
+        }
+      }
+    }
+
+    function clearFilter() {
+      document.getElementById("mode").value = "";
+      console.log(array);
+      let filteredArray = array.filter((item) => Number(item.quantity) > 100);
+      let children = document.getElementById('items').childNodes;
+      for (let i = 2; i < children.length; i++) {
+        let eachTr = children[i];
+        console.log(eachTr.children[2]);
+        eachTr.style.display = "";
+      }
+
+    }
+  </script>
+</body>
+
+</html>
