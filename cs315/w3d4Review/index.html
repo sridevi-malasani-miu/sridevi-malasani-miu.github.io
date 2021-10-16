@@ -7,11 +7,17 @@
        $('#header').load("header.html");
        $('#footer').load("footer.html");
    });
+   function myClick() {
+    let idOf = document.getElementById("textId");
+    alert( "here "+ idOf.value);
+   }
     </script>
 </head>
 <body>
    <div id="header"></div>
     Content
+    <br/>
+    <button onClick="myClick()">myButton</button>
     <div id="footer"></div>
  </body>
 </html>
