@@ -7,10 +7,33 @@
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
         crossorigin="anonymous"></script>
+
+        <script>
+            var array =[{id:1, name:"name",ratings:4},{id:1, name:"name",ratings:4}];
+            // var imageMap ={1:"/images/red", 2:"images/white",3:"images/reddd"}
+            function buildCards(array){
+                let div = document.getElementById("cards");
+                div.innerHTML="";
+                let html = "";
+                array.forEach(function(item){
+                    html+='<div class="card" style="width: 18rem;">'+
+            '<img src="'+"/images/"+ item.imageName+'" class="card-img-top" alt="...">'+
+            '<div class="card-body" style="text-align: center;">'+
+             item.name+
+              '<p class="card-text">'+item.description+'</p>'+
+              item.ratings+
+           '</div>     </div>';
+     
+
+                })
+                div.innerHTML = html;
+            }
+        </script>
 </head>
 
 <body>
     <div class="container">
+    <div id ="cards">
         <div class="card" style="width: 18rem;">
             <img src="../images/redFlower.jpg" class="card-img-top" alt="...">
             <div class="card-body" style="text-align: center;">
@@ -18,8 +41,9 @@
               <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
               Ratings
             </div>
-          </div>
+          </div>          
     </div>
+</div>
 </body>
 
 </html>
