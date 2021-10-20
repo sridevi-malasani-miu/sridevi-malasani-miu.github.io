@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+        crossorigin="anonymous"></script>
+    <style>
+        .headerStyle{
+            background-color: green;
+            color:white;
+            border-top-left-radius: 10px;
+            border-top-right-radius: 10px;
+        }
+        .row{
+            margin-bottom:10px;
+        }
+        .mb-20{
+            margin-bottom:20px;
+        }
+        .radioStyle{
+            position:absolute;
+            top:80px;
+            left:20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div  class="m-1">
+        <div class="headerStyle px-5 py-2" >
+            <h3 >Order Form</h3>
+            <p >Please fill.....</p>
+        </div>
+    <div class="p-5">
+        <div class="row">
+            <div class="col">
+                <label class="form-label">Name</label>
+            </div>
+            <div class="col">
+                <input class="form-control d-none" id ="firstName" type="text" placeholder="first "></input>
+            </div>
+            <div class="col">
+                <input  class="form-control"  type="text" id="lastName" placeholder="LAST "></input>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-4">
+                <label class="form-label">Email</label>
+            </div>
+            <div class="col-4">
+                <input class="form-control" type="text" placeholder="johe@email"></input>
+            </div>
+        </div>
+        <div class="row mb-20" >
+            <div class="col-4">
+                <label class="form-label">T-shirt Model</label>
+            </div>
+            <div class="col mb-20">
+                <div class="form-check form-check-inline" style="position:relative;">
+                    <img src ="../images/twitter.png" style="width:100px;height:100px;"/>
+                    <input class="form-check-input radioStyle" type="radio" onclick="showFirstName(this)" name="imageRadio" value="twitter">
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input " type="radio" onclick="showFirstName(this)" name="imageRadio"value="ryan">
+                    <label class="form-check-label" >
+                        <img src ="../images/ryan.jpg" style="width:100px;height:100px"/>
+                        </label>
+                  </div>
+                  <div class="form-check form-check-inline">
+                    <input class="form-check-input " type="radio" onclick="showFirstName(this)" name="imageRadio" value="redRose" >
+                    <label class="form-check-label" >
+                        <img src ="../images/redFlower.jpg" style="width:100px;height:100px"/>
+                        </label>
+                  </div>
+            </div>
+            <div class="row">
+                <div class="col-4">
+                    <label class="form-label">Size</label>
+                </div>
+                <div class="col-4">
+                    <select class="form-select" id="sizeSelect" onclick="changeSelect(this)">
+                        <option value="1">One</option>
+                        <option value="2">Two</option>
+                        <option value="3">Three</option>
+                      </select>
+                </div>
+            </div>
+            <div class="bg-secondary py-3">
+            <div class="row" >
+                <div class="col-4">
+                    <label class="form-label">Delivery</label>
+                </div>
+                <div class="col-8">
+                    <input class="form-control" type="text" placeholder="Address"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-8">
+                    <input class="form-control" type="text" placeholder="Address 2"></label>
+                </div>
+            </div>
+            <div class="row">
+                <div class="offset-4 col-4">
+                    <input class="form-control" type="text" placeholder="City"></label>
+                </div>
+                <div class="col-4">
+                    <input class="form-control" type="number" placeholder="Region"></label>
+                </div>
+            </div>
+        </div>
+            <div class="row mt-3" style="margin-left:20px; margin-right:0px;">
+                <div class="offset-10 col-2" >
+                    <button class="btn btn-success" >Purchase</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    </div>
+    <script>
+        window.onload= function (){
+            let name = document.getElementById("lastName");
+            name.classList.add("d-none");
+            addUlAndSort();
+        }
+        // Show the last name field only if  size is two.
+        function changeSelect(element){
+            let name = document.getElementById("lastName");
+            let size = document.getElementById("sizeSelect");
+            console.log(size.options);
+            for(let eachOption of size.options){
+                if(eachOption.selected && eachOption.value==2){
+                   // name.style.display="";
+                   name.classList.remove("d-none")
+                    console.log(" selected ",name.style)
+                }
+                else if(eachOption.selected && eachOption.value!=2){
+                    console.log(" selected ",name.style)
+                    name.classList.add("d-none")
+                }
+            }
+        }
+// Show the first name field only if rose is checked.
+        function showFirstName(element){
+            let radioButtons = document.getElementsByName("imageRadio");
+            let firstName = document.getElementById("firstName");
+            console.log(radioButtons.length)
+            // for(let eachRadio of radioButtons){
+            //     console.log(eachRadio,eachRadio.checked,eachRadio.value)
+            //     if(eachRadio.checked && eachRadio.value=='redRose'){
+            //         firstName.classList.remove('d-none');
+            //     }
+            //     else if(eachRadio.checked && eachRadio.value!='redRose'){
+            //         firstName.classList.add('d-none');
+            //     }
+            // }
+            if(element.checked && element.value=='redRose'){
+                firstName.classList.remove('d-none');
+            }else if(element.checked && element.value!='redRose'){
+                firstName.classList.add('d-none');
+            }
+        }
+        let array = [{id:3,name:'rama',role:'manager'},
+        {id:3,name:'ale',role:'manager'},
+        {id:2,name:'krishna',role:'worker'}];
+        //Add ul element and sort the items by name
+        function addUlAndSort(){
+            let element = document.createElement('ul');
+            element.id = "myUl";
+            buildUl(array,element);
+            document.body.append(element);
+            createButton();
+        }
+       
+        function createButton(){
+            let element = document.createElement('button');
+            element.setAttribute("class","btn btn-primary");
+            element.innerHTML="Sort";
+            element.setAttribute("onclick","sort()");
+            document.body.append(element);
+
+            let deleteBtn = document.createElement('button');
+            deleteBtn.setAttribute("class","btn btn-primary");
+            deleteBtn.innerHTML="Delete";
+            deleteBtn.setAttribute("onclick","deleteItem()");
+            document.body.append(deleteBtn);
+        }
+        // <ul class="ulClass" id="id" value="value"><li>One</li><li>Two</li></ul>
+        //InnerHTML set the content between start and end tag not attributes
+        //Inside innerHTML you have other elements that have attributes can be set like below
+        function buildUl(myArray,element){
+            let html = "";
+            element.setAttribute("class","myClass");
+            for(let eachItem of myArray){
+                html+="<li class='list-style-item-circle'>"+eachItem.id + " "+eachItem.name+" "+eachItem.role+"</li>"
+            }
+            element.innerHTML = html;
+            
+        }
+        function sort(){
+            let sortedArray = array.sort((item1,item2)=>{
+                return item1.name>item2.name?1:-1;
+            });
+            let myUl = document.getElementById("myUl");
+            buildUl(sortedArray,myUl);
+        }
+        function deleteItem(){
+            let myUl = document.getElementById("myUl");
+            let slicedArray = array.slice(0,array.length-1);
+            console.log(slicedArray)
+            buildUl(slicedArray,myUl);
+            // document.getElementById()
+        }
+        
+    </script>
+</body>
+
+</html>
