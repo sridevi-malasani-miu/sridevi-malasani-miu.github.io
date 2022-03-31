@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let myArray;
+
+        let filterArray =[{name:"name1",quantity:100},
+        {name:"name1",quantity:400},
+        {name:"name1",quantity:560},
+        {name:"name1",quantity:90}
+                             ];
+
+       let items =  filterArray.filter(function(item){
+            return item.quantity>100;
+        });
+        console.log(items);
+
+        filterArray.sort(function(item1,item2){
+            return item1.quantity-item2.quantity;
+        });
+
+        //Redoing the table
+
+        
+
+
+        function add(){
+            
+            let myObj ={};
+            let itemName = document.getElementById("itemName").value;
+            myObj.itemName = itemName;
+            myArray.push(myObj);
+        }
+        window.onload= function(){
+            // document.getElementById("btn").onclick = add;
+
+            let table = document.getElementById("myTable");
+            table.innerHTML="";
+            let name = "name";
+            let price = "price";
+            for(let item of filterArray){
+                table.innerHTML += "<tr><td>"+item.name+"</td><td>"+item.quantity+"</td></tr>";
+            }
+            //<tr><td>Name</td><td>Price</td></tr>
+            
+
+
+            console.log(document.getElementById("td").innerHTML);
+        }
+        //When user hits edit
+        //Find the values of tds
+        //Populate them in the input
+
+        //When User hits save
+        //Take the user input after save, read the values from 
+        //the inputs fields
+        //2. Assign them to the td.//set innerHTML
+
+
+
+
+        function add(){
+            // console.log(this.id,this.parentNode);
+            console.log(this.parentNode.children);
+
+            let childNOdes = this.parentNode.children
+            for(ele of childNOdes){
+                console.log(ele)
+            }
+        }
+    </script>
+</head>
+<body>
+    <table id="myTable">
+        <tr>
+            <td>One</td>
+            <td>Two</td>
+        </tr>
+    </table>
+    <!-- <td id ="myDIV"> Hello </td>
+    <div id ="1">
+        <div id ="first">
+            <div id ="second">
+                <button id="btn">save</button>
+            </div>
+        </div>
+    </div> -->
+   
+</body>
+</html>
