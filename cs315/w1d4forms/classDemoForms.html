@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type ="text" value="hello" maxlength="10" readonly/>
+    <!-- <textarea rows="10" cols="20">
+        Type your comments here.
+        </textarea> -->
+        <br/><br/>
+        <!-- <label>Select Courses </label>
+        <input type="checkbox" name="checkboxControl" value="305" /> 305
+        <input type="checkbox" name="checkboxControl"  value ="315" /> 315
+        <input type="checkbox" name="checkboxControl" value ="415" checked  /> 415 -->
+        <label>Select Courses </label>
+        <input type="radio" name="checkboxControl" value="305" /> 305
+        <input type="radio" name="checkboxControl"  value ="315" /> 315
+        <input type="radio" name="checkboxControl" value ="415" checked  />
+        <br/><br/>
+
+        <p class="result">415</p>
+        <!-- <label>Select Faculty </label>
+        <input type="checkbox" name="faculty" /> A
+        <input type="checkbox" name="faculty"  /> B
+        <input type="checkbox" name="faculty" checked /> C
+        <br/><br/> -->
+        <button >Click Me</button>
+
+    <script>
+        let textField = document.getElementsByTagName("input")[0];
+        // console.log(textField)
+        console.log(textField.getAttribute("readonly"));
+        
+        // function create(obj){
+        //     console.log(this);
+        // }
+        window.onload = function (){
+            // let checkVar = document.getElementsByClassName("result")[0];
+            // checkVar.innerHTML = "415";
+            // let button = document.getElementsByTagName("button")[0];
+            // button.onclick = printChecked;
+            // let str = "315 415 405 444 3333";
+            // console.log(str.split(" "));
+            // let array = str.split(" ");
+            // console.log(array.indexOf("415"));
+            // array.splice(1,1)
+            // console.log(array);
+            let checkboxes = document.getElementsByName("checkboxControl");
+            for(let eachControl of checkboxes){
+                eachControl.onclick = checkboxEvent;
+            }
+            console.log(" here checkboxes ")
+        }
+
+        function checkboxEvent(){
+            console.log(this);
+            let pEle = document.getElementsByClassName("result")[0];
+            if(this.checked){
+                pEle.innerHTML=pEle.innerHTML+" "+ this.value;
+            }else{
+                let originalValue = pEle.innerHTML;
+                // console.log(originalValue.indexOf(this.value));
+                let originalArray = originalValue.split(" ");
+                console.log("originalArray",originalArray);
+                let indexOfElement = originalArray.indexOf(this.value);
+                // console.log(originalArray);
+                originalArray.splice(indexOfElement,1);
+                // console.log(originalArray);
+                pEle.innerHTML = originalArray.join(" ");
+
+            } 
+        }
+
+        function printChecked(){
+            let checkboxes = document.getElementsByName("checkboxControl");
+            let pEle = document.getElementsByClassName("result")[0];
+            pEle.innerHTML="";
+            for(let eachControl of checkboxes){
+                console.log(eachControl, eachControl.checked, eachControl.value)
+                if(eachControl.checked){
+                    pEle.innerHTML= pEle.innerHTML+" "+eachControl.value;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
