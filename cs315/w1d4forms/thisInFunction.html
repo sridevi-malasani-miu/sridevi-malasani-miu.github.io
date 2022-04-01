@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            display:block;
+            margin-top:10px;
+        }
+        .btn1{
+            background-color:lightblue;
+        }
+        .btn2{
+            background-color: lightcoral;
+        }
+        .btn3{
+            background-color: lightgreen;
+        }
+        .btn4{
+            background-color:lightgoldenrodyellow;
+        }
+    </style>
+    <script>
+        window.onload = function(){
+            document.getElementById("secondBtn").onclick = secondBtnClick;
+            //Add Button in javascript
+            let btn = document.createElement("button");
+            btn.onclick = fifthButtonClick;
+            btn.innerHTML = "Button Added in JS";
+            document.body.append(btn);
+
+            //InnerHTML
+            let innerHTMLbtn = "<button onclick='fifthButtonClick(this)'>Button Added in JS (passing this)</button>";
+            let div = document.createElement("div");
+            div.innerHTML = innerHTMLbtn;
+            document.body.append(div);
+        }
+        function fifthButtonClick(obj){
+            alert(" Fifth Button Clicked "+this+ " Passed THIS"+obj);
+        }
+        function firstBtnClick(){
+           alert("First Button Clicked" + this);
+        }
+
+        function secondBtnClick(){
+            alert("Second Button Clicked" + this);
+        }
+
+        function thirdBtnClick(obj){
+            alert("Third Button Clicked:: "+ "This inside Function:: "+ this+" Passed from HTML:: "+obj);
+        }
+
+        function fourthBtnClick(msg){
+            alert("Fourth Button Click "+msg);
+        }
+    </script>
+</head>
+<body>
+    <button id="firstBtn" class="btn1" onclick ="firstBtnClick()">Event Handler in HTML</button>
+    <button id="secondBtn" class="btn2" >Event Handler on PageLod</button>
+    <button id="thirdBtn" class="btn3" onclick ="thirdBtnClick(this)">Pass this from HTML</button>
+    <button id="fourthBtn" class="btn4" onclick="fourthBtnClick('Hello')">Pass Parameters in HTML function</button>
+</body>
+</html>
