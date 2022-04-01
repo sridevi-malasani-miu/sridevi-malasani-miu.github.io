@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+       span ~ i{
+            color:red;
+        }
+    </style>
+    
+</head>
+<body>
+    
+    <header role="banner" >
+        <span >Vedas</span>
+        <span >Upanishads</span>
+        <nav id="mastLogin" class="class1 class2">
+            <nav >
+                <div>
+                    <a title="Academic alerts" >
+                        <span >Taitreya</span>
+                        <ul>
+                            <li>Markandeya</li>
+                        </ul>
+                        <span >Isha Vyasa</span>
+                    </a>
+                    <a>
+                        <span >Rig Veda</span>
+                    </a>
+                </div>
+            </nav>
+            <div >
+                <a title="View All Sites" onmouseover="hoverEve()" >
+                   SItes
+                </a>
+            </div>
+            <ul >
+                <li>Mind</li>
+            </ul>
+        </nav>
+        <input type="text" id="firstName"/>
+    </header>  
+    <button id="btn" onclick="add()">Hello</button>
+    <div id ="banner" class="class1 class2 class3">
+        BANNER
+    </div>
+    <script>
+          
+//   element.classList.remove("class2");
+//   element.classList.add("class2");
+//   element.className = "class1" //"class1 class2 class3 "
+        console.log(" In script",firstName)
+        function hoverEve(){
+            console.log(" Hover")
+            var element = document.getElementById("banner");
+            // element.classList.add("class4");
+            // element.className = "class1"
+//   element.classList.remove("class1");
+            // let firstName = document.getElementById("firstName");
+            // firstName.style.backgroundColor = "red";
+            // console.log(" here ",this)
+            // document.querySelector('a[title="View All Sites"]').style.color = "green"
+        }
+        // window.onload = pageLoaded;
+        
+        // function pageLoaded(){
+        //     console.log(" Page Loaded ")
+        //     //  firstName= document.getElementById("firstName")
+        //     let buttonEle = document.getElementById("btn");
+        //     console.log(buttonEle)
+        //     buttonEle.onclick = add;
+        // }
+       
+        // function add(){
+        //     console.log(firstName);
+        //     console.log("Add")
+        // }
+            // alert(" Please enter something")
+        // setInterval(hideBanner, 2000,"someParam");
+        let show = false;
+        function hideBanner(count) { // called when the timer goes off
+
+           
+            let display = show? "none":"";
+            show= !show;
+            document.getElementById("banner").innerHTML = count;
+        document.getElementById("banner").style.display = display;
+        }
+    </script>
+</body>
+</html>
+
+
+<!-- 
+
+a. Find the elements with document.querySelectorAll("div a span")
+
+b. Find the elements with document.querySelectorAll("div > a");
+
+c. Find the elements with document.querySelectorAll("#mastLogin div ul");
+
+d. Find the elements with document.querySelectorAll("span ~ i"); -->
