@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+ <link rel ="stylesheet" href="style.css"> 
+ <meta charset="UTF-8">
+ <meta http-equiv="X-UA-Compatible" content="IE=edge">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <title>Document</title>
+ <style>
+     .btnClass{
+         color:aliceblue;
+     }
+     .newClass{
+         font-size:30px;
+         font-style:italic;
+         color:blue;
+     }
+ </style>
+ <script>
+     let input ;
+let textArea;
+
+let buttons;
+
+let obj = {a:10,b:20};
+// obj.b = 30;
+
+// let bCoopy = obj.b;
+// bCoopy = 30;
+
+let obj1 = obj;
+obj1.b = 30;
+
+
+//  console.log(input);
+ window.onload = pageLoaded;
+ function pageLoaded(){
+     input = document.querySelector("input");
+// let textArea = document.querySelector("textarea");
+
+ let buttons = document.getElementsByTagName("button");
+ console.log(input);
+ buttons[0].onclick = add;
+ 
+
+//  let addBtn = document.getElementsByTagName("button");
+//  console.log(input);
+//  addBtn[0].onclick = addMe;
+ }
+
+ function add(){
+     console.log(" Here in add",this);
+     this.className="newClass";
+    // buttons[0].style.backgroundColor="red";
+    // // console.log(buttons[0].class);
+    // // buttons[0].style.
+    // input.style.fontSize = "30px";
+ }
+
+ function textClick(){
+     console.log(this);
+ }
+// buttons[0].onclick = add;
+ 
+// function add(){
+// textArea.append(input.value + "\n");
+// input.value = " ";
+// }
+ </script>
+</head>
+<body>
+ <div>
+ <h1 class="h1ClASS">Text Area</h1>
+ <label>Input</label><br>
+ <input type="text" value=""> <br>
+ <label>Output</label><br>
+ <textarea onclick="textClick()" id="textArea"></textarea><br>
+ <button name="btn" class="btnClass" > Click to Add</button>
+ <button name="btn1"> Add</button>
+ </div>
+</body>
