@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <label>Favorite Character</label>
+    <select name="favoritecharacter" multiple size="4" onchange="myFunc(this)">
+        <option>Jerry</option>
+        <option>George</option>
+        <option selected>Kramer</option>
+        <option>Elaine</option>
+    </select>
+<script>
+    window.onload = function (){
+         let selectElement = document.getElementsByName("favoritecharacter")[0];
+        selectElement.onchange = printSelection;
+    }
+  
+    function printSelection(){
+        console.log(this);
+        console.log(this.options);
+        for(let option of this.options){
+            console.log(option,"Is Selected", option.selected, option.innerHTML);
+        }
+    }
+</script>
+</body>
+
+</html>
