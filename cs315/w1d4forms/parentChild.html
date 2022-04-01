@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload= function (){
+            document.getElementById("edit").onclick = edit;
+        }
+        //Remove Row
+        function edit(){
+            console.log(this.parentNode.parentNode.children);
+            let childrenOf= this.parentNode.parentNode.children;
+            // childrenOf[0].remove();
+            this.parentNode.parentNode.remove();
+            // this.parentNode.parentNode.innerHTML="";
+        }
+
+
+    </script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>One</td>
+            <td>Two</td>
+        </tr>
+        <tr>
+            <td>three</td>
+            <td>four</td>
+        </tr>
+        <tr>
+            <td>five</td>
+            <td>six</td>
+            <td><button id="edit">Edit</button></td>
+        </tr>
+    </table>
+    <button>Click</button>
+</body>
+</html>
