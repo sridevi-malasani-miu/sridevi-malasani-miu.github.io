@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+        <label><strong>Select Courses</strong></label>
+        <input type="checkbox" name="checkboxControl" value="305" /> 305
+        <input type="checkbox" name="checkboxControl"  value ="315" /> 315
+        <input type="checkbox" name="checkboxControl" value ="415" checked  /> 415
+        <br/><br/>
+        <label><strong>Selection</strong></label>
+        <p class="result">415</p>
+        <button >Click Me</button>
+    <script>
+        window.onload = function (){
+            // let button = document.getElementsByTagName("button")[0];
+            // button.onclick = printChecked;
+           
+            let checkboxes = document.getElementsByName("checkboxControl");
+            for(let eachControl of checkboxes){
+                eachControl.onclick = checkboxEvent;
+            }
+            console.log(" here checkboxes ")
+        }
+
+        function checkboxEvent(){
+            console.log(this);
+            let pEle = document.getElementsByClassName("result")[0];
+            if(this.checked){
+                pEle.innerHTML=pEle.innerHTML+" "+ this.value;
+            }else{
+                let previousValue = pEle.innerHTML;
+                let indexOfElement = previousValue.indexOf(this.value);
+                pEle.innerHTML = previousValue.substr(0,indexOfElement) + 
+                        previousValue.substr(indexOfElement+this.value.length);
+            } 
+        }
+
+        function printChecked(){
+            let checkboxes = document.getElementsByName("checkboxControl");
+            let pEle = document.getElementsByClassName("result")[0];
+            pEle.innerHTML="";
+            for(let eachControl of checkboxes){
+                console.log(eachControl, eachControl.checked, eachControl.value)
+                if(eachControl.checked){
+                    pEle.innerHTML= pEle.innerHTML+" "+eachControl.value;
+                }
+            }
+        }
+
+    </script>
+</body>
+</html>
