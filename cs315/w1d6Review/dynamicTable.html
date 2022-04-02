@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table{
+            border:1px solid blue;
+        }
+        td{
+            border:1px solid blue;
+        }
+        button {
+           display:block;
+           margin:10px;
+        }
+    </style>
+    <script>
+        let array = [,
+            {id:1, name: "name1", price: 1, ratings: 2 }
+            , {id:2, name: "name2", price: 5, ratings: 3 }
+            , {id:3, name: "name3", price: 55, ratings: 3 }
+            , {id:4, name: "name4", price: 9, ratings: 4 }];
+        
+        let selectedId;
+
+        window.onload = function () {
+
+            document.getElementsByTagName("button")[0].onclick = initialise;
+        }
+        function initialise() {
+            createTable(array);
+        }
+
+        function createTable(array) {
+            let tableElement = document.getElementsByTagName("table")[0];
+            tableElement.innerHTML="";
+            array.forEach(function (item) {
+                let trElement = document.createElement("tr");
+                trElement.setAttribute("myId",item.id);
+                trElement.innerHTML = "<td>" + item.name + "</td><td>" +
+                    item.price + "</td><td>" +
+                    item.ratings + "</td><td>" +
+                    "<button onclick='edit(this)'>Edit</button></td>";
+
+                let btn = document.createElement("button");
+                btn.onclick = remove;
+                btn.innerText = "Remove";
+                trElement.append(btn);
+                tableElement.append(trElement);
+            })
+        }
+        function sortItems() {
+            let sortArray = array.sort(function(item1,item2){
+                return item1.price-item2.price;
+            });
+            createTable(sortArray);
+        }
+
+        function filterItems() {
+            let filteredList = array.filter(function(item){
+                return item.ratings==3;
+            });
+            createTable(filteredList);
+        }
+
+        function edit(obj) {
+            obj.style.color = "blue";
+            let selectedColumn = obj;
+            let selectedTd = selectedColumn.parentNode;
+        
+            let selectedRow = selectedTd.parentNode;
+            let allTds = selectedRow.children;
+
+            selectedId = selectedRow.getAttribute("myId");
+            console.log(selectedId);
+            
+
+            document.getElementById("nameText").value = allTds[0].innerHTML;
+            document.getElementById("priceText").value = allTds[1].innerHTML;
+            document.getElementById("ratingsText").value = allTds[2].innerHTML;
+
+        }
+        function remove() {
+            console.log(this, this.parentNode);
+            this.parentNode.remove();
+        }
+        function handleSelect(obj){
+            console.log("Handle select")
+            for(let option of obj.children){
+                console.log(option.selected, option.value);
+                if(option.selected && option.value=="ratings3"){
+                    console.log(" Here ratings > 3")
+                    let filteredList = array.filter(item => item.ratings>=3);
+                    createTable(filteredList);
+                    break;
+                }else if(option.selected && option.value=="price40"){
+                    console.log(" Here price > 40")
+                    let filteredList = array.filter(item => item.price>40);
+                    createTable(filteredList);
+                    break;
+                }
+            }
+        }
+        function addItem(){
+            array.push( { name: "nam61", price: 55, ratings: 2 });
+            createTable(array);
+        }
+
+       function saveItem(){
+        let selectedItem;
+           array.forEach(function(item){
+              if(item.id==selectedId)
+              selectedItem = item;
+           })
+           console.log(selectedItem);
+           let newname = document.getElementById("nameText").value;
+           selectedItem.name = newname;
+           selectedItem.price = document.getElementById("priceText").value;
+           selectedItem.ratings = document.getElementById("ratingsText").value;
+        //    createTable(array);
+
+            
+        //    selectedItem.name = 
+            // console.log(array.find((item)=>item.id==selectedId));
+
+       }
+    </script>
+</head>
+
+<body>
+    <table></table>
+    <button>Add Initial Data</button>
+    <select name ="filterSelect" onchange="handleSelect(this)">
+        <option value="ratings3">Ratings > 3</option>
+        <option value="price40">Price > 40</option>
+    </select><br/><br>
+
+    <label>Name</label><input type="text" id="nameText" /><br/><br>
+    <label>Price</label><input type="text" id="priceText" /><br/><br>
+    <label>Ratings</label><input type="text" id="ratingsText" /><br/><br>
+
+    <button onclick="saveItem()">Save Item</button>
+    <button onclick="addItem()">Add Item</button>
+    <button onclick="sortItems()">Sort Items</button>
+    <button onclick="filterItems()">Filter Items</button>
+    
+</body>
+
+</html>
