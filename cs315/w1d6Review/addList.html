@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let count = 1;
+       function addRow(){
+           let ulElement = document.getElementsByTagName("ul")[0];
+        //    let liElement = document.createElement("li");
+        //    liElement.innerHTML="Two";
+        //    ulElement.append(liElement);
+            ulElement.innerHTML+="<li>"+(++count)+"</li>";
+       }
+       function remove(){
+        let ulElement = document.getElementsByTagName("ul")[0];
+        // ulElement.lastElementChild.remove()
+
+        let allCh = ulElement.children;
+        console.log(allCh[allCh.length-1].textContent)
+        allCh[allCh.length-1].remove();
+       }
+    </script>
+</head>
+<body>
+    <ul>
+        <li>One</li>
+    </ul>
+    <button onclick="addRow()"> Add Row </button>
+    <button onclick="remove()"> Remove Row </button>
+</body>
+</html>
+
