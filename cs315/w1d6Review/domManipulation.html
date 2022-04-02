@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         input,textarea,select,button{
+            display:block;
+            margin-bottom:20px;
+         }
+         p{
+             font-weight: bold;
+         }
+    </style>
+    <script>
+        
+        // function changeContent(){
+        //     document.getElementById("nameLabel").innerHTML = "Flower Name";
+        // }
+
+        function removeElement(){
+            // let obj = {a:10,b:10};
+            // //Primitive Types
+            // let c = obj.a;
+            // c = 20;
+            // obj = {a:"string",b:false}
+            // let d = obj.a;
+            // d ="Some other stirng";
+
+            // console.log(obj);
+            // //Objects 
+            // obj = { a:{c:10},b:20};
+            // let d = obj.a;
+            // d.c = 20;
+            // console.log(obj.a.c);
+
+            //Arrays
+            obj = { a:[1,23,33]};
+            let b = obj.a;
+            b = [1,32];
+            console.log(obj.a);
+
+
+            // document.getElementById("description").remove();
+            // let obj = document.getElementById("description");
+            // obj.remove();
+            // let value = document.getElementById("value").value;
+            // value = 10;
+            // //does value change?
+            // let array = document.getElementById("some").children;
+            // array.push(value);//does this work 
+            // //For primitives doesnt work, but works for objects,arrays
+        }
+
+        function addElementBefore(){
+            document.getElementById("")
+        }
+
+        function addElementAfter(){
+
+        }
+         function addElementBefore(){
+
+        }
+
+        function addFirstChild(){
+
+        }
+
+        function addLastChild(){
+
+        }
+
+        function removeElement(){
+
+        }
+
+        function replaceElement(){
+
+        }
+
+        function removeAttribute(){
+
+        }
+        
+        function addAttribute(){
+
+        }
+        
+        function editAttribute(){
+
+        }
+        
+        function showElement(){
+
+        }
+        function hideElement(){
+
+        }
+        function toggleHide(){
+
+        }
+        function createElement(){
+
+        }
+        window.onload=function(){
+            document.getElementById("changeContent").onclick = editElement;
+            
+        }
+       
+        //<span class="myClass">Span</span>
+        function editElement(){
+            //Find
+            let header = document.getElementById("header");
+            //change
+            // header.innerHTML ="Header Text";
+            // //Add
+            // //create
+            // let span = document.createElement("span");
+            // //set content
+            // span.innerHTML = "Span";
+            // //add it to the DOM
+            // header.append(span);
+            // header.innerHTML = "<span>Span</span>";
+
+            let span = document.createElement("span");
+            span.className="myClass";
+            // span.setAttribute("class","myClass");
+            span.innerHTML =" PrependSpan ";
+            // header.append(span);
+            // header.innerHTML+="<span class='myClass'>Span</span>";
+
+            // header.prepend(span);
+
+            //Adding Siblings
+           // Add "<div id='beforeP' onclick='doSomethig(this)'>Before P</div>"
+            let div = document.createElement("div");
+            div.innerHTML = "After P";
+            // div.id = 'beforeP';
+            div.setAttribute("id","beforeP");
+            
+            // div.setAttribute('onclick','doSomethig(this)');
+             div.onclick = doSomethig;
+            header.after(div);
+            header.append(span);
+            let attributeVal = header.getAttribute("id");
+           console.log(attributeVal);
+           header.setAttribute("id","newId");
+
+        //    header.remove();
+        }
+
+        function removeElement(){
+            //Find
+            // let header = document.getElementById("newId");
+
+            // let div = document.getElementById("beforeP");
+            // let array = [header,div];
+            // array.forEach(function(item){
+            //     item.remove();
+            // })
+
+            let ps = document.getElementsByClassName("pClass");
+            // let firstP = ps[0];
+            // firstP.remove();
+            ps[0].remove();
+
+            // header.remove();
+        }
+        function doSomethig(obj){
+            console.log("Inside do",obj);
+        }
+        function innervscreate(){
+            let div = document.getElementById("content");
+//<p>First Row</p>
+            let content = div.innerHTML;
+            // div.innerHTML = content + "<p>First Row</p>";
+            let aElement = document.getElementsByTagName("a")[0];
+            let pEle = document.createElement("p");
+            pEle.innerHTML = "First Row"
+            aElement.before(pEle);
+        }
+        function outer(){
+            let preEle = document.getElementsByTagName("pre")[0];
+            // let pEle = document.createElement("p");
+
+            // pEle.innerHTML= preEle.innerHTML;
+            // preEle.replaceWith(pEle);
+
+            // preEle.outerHTML="<p>"+preEle.innerHTML+"</p>";
+        }
+
+        function togglehide(){
+            let preEle = document.getElementsByTagName("pre")[0];
+            // preEle.style.display="none";
+
+            let displayValue = preEle.style.display;
+            console.log(displayValue)
+            if(displayValue=="none")
+                preEle.style.display = "";
+            else
+                preEle.style.display = "none";
+
+        }
+        
+
+        function parentChild(){
+            let selectEle = document.getElementsByName("flowers")[0];
+
+            console.log(selectEle.childNodes,selectEle.childNodes.length)
+            // for(let eachNode of selectEle.childNodes){
+            //     console.log(eachNode,eachNode.textContent,eachNode.nodeName);
+            // }
+
+            // for(let eachNodeC of selectEle.children){
+            //     console.log(eachNodeC.eachNode,eachNodeC.textContent,eachNodeC.nodeName)
+            // }
+            // console.log(selectEle.children,selectEle.children.length);
+            // let firstChild = selectEle.children[0];
+            // console.log(firstChild.parentNode.parentNode);
+
+        }
+
+    </script>
+</head>
+   
+<body>
+    <div id ="content">
+        
+        <p id="header" class="pClass">Header</p>
+        <pre>Pre</pre>
+        <a href="">Link</a>
+        <ul>
+            <li>Rose</li>
+            <li>chrysanthumum</li>
+        </ul>
+        <label>Name: </label><input type="text" value="some Test"/>
+        <label>Description:</label><textarea></textarea>
+        <label>Flowers</label>
+        <select name="flowers">
+            <option value="">Guinea</option>
+            <option>Rose</option>
+        </select>
+        <button>Add</button>
+        <button id="changeContent">Change Content</button>
+        <button onclick="innervscreate()">InnerHTML vs Create</button>
+        <button onclick="outer()">OuterHTML</button>
+        <button onclick="parentChild()">ParentChild</button>
+        <button onclick="togglehide()">Hide / Show</button>
+        <button id="removeElement" onclick="removeElement()">Remove Element</button>
+
+    </div>
+</body>
+</html>
+<!-- 1. Change the Content of the element 
+2. Remove the Element 
+3. Replace the Element 
+4. Modify the Attributes of the element
+5. Hide/show the element
+6. Add a new element before the 'x' element
+7. Add new element after the 'x' element
+8. Add a first child
+9. Add a last child -->
