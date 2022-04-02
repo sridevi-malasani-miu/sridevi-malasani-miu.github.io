@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        button{
+            margin-right:20px;
+            background-color: lightblue;
+            margin-bottom: 10px;
+        }
+        table{
+            margin-bottom:20px;
+        }
+    </style>
+    <script>
+        let counter = 3;
+        window.onload= function(){
+            document.getElementById("addFirstRow").onclick = addFirstRow;
+            document.getElementById("addLastRow").onclick = addLastRow;
+            document.getElementById("deleteLastRow").onclick = deleteLastRow;
+            document.getElementById("deleteSpecificRow").onclick = deleteSpecificRow;
+            document.getElementById("changeColumns").onclick = changeColumns;
+            document.getElementById("replaceRow").onclick =  replaceRow;
+            
+        }
+
+        function addLastRow(){
+            //Find Table
+            let table = document.getElementById("myTable");
+            //Create Row
+            let tr = document.createElement("tr");
+            //Set Columns
+            tr.innerHTML = "<td>Col "+counter+++"</td><td>Col "+counter++ +"</td>";
+            //Append Row
+            table.append(tr);
+        //    table.prepend(tr);
+        }
+
+        function addFirstRow(){
+            //Find Table
+            let heading = document.getElementById("heading");
+            //Create Row
+            let tr = document.createElement("tr");
+            //Set Columns
+            tr.innerHTML = "<td>Col "+counter+++"</td><td>Col "+counter++ +"</td>";
+            //Prepend Row
+            heading.after(tr);
+            // table.prepend(tr);
+        }
+
+        function deleteLastRow(){
+            //Find Table
+            let table = document.getElementById("myTable");
+            //Find children
+            let children = table.children;
+            console.log(children)
+            let trs = children[0].children;
+            console.log(trs, trs.length)
+           
+            //Remove Last Row
+            trs[trs.length-1].remove();
+        }
+
+        function deleteSpecificRow(){
+            let rowId = prompt("Please enter the row number to be deleted", "1");
+            //Find Table
+            let table = document.getElementById("myTable");
+            //Find children
+            let children = table.children[0].children;
+            //Remove Last Row
+            // console.log(table.children,table.children[0].nodeName);
+            children[rowId].remove();
+        }
+
+        function changeColumns(){
+            let rowId = prompt("Please enter the row number to be changed", "1");
+            let columnValue =  prompt("Please enter the new value", "Test");
+             //Find Table
+             let table = document.getElementById("myTable");
+            //Find children
+            let children = table.children[0].children;
+            //Get first Child
+            let firstChild = children[rowId];
+            let tds = firstChild.children;
+            tds[0].innerHTML= columnValue;
+        }
+
+        function replaceRow(){
+            let rowId = prompt("Please enter the row number to be replaced", "1");
+            let columnValue =  prompt("Please enter the new value", "div");
+             //Find Table
+             let table = document.getElementById("myTable");
+            //Find children
+            let children = table.children[0].children;
+            //Get first Child
+            let firstChild = children[rowId];
+            let tds = firstChild.children;
+            tds[0].innerHTML= columnValue;
+        }
+    </script>
+</head>
+<body>
+    <table id="myTable">
+        <tr id="heading">
+            <th>Heading 1</th>
+            <th>Heading 2</th>
+        </tr>
+        <tr>
+            <td>Col 1</td>
+            <td>Col 2</td>
+        </tr>
+    </table>
+
+    <!--Buttons-->
+    <button id ="addFirstRow">Add First Row</button>
+    <button id="addLastRow">Add Last Row</button>
+    <button id="deleteLastRow">Delete Last Row</button>
+    <button id="deleteSpecificRow">Delete Second Row</button>
+    <button id="changeColumns">Change columns in a Row</button>
+    <button id="replaceRow">Replace Row</button>
+
+</body>
+</html>
+
+<!-- Sample Questions
+    Events - onclick
+1. Change the Content of the element 
+2. Remove the Element 
+3. Replace the Element 
+4. Modify the Attributes of the element
+5. Hide/show the element
+6. Add a new element before the 'x' element
+7. Add new element after the 'x' element
+8. Add a first child
+9. Add a last child
+
+Repeat the above steps for all tags
