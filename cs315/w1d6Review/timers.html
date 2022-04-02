@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .myClass{
+            color:red;
+            font-style:italic;
+        }
+        .class2{
+            background-color: lightblue;
+        }
+        /* label{
+            display:block;
+        }
+        p{
+            display:inline;
+        } */
+    </style>
+    <script>
+       
+        window.onload= function (){
+            let headerTag = document.getElementsByTagName("header")[0];
+            // headerTag.style.color="blue";
+            // headerTag.style.fontStyle="normal";
+            setTimeout(function(){headerTag.setAttribute("class","class2")},5000);
+        }
+        // setTimeout(function(){
+        //     let headerTag = document.getElementsByTagName("header")[0];
+        //     headerTag.style.display="block";
+        // },2000)
+
+        // setInterval(function(){
+        //     let headerTag = document.getElementsByTagName("header")[0];
+        //     if(headerTag.style.display=="none"){
+        //         headerTag.style.display="";
+        //     }else{
+        //         headerTag.style.display="none";
+        //     }
+        // },1000);
+
+    </script>
+</head>
+<body>
+    <label>Hi</label>
+    <label>Second</label>
+    <p>First Para</p>
+    <p>Second Para</p>
+    <button >Add</button>
+    <label class="myClass">My Label</label>
+    <header class="myClass" >Header</header>
+</body>
+</html>
