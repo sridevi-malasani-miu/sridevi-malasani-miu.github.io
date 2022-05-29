@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main{
+            background-color: aqua;
+            display:grid;
+            padding:10px;
+            grid-template-columns: 1fr 1fr;
+            /* justify-content:space-between; */
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <div style="display:grid;grid-template-columns: 30px auto; gap:10px;">
+            <img src="files/flowers.jpg" width="30px" height="30px" style="border-radius:50%;object-fit:cover;"/>
+          <div style="align-self:center;">Maharishi</div>
+        </div>
+        <div style="text-align:right;">
+            <img src="files/flowers.jpg" width="30px" height="30px" style="border-radius:50%;object-fit:cover;"/>
+            <img src="files/flowers.jpg" width="30px" height="30px" style="border-radius:50%;object-fit:cover;"/>
+            <img src="files/flowers.jpg" width="30px" height="30px" style="border-radius:50%;object-fit:cover;"/>
+            <img src="files/flowers.jpg" width="30px" height="30px" style="border-radius:50%;object-fit:cover;"/>
+        </div>
+    </div>
+    <div style="display:flex;margin-top:10px;flex-wrap:wrap;gap:10px;">
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+        <button style="border-radius:30px;">Button</button>
+    </div>
+    <hr/>
+    <div style="display:grid;grid-template-columns: 1fr 4fr";>
+        <div>
+           <div>
+                <img src="files/flowers.jpg" width="20px"/>   
+                Nav 1
+            </div>
+           <div>Nav 1</div>
+           <div>Nav 1</div>
+           <div>Nav 1</div>
+           <div>Nav 1</div>
+           <div>Nav 1</div>
+        </div>
+        <div>
+            <h4>Overview</h4>
+            <div style="display:grid;grid-template-columns: 1fr 1fr;">
+                <div>
+                    <div style="border:1px solid lightgrey;">
+                        <div style="background-color:lightgrey;padding:10px;border-top-right-radius:10px; border-top-left-radius: 10px;;">
+                            <label >Message of the day</label>
+                            <div style="float:right;">
+                                <button>One</button>
+                                <button>Two</button>
+                                <button>Three</button>
+                            </div>
+                        </div>
+                        <div style="margin-top:30px;padding:10px">
+                            <div style="margin-bottom:-10px;">
+                                <button >One</button>
+                            </div>
+                            <hr/>
+                            There are 
+                        </div>
+                    </div>
+                </div>
+                <div></div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
