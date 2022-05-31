@@ -56,7 +56,28 @@ function a(x){
 a(x);
 console.log(x.a);//{a:1}
 
-
+//Inner function gets the value from outer function if the variable is not 
+//found in local scope/parameters
+let x = 1;
+function a(x){
+    x =2;
+    function b(){
+        console.log(x);//2
+    }
+    b();
+}
+a(x);
+//Inner function gets the value from global scope if the variable is not 
+//found in local scope/parameters or the outer function
+let x = 1;
+function a(){
+    function b(){
+        console.log(x);//1
+    }
+    b();
+}
+a(x);
+// var x = 10;
 var x = 10;
 
 function main() {//var x;
