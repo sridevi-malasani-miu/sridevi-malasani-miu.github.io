@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script>
+    let objArray = [{ name: "a", age: 70 }, { name: "b", age: 30 }, { name: "c", age: 40 }];
+
+    $(function () {
+        let tableElement = document.createElement("table");
+        tableElement.id = "tableId";
+        document.body.append(tableElement);
+        let myTable = buildTable(objArray,  $(tableElement));
+    })
+
+    function filterArray() {
+        let filteredArray = objArray.filter(function (element, index) {
+            return element.age < 70;
+        })
+        let tableElement =  $('#tableId');
+        tableElement.html("");
+        buildTable(filteredArray, tableElement);
+    }
+    function buildTable(objArray, tableElement) {
+        let rows = "";
+        let headers = "<tr>";
+        //Create headers
+        for (let key in objArray[0]) {
+            headers += "<th>" + key + "</th>";
+        }
+        headers += "</tr>";
+        console.log(headers)
+        for (let element of objArray) {
+            rows += "<tr>";
+            for (let key in element) {
+                rows += "<td>" + element[key] + "</td>";
+            }
+            rows += "</tr>"
+        }
+        console.log(rows)
+        tableElement.html(headers + rows);
+        return tableElement;
+    }
+</script>
+
+<body>
+    <button onclick="filterArray()">Filter Array</button>
+</body>
+
+</html>
