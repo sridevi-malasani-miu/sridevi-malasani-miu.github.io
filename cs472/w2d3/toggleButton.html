@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+</head>
+<script>
+    function toggle(){
+        let show =true;
+        return function toggleDisplay(){
+            console.log(" Here ",show)
+            if(show){
+                show = false;
+                $("#btn1").hide();
+            }
+            else{
+                show= true;
+                $("#btn1").show();
+            }
+        }
+    }
+    
+   $(function(){
+        $("#btn2").click(toggle());
+   })
+</script>
+<body>
+   
+    <button id="btn1">Button1</button>
+    <button id="btn2">Toggle Button1</button>
+</body>
+</html>
