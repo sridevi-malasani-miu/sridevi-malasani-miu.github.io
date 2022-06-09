@@ -1,4 +1,10 @@
-let fn = {
+let primitveVar = 1;
+let myArray = [1,2,3];
+let myFunc = function(args){
+    console.log(" Here ",args);
+}
+
+let myObject = {
     a: 1, b: 2, get: function (fn) {
         console.log("My function ");
         fn();
@@ -7,17 +13,15 @@ let fn = {
         }
     }
 }
-//Export a primite data type
-//let a = 1;
-//module.exports = a;
 
-//Export an array
-//let a = [1,2,3];
-//module.exports = a;
+//Export Object
+module.exports = myObject;
 
-//Export a function
-//let a = function (myFunc){
-    // console.log(" Here ",myFunc);
-// }
-//module.exports = a;
-module.exports = fn;
+// //Export a primite data type
+// module.exports = primitveVar;
+
+// //Export a Array
+// module.exports = myArray;
+
+// //Export a function
+// module.exports = myFunc;
