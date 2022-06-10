@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="/" method="POST">
+        <!-- <label>Name</label>
+        
+        <input type="text" name="textField" value="<%=name1%>" />
+        <input type="text" name="textField2" value="<%=name1%>" />
+        <select name="select">
+            <option>one</option>
+            <option>two</option>
+        </select>
+        <input type="submit" /> -->
+
+        <%let list =[{name:"Charlie",country:"USA"},
+        {name:"yaser",country:"Jordan"},
+        {name:"Frehewit",country:"Eritrea"}];%>
+
+        <table>
+            <tr>
+                <% for(let ele in list[0]){ %>
+                    <th><%=ele%></th>
+                <%}%>
+            </tr>
+            
+                <% for(let ele of list){ %>
+                    <tr>
+                <% for(let key in ele){ %>    
+                    <td><%=ele[key]%></td>
+                <%}%>
+                </tr>
+                <%}%>
+        </table>
+
+    </form>
+</body>
+
+</html>
