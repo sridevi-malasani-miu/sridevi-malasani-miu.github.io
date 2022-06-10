@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        function makeAjaxReq(){
+            // console.log($("#myID").val());
+            $.ajax("/hello", {
+            "type": "POST",
+            "data": {
+                "height": $("#myID").val(),
+                "password": "abcdef"
+            },
+        }).done(function (response) {
+            console.log(response, $("select"))
+            $("select").each(function(idx,element){
+                // element.style.backgroundColor = response.color;
+                $(element).css("background-color",response.color)
+            })
+        })
+            .fail(function () {
+                console.log("fail")
+            });
+        }
+    </script>
+</head>
+<body>
+    <input type="text" id ="myID"/>
+    <button onclick="makeAjaxReq()"> Ajax Request</button>
+    <%let obj = {name:"Haque",courses:["java","javascript"],courses2:["java2","javascript2"], location:"fairfield"}%>
+    <% for(let key in obj){%>
+        <% if(Array.isArray(obj[key])) {%>
+            <%=key%> <select name="selectBox">
+                <% for(let eachValue of obj[key]){%>
+                    <option><%=eachValue%></option>
+                <%}%>
+            </select><br/>
+        <%}else{%>
+        <p><%=key%> : <%=obj[key]%></p>
+        <%}%>
+    <%}%>
+   
+</body>
+</html>
