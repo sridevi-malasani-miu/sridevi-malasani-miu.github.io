@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+<script>
+// $(document).ready(function(){
+//   $("button").click(function(){
+//     $("p").hide();
+//   });
+// });
+</script>
+<style>
+    .myClass{
+        color:red;
+    }
+    .class2{
+        color:blue;
+    }
+</style>
+</head>
+<body>
+    <!-- <table id ="table1">
+        <tr>
+            <td> 1 First Col </td>
+            <td> 1 Second Col </td>
+        </tr>
+        <tr>
+            <td> 2 First Col </td>
+            <td> 2 Second Col </td>
+        </tr>
+    </table> -->
+    <label>Choose</label>
+    <select multiple> 
+        <option value="1">One</option>
+        <option value="2">Two</option>
+        <option value="3">Three</option>
+    </select>
+    <br/><br/>
+
+    <label>Tomato</label><input type="radio" name='veg' value='tomato'/>
+    <label>chilli</label><input type="radio" name='veg' value='chillidfdfdfdf'/>
+    <label>potato</label> <input type="radio" name='veg' value='potato'/>
+    <button onclick="clickMe()">Button</button>
+   <ul id="idUL">
+        <li>One</li>
+         <li>Two</li>
+         <li>Three</li>
+     </ul>
+<script>
+        let tag ="<select>";
+        $("#idUL>li").each(function(idx,ele){
+            console.log($(ele));
+            tag+="<option>"+$(ele).html()+"</option>"
+        })
+        tag+="</select>";
+        console.log(tag);
+        $("#idUL").replaceWith(tag);
+function clickMe(){
+
+    console.log($("input[name='veg']:checked").val());
+    let values=[];
+    $("input[name='veg']:checked").each(function(idx,ele){
+        console.log(" here ",idx,ele)
+        values.push($(ele).val());
+    })
+    console.log(values)
+}
+let obj = {
+    name:'peter',
+    age:30,
+    skills:['java','javascript']
+}
+    // let s = "<ul>";
+    // $("td").each(function(idx,ele){
+    //     let jqEle = $(ele);
+    //     s+="<li>"+jqEle.html()+"</li>";
+    // })
+    // s+='</ul>';
+    // $("table").replaceWith(s);
+
+
+//   let table = $('table');
+//   table.each(function(idx,ele){
+//       console.log(idx,ele);
+//       let jqEle = $(ele);
+//        console.log($(jqEle.children()[0]).children())
+//           if(idx==0){
+//               $(ele).after("<tr><td>3 First Col</td>"+
+//                 "<td>3 Second Col</td></tr>") ;
+//           }
+//           console.log(" here in loop ",idx1,el);
+
+//   })
+</script>
+</body>
+</html>
+<!-- <ul>
+       <li>1 First Col</li>
+       <li>1 Second Col</li>
+       <li>2 first Col</li>
+       <li>2 Second Col</li>
+   </ul> -->
