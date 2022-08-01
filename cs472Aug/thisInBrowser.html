@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <button href="#" id="size-12">Size 12</button>
+    <button href="#" id="size-16">Size 16</button>
+    <button href="#" id="size-18">Size 18</button>
+    <button href="#" id="size-18" onclick ='makeSizer(12)()'>Size 20</button>
+    <script>
+        function changeSize(obj){
+            console.log("dsfds",obj)
+        }
+        function makeSizer(size) {
+            console.log("Here makeSizer",this);
+            return function () {
+                console.log("inner ",this);
+                document.body.style.fontSize = size + "px";
+            };
+        }
+        function makeSizerSimple(size) { //can use this version with .bind()
+            console.log(" Here size ",this)
+            // this.style.fontSize = size + "px";
+        }
+        document.getElementById("size-12").onclick = makeSizer(12);
+        document.getElementById("size-16").onclick = makeSizer(16);
+        document.getElementById("size-18").onclick = makeSizerSimple.bind(, 18); //null ok if not using ‘this’
+    </script>
+</body>
+
+</html>
