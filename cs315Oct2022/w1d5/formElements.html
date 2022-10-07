@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function alertTheText(){
+            let ele = document.getElementById("userName");
+            console.log(ele);
+            // alert(ele.value);
+            ele.value='myValue';
+            console.log("type = ", ele.getAttribute('value'));
+        }
+    </script>
+</head>
+<body>
+    <label>UserName</label>
+    <input type="text" id='userName' myAttr='myAttrValue'/>
+    <input type="button" onclick="alertTheText()" value="Submit"/>
+    <!-- <textarea></textarea>
+    <input type="checkbox"/>
+    <input type="radio"/> -->
+
+</body>
+</html>
