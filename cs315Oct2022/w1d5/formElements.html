@@ -1,27 +1,67 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function alertTheText(){
+        function alertTheText() {
+            //Copy input from one to other
+            // console.log("here")     
             let ele = document.getElementById("userName");
             console.log(ele);
-            // alert(ele.value);
-            ele.value='myValue';
-            console.log("type = ", ele.getAttribute('value'));
+            let eleValue = ele.value;
+            let copy = document.getElementById("copy");
+            copy.value = eleValue;
+
+            // let p = document.createElement("p");//<p>sdfsdffds</p>
+            // // p.innerHTML="Set Text";
+            // document.getElementById("myDIV").append(p);
+            // p.outerHTML = "<p id='id' class='myClass'> Here</p>"
+
+            //Change Text of myDIV
+            let myDIV = document.getElementById("myDIV");
+            myDIV.innerHTML = 'Changed Text'
+            //Change the image
+            let myImage = document.getElementById("myImage");
+            myImage.setAttribute("src", "/images/pinkFlower.jpeg")
+
+            //Create Anchor 
+            //NOTE: outerHTML should be used after create and add to DOM.
+            let anchor = document.createElement("a");
+            document.getElementById("myDIV").append(anchor);
+            // document.body.append(anchor)
+            //<a href="https://www.google.com">Google</a>
+            anchor.outerHTML = '<a href="https://www.google.com">Google</a>';
+            // document.getElementById("myDIV").outerHTML="<div>DIV</div>";
+
         }
     </script>
 </head>
+
 <body>
+    <img id='myImage' src="/images/garden.jpeg" />
+    <div id="myDIV">My Text</div>
     <label>UserName</label>
-    <input type="text" id='userName' myAttr='myAttrValue'/>
-    <input type="button" onclick="alertTheText()" value="Submit"/>
-    <!-- <textarea></textarea>
+    <input type="text" id='userName' myAttr='myAttrValue' />
+    <br />
+    <label>Copy</label>
+    <input type="text" id="copy" />
+    <input type="button" onclick="alertTheText()" value="Submit" />
+
+    <!-- <textarea ></textarea>
     <input type="checkbox"/>
     <input type="radio"/> -->
 
 </body>
+
 </html>
+
+<!-- 1. Change Text of Div,P,textInput,link 
+2. Change the image,
+3. change the address of link
+3. Change the value of textInput,textArea
+4. Create and add Div,p,img,link, textInput,textArea,button,checkbox,radio 
+5. -->
