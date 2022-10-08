@@ -1,0 +1,62 @@
+<!-- High to low
+ID,class,attribute,descendent combinator,tag -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* p[id] {
+            color:pink;
+        } */
+
+        /* Multiple selectors but same specificity */
+        /* #divId .pClass{
+            color:yellow;
+        }
+        .divClass #pId{
+            color:brown;
+        } */
+        /* End */
+
+        /* Multiple tag selectors and single tag selector have same specificity */
+        /* p{
+            color:red;
+        }
+        div, p{
+            color:blue;
+        } */
+        /* End */
+
+
+        /* Combinator selectors is more specific than tag selector*/
+        
+        /* div p{
+            color:blue;
+        }
+        p{
+            color:red;
+        } */
+        /* End */
+
+       /* Important */
+        #myId{
+            color:pink;
+        }
+        p{
+            color:blue !important;
+        }
+
+       
+    </style>
+</head>
+<body>
+    <p id="myId">Paragraph</p>
+    <div id="divId" class="divClass">
+        DIV
+        <p class="pClass" id="pId">Inside P</p>
+    </div>
+</body>
+</html>
