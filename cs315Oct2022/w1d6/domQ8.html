@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let obj = {a:1};
+        // let b = obj.a;
+        // console.log(b);
+        // b = 2;
+        // console.log(b,obj.a);
+
+        function clickMe(){
+            // console.log("clickMe")
+            let textArea = document.getElementById("myTextArea");
+            // console.log("TextArea",textArea)
+            let initial = document.getElementById("myP").innerHTML;
+            // console.log("P",document.getElementById("myP"));
+            console.log("P",initial,textArea.innerHTML,textArea.value);
+
+            document.getElementById("myP").innerHTML= initial+" "+textArea.value;
+            textArea.value="";
+            // console.log("P",document.getElementById("myP").innerHTML);
+        }
+    </script>
+</head>
+<body>
+    <p id="myP"></p>
+    <textarea id="myTextArea" value="myTextArea">sdfdsfds</textarea>
+    <input type="button" onclick="clickMe()" value="Submit">
+</body>
+</html>
+
