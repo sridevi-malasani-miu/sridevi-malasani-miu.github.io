@@ -1,0 +1,43 @@
+<!-- Chid/Descendent Combinator
+https://htmleditor.w3schools.in/?filename=html_css_child_selector
+Adjacent/Generic Sibling
+https://www.w3schools.com/css/tryit.asp?filename=trycss_sel_element_tilde
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+         /* Color p inside section section */
+         section section p{
+             color:blue;
+         }
+         /* Color First Div inside section section */
+         section section p+div{
+             color:brown;
+         }
+         /* Color Second Div */
+         div+div{
+             color:yellow;
+         }
+         article>div{
+             color:brown;
+         }
+    </style>
+</head>
+<body>
+    <section>
+        <p>Inside section</p>
+        <div>DIV Inside section</div>
+        <section>
+            <p>Inside section section</p>
+            <div> Inside section section div</div>
+            <div> Second Div inside section section</div>
+        </section>
+    </section>
+</body>
+</html>
+
