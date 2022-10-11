@@ -8,23 +8,41 @@
     <script>
         function getValue(){
         //    let genderName= document.getElementsByName("genderName")
-            let genderName = document.querySelectorAll("input[name='genderName'");
-            console.log(genderName);
-            for(let ele of genderName){
-                console.log(ele,ele.checked)    
+            // let genderName = document.querySelectorAll("input[name='genderName'");
+            // console.log(genderName);
+            // for(let ele of genderName){
+            //     console.log(ele,ele.checked)    
+            // }
+
+            //Read/Update select
+            let fruits = document.querySelectorAll('#fruits option');
+            console.log(fruits);
+            let selectedFruit;
+            for(let fruit of fruits){
+                // console.log(fruit,fruit.selected,fruit.value)
+                if(fruit.selected==true)
+                selectedFruit=fruit.value;
             }
-        }
+
+            console.log(selectedFruit)
+            }
     </script>
 </head>
 <body>
     <button onclick="getValue()">Get Value</button>
-    <label>Gender</label>
+    <!-- <label>Gender</label>
     <label>Male</label>
     <input type="radio" value='male'  name='genderName'/>
     <label>Female</label>
-    <input type="radio" value='female' name='genderName'/>
+    <input type="radio" value='female' name='genderName'/> -->
+    <label>Fruits</label>
+    <select id="fruits">
+        <option value="apple">Apple</option>
+        <option value="banana">Banana</option>
+        <option value="grapes">Grapes</option>
+    </select>
+
 
 </body>
 </html>
 
-//Remove any Ele
