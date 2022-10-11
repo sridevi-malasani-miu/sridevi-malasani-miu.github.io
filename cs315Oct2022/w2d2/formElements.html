@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getValue(){
+        //    let genderName= document.getElementsByName("genderName")
+            let genderName = document.querySelectorAll("input[name='genderName'");
+            console.log(genderName);
+            for(let ele of genderName){
+                console.log(ele,ele.checked)    
+            }
+        }
+    </script>
+</head>
+<body>
+    <button onclick="getValue()">Get Value</button>
+    <label>Gender</label>
+    <label>Male</label>
+    <input type="radio" value='male'  name='genderName'/>
+    <label>Female</label>
+    <input type="radio" value='female' name='genderName'/>
+
+</body>
+</html>
+
+//Remove any Ele
