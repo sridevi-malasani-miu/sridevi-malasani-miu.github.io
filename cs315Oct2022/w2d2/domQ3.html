@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function getValue() {
+            let fruits = document.querySelectorAll("#fruits option");
+            let selectedFruit;
+            for (let eachFruit of fruits) {
+                console.log(eachFruit.selected, eachFruit.value)
+                if (eachFruit.selected) {
+                    selectedFruit = eachFruit.value;
+                    break;
+                }
+            }
+            console.log(selectedFruit);
+            if (selectedFruit == 'pear')
+                document.getElementById('radioDIV').style.display = 'block';
+            else
+                document.getElementById('radioDIV').style.display = 'none';
+
+            //Create select
+            //             
+            let selectPlanets = document.createElement('select');
+            document.getElementById('radioDIV').before(selectPlanets);
+
+            // let option = document.createElement('option');
+            // selectPlanets.append(option)
+            selectPlanets.outerHTML = "<select id='planets'>" +
+                "<option>Earth</option>" +
+                "<option value='moon' selected>Moon</option>" +
+                "<option>Venus</option>" +
+                "</select>";
+
+            
+
+            //Create checkbox
+            let label = document.createElement("label");
+            let button = document.querySelector("button");
+            button.before(label);
+            // label.outerHTML="<label id='myLabel' for='labelFor'>Skills</label>";
+
+            label.outerHTML='<label>Skills</label>'+
+    '<input type="checkbox" value="java">'+
+    '<label>Java</label>'+
+    '<input type="checkbox" value="javaScript">'+
+    '<label>JavaScript</label>';
+            // let checkboxJava = document.createElement("input");
+            // button.before(checkboxJava);
+            // checkboxJava.outerHTML='<input type="checkbox" value="java"/>';
+
+            // let labelJava = document.createElement("label");
+            // button.before(labelJava);
+            // labelJava.outerHTML='<label >Java</label>';
+  
+
+            // let checkboxJavascript = document.createElement("input");
+            // button.before(checkboxJavascript);
+            // checkboxJavascript.outerHTML='<input type="checkbox" value="javascript"/>';
+            
+            // let labelJavascript = document.createElement("label");
+            // button.before(labelJavascript);
+            // labelJavascript.outerHTML='<label >JavaScript</label>';
+                
+            // let hr = document.createElement("hr");
+            // button.before(hr)
+
+        }
+    </script>
+</head>
+
+<body>  
+    <!-- <label>Skills</label>
+    <input type="checkbox" value="java">
+    <label>Java</label>
+    <input type="checkbox" value="javaScript">
+    <label>JavaScript</label>
+<hr/> -->
+
+    <button onclick="getValue()">Get Value</button>
+    <label>Fruits</label>
+    <select id='fruits'>
+
+        <option value="apple">Apple</option>
+        <option value="cider" selected>Cider</option>
+        <option value="pear">Pear</option>
+    </select>
+    <br />
+    <div id='radioDIV' style="display:none;">
+        <label>Color</label>
+        <input type="radio" value="black">
+        <label>Black</label>
+        <input type="radio" value="green">
+        <label>Green</label>
+    </div>
+    <br />
+
+    <label>Planets</label>
+
+</body>
+
+</html>
