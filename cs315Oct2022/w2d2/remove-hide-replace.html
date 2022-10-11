@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function add() {
+            //Replace Elements
+            let div = document.querySelector("div");
+        //    console.log();
+            // div.outerHTML ="<input type='text'/>"
+            
+            //Before/prepend... elements
+            // let labelElement = document.createElement("label");
+            // labelElement.innerHTML = "My label";
+            // div.before(labelElement);
+
+            //Remove Elements
+            // div.remove();
+
+            //Hide Elements
+            // div.style.display='none';
+            // div.style.visibility='hidden';
+
+            //Toggle show/hide Elements
+            // console.log(div.style.display);
+            // if(div.style.display=='none')
+            //     div.style.display='block';
+            // else    
+            //     div.style.display='none';
+
+           //Toggle Visibility
+            if(div.style.visibility=='hidden')
+                div.style.visibility='';
+            else    
+                div.style.visibility='hidden';
+            
+            
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="add()">Add</button>
+    <section>Section</section>
+    <div>
+        <p>Paragraph
+            <label>My Label</label>
+        </p>
+        <p>Para2</p>
+    </div>
+    <p>After DIV</p>
+
+</body>
+
+</html>
