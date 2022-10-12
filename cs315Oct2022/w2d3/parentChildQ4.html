@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = onloadHandler;
+        function onloadHandler() {
+            document.querySelector('#findRow').onclick = findTheRow;
+        }
+        function findTheRow() {
+            console.log(" Here findTheRow")
+            // document.querySelectorAll('li')
+            let pear;
+            let elements = document.querySelector('ul').children;
+            for (let ele of elements) {
+                if (ele.innerHTML == 'Pear') {
+                    // Remove the element
+                    ele.remove();
+                    //Add id to the element
+                    // ele.setAttribute("id",'pearId');
+                    // // ele.setAttribute('value','pearValue')
+                    // //Add one row above it
+                    console.log(" here")
+                    pear = ele;
+                }
+            }
+            //****DONT ADD NEW ROW INSIDE THE LOOP, CREATES INFINITE LOOP
+            // let newRow = document.createElement('li');
+            // pear.before(newRow);
+            // newRow.outerHTML = '<li>Mango</li>';
+        }
+    </script>
+</head>
+
+<body>
+    <button id="findRow">FindRow</button>
+    <ul>
+        <li>Apple</li>
+        <li>Grapes</li>
+        <li>Pear</li>
+        <li>Banana</li>
+    </ul>
+</body>
+
+</html>   
