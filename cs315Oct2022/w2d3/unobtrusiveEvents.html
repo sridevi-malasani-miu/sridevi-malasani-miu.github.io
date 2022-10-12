@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .blueColor {
+            color: blue;
+        }
+
+        .redColor {
+            color: red;
+        }
+    </style>
+    <!-- <script src="scripts.js"> -->
+    <script>
+        function doSomething() {
+            let divP = document.querySelector('div');
+            //Styling
+            //    divP.setAttribute("style","color:pink;");
+            //    divP.style.backgroundColor='pink';
+            //    console.log(divP.style.padding)
+            //    console.log( parseInt(divP.style.padding)+10+"px")
+            //    divP.style.padding =
+
+            //ClassNames
+            // console.log(divP.classList);
+            // divP.classList.remove("secondClass");
+            // console.log(divP.classList);
+            // divP.classList.add("thirdClass");
+            // console.log(divP.classList);
+
+            //Toggle Classes
+            if (divP.classList.contains('blueColor')) {
+                divP.classList.remove('blueColor');
+                divP.classList.add('redColor');
+            } else {
+                divP.classList.remove('redColor');
+                divP.classList.add('blueColor');
+            }
+
+        }
+        window.onload = onloadHandler;
+        function onloadHandler() {
+            let btn = document.querySelector("button");
+            btn.onclick = doSomething;
+        }
+        window.on = function () {
+            let btn = document.querySelector("button");
+            btn.onclick = doSomething;
+        }
+    </script>
+</head>
+
+<body>
+    <!-- <div style="padding:10px;color:blue;background-color:yellow;">
+        Text
+    </div> -->
+    <div >
+        Text
+    </div>
+
+    <button>Submit</button>
+    <button>Submit w</button>
+
+</body>
+
+</html>
