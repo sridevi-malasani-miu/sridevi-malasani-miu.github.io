@@ -9,10 +9,34 @@
     <script>
         window.onload = onloadHandler
         function onloadHandler() {
-            setTimeout(function () {
-                let divP = document.querySelector("div");
-                divP.style.display = "none";
-            }, 2000)
+            // setTimeout(function () {
+            //     let divP = document.querySelector("div");
+            //     divP.style.display = "none";
+            // }, 2000)
+            // //Bring back the banner after 2 seconds.
+            // setTimeout(function () {
+            //     let divP = document.querySelector("div");
+            //     divP.style.display = "block";
+            // }, 4000)
+            let button = document.querySelector("button");
+            button.onclick = setTimer;
+        }
+
+        function setTimer(){
+            let timeText =document.getElementById('time');
+            let time = parseInt(timeText.value);
+            function toggleDisplay(){
+                console.log(" 1st timeout")
+                let banner = document.querySelector('div');
+                banner.style.display ='none';
+                setTimeout(function(){
+                    console.log("2nd timeout")
+                    let banner = document.querySelector('div');
+                    banner.style.display ='block';
+                },2000);
+            }
+            setTimeout(toggleDisplay,time*1000)
+
         }
     </script>
 </head>
@@ -22,7 +46,8 @@
         Test
     </div>
     <p> My Text</p>
+    <input type="text" id='time'/>
+    <button>Set Timer</button>
 </body>
 
 </html>
-//Bring back the banner after 2 seconds.
