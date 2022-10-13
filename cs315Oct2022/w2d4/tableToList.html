@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function convert(){
+            let trs = document.querySelectorAll('tr');
+            let myUl = document.createElement('ul');
+            let index = 0;
+            for(let eachTr of trs){
+                let li = document.createElement('li');
+                let rowText ='';
+                index++;
+                for(let eachTd of eachTr.children){
+                    // li.innerHTML+=eachTd.innerHTML;
+                    rowText+= eachTd.innerHTML;
+                }
+                // li.innerHTML=rowText;
+               
+                li.outerHTML="<li id='myLI"+index+"'>"+rowText+"</li>";
+                myUl.append(li);
+            }
+            document.body.append(myUl);
+        }
+    </script>
+</head>
+<!-- One Two
+Three Four -->
+<body>
+    <button onclick="convert()">COnvert</button>
+    <table>
+        <tr>
+            <td>
+                One
+            </td>
+            <td>
+                Two
+            </td>
+        </tr>
+
+        <tr>
+            <td>
+                Three
+            </td>
+            <td>
+                Four
+            </td>
+        </tr>
+
+    </table>
+</body>
+
+</html>
