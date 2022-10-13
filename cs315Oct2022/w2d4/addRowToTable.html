@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = onloadHandler;
+        function onloadHandler(){
+            let trs = document.querySelectorAll("#myTable tr");
+            // console.log(myTable.children);
+            // let trs = myTable.children[0].children;
+            let btn = document.querySelector('button');
+            btn.onclick = add2Row2Col;
+        }
+
+        // Add 2nd row 2nd col.
+        function add2Row2Col(){
+            let trs = document.querySelectorAll("#myTable tr");
+            //Get 2nd Row
+            let secondRow = trs[1];
+            console.log(secondRow);
+            let secondRowCols = secondRow.children;
+            console.log(secondRowCols);
+            //Create td 
+            let td2  = document.createElement("td");
+            secondRowCols[1].before(td2);
+            td2.innerHTML ="2 new col";
+
+        }
+    </script>
+</head>
+<body>
+    <button>AddRowCol</button>
+    <table id="myTable">
+        <tr>
+            <td>1 col</td>
+            <td>2 col</td>
+        </tr>
+        <tr>
+            <td>2 1 col</td>
+            <td>2 2 col</td>
+        </tr>
+        <tr>
+            <td>3 1 col</td>
+            <td>4 2 col</td>
+        </tr>
+    </table>
+</body>
+</html>
+
