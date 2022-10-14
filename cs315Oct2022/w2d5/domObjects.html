@@ -25,6 +25,32 @@
             document.querySelector('label').after(ulElement);
         }
 
+        function showTable(){
+            let myTable =  document.createElement('table');
+            myTable.setAttribute('id','flowers');
+            //Add Header Columns
+            for(let ele in arrayList[0]){
+                let th = document.createElement('th');
+                th.innerHTML=ele;
+                myTable.append(th);
+            }
+
+            // Add Rows
+            for(let ele of arrayList){
+                //Create Row
+                let row = document.createElement('tr');
+                //Loop through the object (for...in) to add columns
+                for(let prop in ele){
+                    let td = document.createElement('td');
+                    td.innerHTML=ele[prop];//Value of the property. 
+                    row.append(td);
+                }
+                myTable.append(row); 
+            }
+            document.querySelector('label').after(myTable);
+        }
+
+
         function hidePinkFlowers(){
             let filteredList = arrayList.filter(function(ele){
                 return ele.color!='pink';
@@ -53,6 +79,7 @@
     </script>
 </head>
 <body>
+    <button onclick = 'showTable()'> Show Table</button>
     <button onclick = 'showList()'> Show List</button>
     <button onclick = 'add2ndFlower()'> Add 2nd flower</button>
     <button onclick = 'hidePinkFlowers()'> Hide Pink Flowers</button>
@@ -61,5 +88,3 @@
     <label>List of Flowers</label>
 </body>
 </html>
-<!-- 
- -->
