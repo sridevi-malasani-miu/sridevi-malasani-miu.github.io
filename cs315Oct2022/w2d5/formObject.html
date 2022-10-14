@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let myObj = { name: 'Ram', age: 30, skills: ['java', 'javascript'] };
+        let selectedSkill;
+        window.onload = buildForm;
+        //Build Form
+        function buildForm() {
+            let myDiv = document.createElement('div');
+            document.querySelector('button').before(myDiv);
+            for (let prop in myObj) {
+                let label = document.createElement('label');
+                label.innerHTML = prop;
+                let myField;
+                if (Array.isArray(myObj[prop])) {
+                    myField = document.createElement('select');
+                    myObj[prop].forEach(function (ele) {
+                        let option = document.createElement('option');
+                        option.innerHTML = ele;
+                        option.setAttribute('value', ele);
+                        if(selectedSkill==ele)
+                            option.setAttribute('selected', true);
+                        myField.append(option)
+                    });
+                } else {
+                    myField = document.createElement('input');
+                    myField.setAttribute('type', 'text');
+                    myField.value = myObj[prop];
+                }
+                myField.setAttribute('id', prop);
+                myDiv.append(label)
+                myDiv.append(myField);
+                myDiv.append(document.createElement('br'));
+            }
+        }
+        
+        function submitForm(){
+            myObj.name = document.querySelector('#name').value;
+            myObj.age = document.querySelector('#age').value;
+            let skills = document.querySelectorAll('#skills option');
+            for(let eachSkill of skills){
+                if(eachSkill.selected)
+                selectedSkill = eachSkill.value;
+            }
+            console.log(myObj)
+        }
+
+        function reloadForm(){
+            document.querySelector('div').remove();
+            buildForm();
+        }
+    </script>
+
+</head>
+
+<body>
+    <button onclick="submitForm()">Submit</button>
+    <button onclick="reloadForm()">Reload</button>
+</body>
+
+</html>
