@@ -10,8 +10,13 @@
         {name:'jasmine',color:'white'},
         {name:'lily',color:'white'}];
 
-        function buildUl(){
+        function showList(){
+            buildUl(arrayList);
+        }
+
+        function buildUl(arrayList){
             let ulElement =  document.createElement('ul');
+            ulElement.setAttribute('id','flowers')
             for(let ele of arrayList){
                 let liElement = document.createElement('li');
                 liElement.innerHTML=ele.name+"-"+ele.color;
@@ -20,17 +25,41 @@
             document.querySelector('label').after(ulElement);
         }
 
+        function hidePinkFlowers(){
+            let filteredList = arrayList.filter(function(ele){
+                return ele.color!='pink';
+            });
+            document.getElementById('flowers').remove();
+            buildUl(filteredList);
+        }
+
+        function updateRoseFlower(){
+            let mapList = arrayList.filter(function(ele){
+                if(ele.name=='rose')
+                    ele.name='Rose-new'
+                return ele;
+            });
+            document.getElementById('flowers').remove();
+            buildUl(mapList);
+        }
+
+        function add2ndFlower(){
+            arrayList.splice(1,0,{name:'chameli',color:'pink'})
+            document.getElementById('flowers').remove();
+            buildUl(arrayList);
+        }
+
+
     </script>
 </head>
 <body>
-    <button onclick = 'buildUl()'> Show List</button>
+    <button onclick = 'showList()'> Show List</button>
+    <button onclick = 'add2ndFlower()'> Add 2nd flower</button>
+    <button onclick = 'hidePinkFlowers()'> Hide Pink Flowers</button>
+    <button onclick = 'updateRoseFlower()'>Update Rose Flower</button>
+
     <label>List of Flowers</label>
 </body>
 </html>
-<!-- Build table, with columns Name, Color
-Build Ul/ol list with values , name-color. eg: rose-pink
-Filter by name or color, or the flowers whose name starts with 'r'
-Sort by color, name
-Add new flower, update flower and delete flower at nth index.
-Update or delete flower(s) whose name is 'x' or whose color is 'y'
+<!-- 
  -->
