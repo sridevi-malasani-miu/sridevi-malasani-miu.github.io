@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = onloadHandler;
+        let flowers = ['rose', 'chrysanthemum', 'tulip'];
+        function onloadHandler() {
+            buildList(flowers);
+        }
+
+        function buildList(flowers){
+            let divP = document.createElement("div");
+            document.body.append(divP);
+            divP.setAttribute("id",'checkboxDIV');
+            for (let flower of flowers) {
+                let checkbox1 = document.createElement('input');
+                checkbox1.setAttribute("type", 'checkbox');
+                checkbox1.value = flower;
+                let label = document.createElement("label");
+                label.innerHTML = flower;
+                divP.append(checkbox1);
+                divP.append(label);
+            }
+        }
+
+        function sortList(){
+            let sortedList =flowers.sort();
+            document.getElementById('checkboxDIV').remove();
+            buildList(sortedList);
+
+        }
+
+        function filterList(){
+            let filteredList = flowers.filter(function(ele,idx){
+                return ele.length==4;
+            })
+            document.getElementById('checkboxDIV').remove();
+            buildList(filteredList);
+        }
+//Add at any index
+        function add(){
+            let inputText = document.getElementById('newFlower').value;
+            flowers.push(inputText);
+            // document.getElementById('checkboxDIV').remove();
+            // buildList(flowers);
+        }
+    </script>
+</head>
+
+<body>
+    <button onclick="sortList()">Sort</button>
+    <br/>
+    <button onclick="add()">Add</button>
+    <input type="text" id='newFlower'/>
+    <br/>
+    <button onclick="filterList()">Filter</button>
+    <br/>
+    <label>Flowers</label>
+</body>
+
+</html>
+<!-- //Build ul/ol/radio buttons, select, select multiple -->
