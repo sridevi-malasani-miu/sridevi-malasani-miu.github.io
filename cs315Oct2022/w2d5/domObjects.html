@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let arrayList = [{name:'rose',color:'pink'},
+        {name:'jasmine',color:'white'},
+        {name:'lily',color:'white'}];
+
+        function buildUl(){
+            let ulElement =  document.createElement('ul');
+            for(let ele of arrayList){
+                let liElement = document.createElement('li');
+                liElement.innerHTML=ele.name+"-"+ele.color;
+                ulElement.append(liElement); 
+            }
+            document.querySelector('label').after(ulElement);
+        }
+
+    </script>
+</head>
+<body>
+    <button onclick = 'buildUl()'> Show List</button>
+    <label>List of Flowers</label>
+</body>
+</html>
+<!-- Build table, with columns Name, Color
+Build Ul/ol list with values , name-color. eg: rose-pink
+Filter by name or color, or the flowers whose name starts with 'r'
+Sort by color, name
+Add new flower, update flower and delete flower at nth index.
+Update or delete flower(s) whose name is 'x' or whose color is 'y'
+ -->
