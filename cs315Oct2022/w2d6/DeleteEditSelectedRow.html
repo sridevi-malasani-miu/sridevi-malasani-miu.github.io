@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let flowers = [{ name: 'rose', color: 'pink' }, { name: 'rose', color: 'red' }, { name: 'lily', color: 'white' }];
+       window.onload = buildList;
+        function buildList() {
+            console.log(" Here ")
+            let flowersTable = document.createElement("table");
+            flowersTable.setAttribute('id', 'myDIV')
+            document.body.append(flowersTable);
+            for (let i = 0; i < flowers.length; i++) {
+                let flower = flowers[i];
+                let eachRow = document.createElement('tr');
+                eachRow.setAttribute('myValue',i);
+                for(let prop in flower){
+                    let eachCol = document.createElement("td");
+                    eachCol.innerHTML= "<input type='text' value="+flower[prop]+">"
+                    eachRow.append(eachCol);
+                }
+                // //Delete Column
+                // let deleteCol = document.createElement("td");
+                
+                //Delete Button
+                let deleteBtn = document.createElement('button');
+                deleteBtn.innerHTML= "Delete";
+
+                //Append delete button the column
+                // deleteCol.append(deleteBtn);
+                deleteBtn.onclick = deleteRow;
+
+                //Add the deleteCol to the row
+                eachRow.append(deleteBtn);
+                flowersTable.append(eachRow)
+            }
+        }
+
+        function deleteRow(){
+            console.log(" Delete Row ");
+            console.log(this.parentNode.parentNode);
+           console.log( this.parentNode.parentNode.getAttribute("myValue"));
+            this.parentNode.parentNode.remove();
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
