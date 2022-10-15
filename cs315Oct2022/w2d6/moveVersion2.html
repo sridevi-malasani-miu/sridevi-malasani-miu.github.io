@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .selectBoxDIV{
+            display:grid;
+            gap:10px;
+            grid-template-columns:4fr 1fr 4fr;
+            margin-top:10px;
+            margin-bottom:10px;
+        }
+    </style>
+    <script>
+        //
+        function move(){
+            let source = document.querySelectorAll('#srcSelect option');
+            let dest = document.querySelector('#destSelect');
+            for(let eachChild of source){
+                if(eachChild.selected){
+                    let option = document.createElement("option");
+                    option.innerHTML= eachChild.innerHTML;
+                    option.value = eachChild.value;
+                    dest.append(option);
+                    // eachChild.remove();
+                }
+                // dest.append(eachChild);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div class="selectBoxDIV">
+        <div>
+            <select name="" id="srcSelect" multiple style="width:100%;">
+                <option value="rose">Rose</option>
+                <option value="rose">Chrysanthumum</option>
+                <option value="rose">Tulip</option>
+                <option value="rose">Hibiscus</option>
+            </select>
+        </div>
+        <div style="justify-self:center;align-self:center;">
+            <button onclick="move()">Move</button>
+        </div>
+        <div>
+            <select name="" id="destSelect" multiple style="width:100%">
+            </select>
+        </div>
+    </div>
+</body>
+</html>
+
