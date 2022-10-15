@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+    let flowers =[{name:'rose',color:'pink'},{name:'rose',color:'red'},{name:'lily',color:'white'}];
+    window.onload = buildList;
+
+    function buildList(){
+        let flowersSelect=document.createElement("div");
+        flowersSelect.setAttribute('id','myDIV')
+        document.querySelector('button').before(flowersSelect);
+        for(let i=0;i<flowers.length;i++){
+            let flower = flowers[i];
+            let optionFlower = document.createElement('input');
+            optionFlower.type='radio';
+            // optionFlower.setAttribute('value',i)
+            optionFlower.setAttribute('value',flower.name +'-'+ flower.color);
+            optionFlower.setAttribute('name',"myRadio");
+            let label = document.createElement('label');
+            label.innerHTML=flower.name +'-'+ flower.color;
+            flowersSelect.append(optionFlower);
+            flowersSelect.append(label);
+        }
+    }
+
+    //Delete selected list. 
+    function deleteRadio(){
+        // let radios = document.querySelectorAll('input[type="radio"]');
+        // let radios = document.querySelectorAll('input');
+    let radios = document.querySelectorAll("input[name='myRadio']");
+    // document.getElementsByName("myRadio");
+    
+        let selectedValue;
+        for(let eachRadio of radios){
+            if(eachRadio.checked)
+                selectedValue = eachRadio.value;
+        }
+
+        let idx = flowers.findIndex(function(ele){
+            console.log(" here ",ele)
+            let nameValue  = selectedValue.split('-');
+            console.log(nameValue,ele.name,ele.color)
+            if(ele.name==nameValue[0] && ele.color==nameValue[1])
+            {
+                console.log(" Her inside")
+                return true;
+            }
+        });
+        console.log("Index of the element ",idx)
+        flowers.splice(idx,1);
+        document.querySelector('#myDIV').remove();
+        buildList()
+    }
+</script>
+<body>
+    <input type="radio" name="myRadio" />
+    <input type="radio" name="myRadio"/>
+    <input type="radio" name="myRadio"/>
+
+    <input type="radio" name="myRadio2" />
+    <input type="radio" name="myRadio2"/>
+    <input type="radio" name="myRadio2"/>
+
+
+    <button onclick="deleteRadio()">Delete</button>
+</body>
+</html>
