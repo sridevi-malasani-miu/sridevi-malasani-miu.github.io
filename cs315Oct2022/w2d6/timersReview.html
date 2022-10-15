@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = d;
+        let timerId;
+        function d() {
+            timerId = setInterval(b, 1000);
+            let btn = document.querySelector('button');
+            btn.onclick = c;
+            let current = Date.now();
+            // setTimeout(function(){
+            //     console.log(" Here SetTimeout", Date.now()-current);
+            //     setTimeout(function(){
+            //         console.log(" Here  2",Date.now()-current);
+            //     },3000)
+            // },1000)
+
+            let timer = setInterval(function(){
+                console.log(" Set Inteval");
+                
+            },1000)
+            setTimeout(function(){
+                    console.log(" Clear set timeout");
+                    clearInterval(timer);
+                },3000);
+        }
+       
+
+        function b() {
+            let div = document.querySelector('div');
+            let color = div.style.color;
+            div.style.color = color == 'red' ? 'blue' : 'red';
+        }
+        function c() {
+            clearInterval(timerId);
+        }
+    </script>
+</head>
+
+<body>
+    <button>Clear</button>
+    <div>Paragraph</div>
+</body>
+
+</html>
+<!-- Prepopulate all the fields with values, text, textarea, select, select mulitple,checkbox, radio.. -->
+<!-- Build the option from the selected option, remove from thes source and 
+add to the destination -->
