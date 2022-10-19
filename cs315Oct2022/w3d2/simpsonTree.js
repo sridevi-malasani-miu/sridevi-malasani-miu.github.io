@@ -38,9 +38,7 @@ function countLeafNodes(abe) {
 // console.log(countLeafNodes(abe,'Abe'))
 
 function countParentNodes(abe) {
-     if(abe.descendents.length==0)
-        return 0;
-    let count = 1;
+    let count = abe.descendents.length==0?0:1;
     for (let child of abe.descendents) {
         count = count+ countParentNodes(child);
     }
