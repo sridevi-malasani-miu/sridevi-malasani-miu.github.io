@@ -1,0 +1,34 @@
+select guestName,guestAddress from Guest, Booking, Hotel where Booking.guestNo= Guest.guestNo and Booking.hotelNo = Hotel.hotelNo
+and city ='Chicago';
+
+select roomNo,type,price,hotelName,city  from Room,Hotel where 
+Hotel.hotelNo = Room.hotelNo and
+price<130 order by price desc;
+
+select * from Booking where dateTo> '2012-11-10';
+
+select count(*) from hotel;
+select avg(price) from Room;
+
+select hotelName, city,count(city) from Hotel,Booking where 
+Hotel.hotelNo = Booking.hotelNo
+group by Hotel.hotelNo;
+
+select  city,count(city) from Hotel,Booking where 
+Hotel.hotelNo = Booking.hotelNo
+group by city;
+
+select guestName, guestAddress,count(Booking.guestNo) from Guest left join 
+Booking on Guest.guestNo = Booking.guestNo
+group by Guest.guestNo;
+SET SQL_SAFE_UPDATES = 0;
+Update Guest set guestAddress='newAddress' where guestName='guest2';
+
+select h.hotelNo,h.hotelName, h.city , count(b.hotelNo) from Hotel h 
+join Booking b on b.HotelNo = h.HotelNo group by 1,2,3
+having count(b.hotelNo)>0;
+
+select * from Booking where dateFrom >'2012-01-02' and guestNo = (select guestNo
+from Guest where guestName='guest');
+
+update Room set price = 1.05*price;
