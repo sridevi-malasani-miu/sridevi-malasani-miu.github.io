@@ -1,4 +1,4 @@
-//Run the below statements
+//Run the below statements in mysql workbench
 //ALTER USER 'root'@'localhost' IDENTIFIED WITH mysql_native_password BY 'root';
 //FLUSH PRIVILEGES;
 var mysql = require('mysql');
