@@ -17,7 +17,7 @@ app.get('/process_get', function (req, res) {
       last_name:req.query.last_name
    };
    console.log(response);
-   res.end(JSON.stringify(response));
+   res.end(JSON.stringify(response,null,'\t'));
 })
 
 var server = app.listen(80, function () {
