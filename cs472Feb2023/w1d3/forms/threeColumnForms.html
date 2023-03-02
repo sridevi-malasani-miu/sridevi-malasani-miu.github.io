@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hint {
+            font-size: 10px;
+            ;
+        }
+        /* You can put the select and input in divs and use the same
+        widths for both
+        when given same width for select, input select is rendered smaller, so its greater */
+        select {
+            width:168px;
+        }
+        input {
+            width:160px;
+        }
+    </style>
+</head>
+
+<body>
+    <div>FullName</div>
+    <div style="display:flex; gap:10px;">
+        <div>
+            <input type="text" />
+            <div class="hint">First Name</div>
+        </div>
+        <div>
+            <input type="text" />
+            <div class="hint">Middle Name</div>
+        </div>
+        <div>
+            <input type="text" />
+            <div class="hint">Last Name</div>
+        </div>
+    </div>
+
+    <div style="margin-top:10px;">BirthDate</div>
+    <div style="display:flex; gap:10px;">
+        <div>
+            <select >
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+            </select>
+
+            <div class="hint">Day</div>
+        </div>
+        <div>
+            <select >
+                <option>Jan</option>
+                <option>Feb</option>
+                <option>Mar</option>
+            </select>
+            <div class="hint">Month</div>
+        </div>
+        <div>
+            <select >
+                <option>1990</option>
+                <option>1991</option>
+                <option>1992</option>
+            </select>
+            <div class="hint">Year</div>
+        </div>
+    </div>
+</body>
+
+</html>
