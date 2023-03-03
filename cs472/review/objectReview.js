@@ -13,6 +13,15 @@ obj["a"] = 2;
 // 3. Remove Properties from the object
 delete obj.a;
 obj.a = null//a is assigned to null;
+
+function loopingObject(obj){
+    for(let key in obj){
+        console.log(" key value",key, obj[key])
+    }
+}
+loopingObject({a:1,b:2})
+
+
 // 4. Copy/Clone Object
 let obj1 = obj;
 let newObject = {a:1, b:"string",c:[1,2], d:{a:1,b:2}}
