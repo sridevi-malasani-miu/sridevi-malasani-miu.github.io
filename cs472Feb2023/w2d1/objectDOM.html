@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        let list = [{ name: 'Ram', Age: 30, skills: ['java', 'javascript'] },
+        { name: 'Shyam', Age: 20, skills: ['python', 'reactjs'] }] ;
+
+        
+        function create(){
+            let selectedOption = $('[name="mySelect"] option:selected');
+            //convert to jquery element
+            let jQselection = $(selectedOption[0]);
+            if(jQselection.val().trim()=='table')
+                createTable();
+            else
+                createCheckbox();
+        }
+
+        function createTable(){
+            let myTable = $('#myTable');
+            //Remove all children so table is not added repeatedly
+            //Set inner html to empty string
+            myTable.html('');
+
+            for(let item of list){
+                let row = $('<tr></tr>');
+                myTable.append(row);
+                for(let key in item){
+                    let col = $('<td>'+item[key]+'</td>');
+                    row.append(col);
+                }
+            }
+        }
+
+        function createCheckbox(){
+            let myDIV = $('#myDIV');
+            //Remove all children so list is not added repeatedly
+            //Set inner html to empty string
+            myDIV.html('');
+            for(let item of list){
+                let checkbox = $('<input type="checkbox">');
+                //Add the checkbox to the div
+                myDIV.append(checkbox);
+                let value ='';
+                for(let key in item){
+                    value+=item[key]
+                }
+                //Set value for checkbox
+                checkbox.val(value);
+                //Add the label that shows up on the page
+                checkbox.after('<label>'+value+'</label>')
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <h4>Table</h4>
+   
+    <select name="mySelect">
+        <option value="table">Table</option>
+        <option value="checkbox">Checkbox</option>
+    </select>
+    <button onclick ='create();'>Create</button>
+    <table id ='myTable'></table>
+    <div id ='myDIV'></div>
+</body>
+
+</html>
