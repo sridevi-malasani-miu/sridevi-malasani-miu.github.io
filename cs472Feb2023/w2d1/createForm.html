@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        let obj = {name:'Ram',Age:30, skills: ['java','javascript'], selectedSkill:'javascript'} ;
+       
+        window.onload = function(){
+            $('#myDIV').remove();//Remove if div exists
+            let myDIV = $('<div id="myDIV"></div>'); //Create div
+            $('body').append(myDIV);
+
+            for(key in obj){
+                if(key=='selectedSkill')
+                    continue;
+                myDIV.append($('<label>'+key +'</label>'))
+                let value = obj[key];
+                if(typeof value=='object')//For list of objects
+                    for(let eachVal of value){
+                        let checked = obj.selectedSkill==eachVal?true:false;
+
+                        myDIV.append($('<input type="radio" name="skills" value="'+eachVal+'" checked='+checked+'/>'));
+                        myDIV.append($("<label>"+eachVal+"</label>"));
+                    }
+                else 
+                    myDIV.append($('<input type="text"/>'))
+                myDIV.append($('<br/><br/>'));
+            }
+        };
+        function updateObj(){
+            let selectedValue = $('[name="skills"]:checked');
+            obj.selectedSkill= $(selectedValue[0]).val().trim();
+            console.log(" print obj ",obj)
+        }
+    </script>
+</head>
+<body>
+    <button onclick ="updateObj();">Update Object</button>
+</body>
+</html>
