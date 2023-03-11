@@ -1,0 +1,28 @@
+When module is not found, -> either spelling or path 
+Error: Cannot find module './errorHandle'
+Require stack:
+- /Users/sridevimalasani/courses/cs472Feb2023/w2d5/loginCheck-addToList.js
+
+When variable is not defined 
+ReferenceError: err is not defined
+    at Object.<anonymous> (/Users/sridevimalasani/courses/cs472Feb2023/w2d5/loginCheck-addToList.js:5:13)
+
+
+Error: ENOENT: no such file or directory, stat '/Users/sridevimalasani/courses/cs472Feb2023/w2d5/sdfds/login.html'
+
+//FOrm action - compare the address you have given vs your path in server
+Cannot POST /logsdfdsfdsin
+
+//Path doesnt exist
+Cannot GET /logindsfsdfsdfsdf
+
+when res.send is used inplace of res.sendFile
+/Users/sridevimalasani/courses/cs472Feb2023/w2d5/login.html
+
+//address in use -
+try with new port numbers in listen
+
+syntax error '=' server wont run.
+app.listen=(80, () => {
+    console.log('Your Server is running on 80');
+})
