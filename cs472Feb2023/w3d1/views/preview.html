@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <% for( let key in obj ) { %>
+        <label>
+            <%=key %>
+        </label>
+        <% let fieldDetails=obj[key] %>
+                <% if(Array.isArray(fieldDetails.list) && fieldDetails.isEdit) {
+                    for( let eachOption of fieldDetails.list) { %>
+                        <%let checked='' %>
+                        <input type="radio" value="<%=eachOption%>" 
+                            <% if(eachOption==fieldDetails.value) checked='checked' %>
+                        <%=checked%>/>
+                        <%=eachOption%>
+                    <% } %>
+        <% } else if(fieldDetails.isEdit){ %>
+            <input type="text" value="<%=fieldDetails.value%>" />
+        <% } else { %>
+            <label><%=fieldDetails.value%></label> 
+        <% } %>
+        <br/>
+    <% } %>
+</body>
+
+</html>
