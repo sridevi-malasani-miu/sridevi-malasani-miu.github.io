@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+
+        setInterval(makeAjaxReq,2000);
+
+        
+        function makeAjaxReq() {
+            // console.log($("#myID").val());
+            $.ajax("/ajaxReq", {
+                "type": "GET",
+                "data": {
+                    "myData": $("#myID").val()
+                },
+            }).done(function (response) {
+                console.log(response);
+                $('input').css("background-color", response.color);
+                // $("select").each(function (idx, element) {
+                //     // element.style.backgroundColor = response.color;
+                //     $(element).css("background-color", response.color)
+                // })
+            })
+                .fail(function () {
+                    console.log("fail")
+                });
+        }
+    </script>
+</head>
+
+<body>
+    <form action="/add" method="post">
+        <input type='text' name="fruit" id='myID' />
+        <input type="submit" value="Submit" />
+        <!-- <input type="button" value="Ajax Call" onclick="makeAjaxReq()" /> -->
+    </form>
+</body>
+
+</html>
