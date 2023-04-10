@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function(){
+            //Find By ID
+            let element = document.getElementById('inputID');
+            console.log(element);
+
+            //Query Selector - Find API
+            let element1 = document.querySelectorAll('form input');
+           
+            for(const elem of element1){
+                console.log(elem);
+            }
+
+               console.log(element1)
+            //Read Attribute
+            console.log(element.getAttribute('type'));
+
+
+            //change attribute
+            // element.setAttribute('type','radio');
+
+            element.setAttribute('value','SOme Value');
+        }
+    </script>
+</head>
+<body>
+    <form>
+        <input id="inputID" type="text"  />
+        <input type="radio"/>
+        <input type="checkbox"/>
+    
+        <textarea></textarea>
+    
+        <select>
+            <option>One</option>
+            <option>Two</option>
+        </select>
+    
+        <select multiple>
+            <option>One</option>
+            <option>Two</option>
+        </select>
+    
+        <button>Button</button>
+        <input type="button" value="button"/>
+    </form>
+    
+</body>
+</html>
+
+<!-- radiobuttons
+<input type="text">
+<button></button>
+checkboxes
+textfield
+password
+dropdown -->
