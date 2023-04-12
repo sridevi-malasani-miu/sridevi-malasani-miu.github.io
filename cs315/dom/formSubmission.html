@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            console.log(location.search);
+            const urlParams = new URLSearchParams(location.search);
+            // console.log(urlParams)
+            
+            for (const [key, value] of urlParams) {
+                console.log(`${key}:${value}`);
+                if(key=='email')
+                    document.getElementById('myInput').innerHTML = value;
+                else if(key=='password')
+                    document.querySelector('p').innerHTML = document.querySelector('p').innerHTML +value;
+            }
+
+        }
+    </script>
+</head>
+
+<body>
+<label id="myInput"></label>
+<p> Password: </p>
+</body>
+
+</html>
