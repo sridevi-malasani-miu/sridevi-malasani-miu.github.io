@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function displayP() {
+            let myP = document.querySelector('p');
+            myP.style.display = (myP.style.display == 'none') ? '' : 'none';
+        }
+
+        function visibilityToggle() {
+            let myInput = document.querySelector('input[type="text"]');
+            myInput.style.visibility = (myInput.style.visibility == 'hidden') ? 'visible' : 'hidden';
+        }
+    </script>
+</head>
+
+<body>
+    <div>Display</div>
+    <p style="display:none;"> Bananas are yellow in color</p>
+    <input type="button" onclick="displayP();" value="Submit"/>
+
+    <div>Visibility</div>
+    <input type="text" />
+    <input type="button" onclick="visibilityToggle();" value="Submit"/>
+</body>
+
+</html>
