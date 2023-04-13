@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            color:white;
+            background-color: black;
+        }
+        .light{
+            color:red;
+            background-color: yellow;
+        }
+    </style>
+    <script>
+        function toggleClass() {
+            let fruit = document.querySelector('select[name="theme"] option:checked');
+            let myP = document.querySelector('p');
+
+            myP.classList.remove(fruit.value=='dark'?'light':"dark");
+            myP.classList.add(fruit.value=='dark'?'dark':"light");
+            console.log(myP.getAttribute('class'))
+        }
+    </script>
+</head>
+
+<body>
+
+    <select name="theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <p > Bananas are yellow in color</p>
+    <input type="button" onclick="toggleClass();" value="Submit"/>
+</body>
+
+</html>
