@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function displayP() {
+            let fruit = document.querySelector('select[name="fruits"] option:checked');
+            let myP = document.querySelector('p');
+            myP.style.display = (fruit.value == 'banana') ? '' : 'none';
+        }
+    </script>
+</head>
+
+<body>
+
+    <select name="fruits">
+        <option>Apple</option>
+        <option>Pear</option>
+        <option value="banana">Banana</option>
+    </select>
+    <p style="display:none;"> Bananas are yellow in color</p>
+    <input type="button" onclick="displayP();" value="Submit"/>
+</body>
+
+</html>
