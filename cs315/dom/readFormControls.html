@@ -7,54 +7,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <style>
-        select[name='mySelect']{
-            color:green;
+        select{
+            display:block;
+            margin-bottom:10px;
         }
+
     </style>
     <script>
-        window.onload =function (){
-            console.log(document.querySelector('input'));
-        }
- 
-       
-        function myclick() {
-            var e = document.querySelectorAll("[name='mySelect']");
+        function readValues() {
+            var e = document.querySelector("select[name='country'] option:checked");
+            console.log(e)
 
-            console.log(" Selected Option ",document.querySelectorAll("[name='mySelect']"))
-           
+            var prefOptions = document.querySelectorAll("select[name='preference'] option:checked");
+            let preferences =''
+            for(let pref of prefOptions){
+                preferences+=' '+pref.innerHTML;
+            }
+
+            var gender = document.querySelector("input[name='gender']:checked");
+            console.log(gender);
+            let genderValue = gender?gender.value:'';
+
+            var checkedDiet = document.querySelectorAll("input[name='diet']:checked");
+            console.log(checkedDiet);
+            let values =''
+            for(let myDiet of checkedDiet){
+                values+=' '+myDiet.value;
+            }
             // var text = e.options[e.selectedIndex].innerHTML;
             // console.log(e.options[e.selectedIndex])
+            alert(`Country:: ${e.innerHTML} Preferences:: ${preferences}`);
+            alert(`Gender:: ${genderValue} Diet:: ${values} `)
         }
-
-        
     </script>
 </head>
 
 <body>
-    <input type="text" />
-    
-    <select name="mySelect" >
+    Country
+    <select name="country" >
         <option value="USA">United States of America</option>
-        <option value="IN">India</option>
-        <option value="USA">Option 3</option>
+        <option value="IN">Other</option>
     </select>
 
-    <select name="mySelect" >
-        <option value="USA">United States of America</option>
-        <option value="IN">India</option>
-        <option value="USA">Option 3</option>
+    Room Preferences
+    <select name="preference" multiple >
+        <option value="USA">Single</option>
+        <option value="IN">Shared</option>
     </select>
+    <br/>
 
-    <select name="mySelect" >
-        <option value="USA">United States of America</option>
-        <option value="IN">India</option>
-        <option value="USA">Option 3</option>
-    </select>
-    <button onclick="myclick()">My Button</button>
+    <div>
+        <label>Gender</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Male</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Female</label>
+    </div>
+
+    <div>
+        <label>Diet Restriction</label>
+        <input type="checkbox" value="vegan" name='diet'/>
+        <label>Vegan</label>
+        <input type="checkbox" value="nut" name='diet'/>
+        <label>Nut Allergy</label>
+    </div>
+    <button onclick="readValues()">My Button</button>
+
 </body>
 
 </html>
-
 
 
 
