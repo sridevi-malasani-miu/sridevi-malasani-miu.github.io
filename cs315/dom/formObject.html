@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let form = {Name:'Ram',Age:30,Profession:'Developer'};
+
+        // let form = {Name:'Ram',Age:30,Profession:['Developer','Java']};
+
+        // let form = {Name:'Ram',Age:30,Profession:{list:['Developer','Tester'],selected:'Tester'}};
+
+        window.onload = function(){
+            let div = document.createElement('div');
+            for(let key in form){
+                let label = document.createElement('label');
+                label.innerHTML =key;
+                let inputText = document.createElement('input');
+                inputText.setAttribute('type','text');
+                inputText.value = form[key];
+                div.append(label);
+                div.append(inputText);
+                div.append(document.createElement('br'));
+                div.append(document.createElement('br'));
+            }
+            document.body.append(div)
+        }
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
