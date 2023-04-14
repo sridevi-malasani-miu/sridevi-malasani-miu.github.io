@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let fruits = ['banana', 'apple', 'pear'];
+        window.onload = function () {
+
+            let button = document.createElement("button");
+            document.body.append(button);
+            button.outerHTML = '<button onclick="mySort()">Button</button>';
+
+            let select = document.createElement("select")
+            select.setAttribute("id", 'myID')
+            for (let fruit of fruits) {
+                let option = document.createElement('option');
+                option.innerHTML = fruit;
+                select.append(option);
+            }
+            document.querySelector('button').before(select);
+        }
+
+        function mySort() {
+            fruits.sort();
+            let mySelect = document.getElementById('myID');
+            mySelect.innerHTML = '';
+            for (let fruit of fruits) {
+                mySelect.innerHTML += '<option value="' + fruit + '">' + fruit + '</option>';
+            }
+        }
+
+        function startWithA() {
+            let filteredFruits = fruits.filter(function(value){
+                return value.charAt(0)=='a'
+            })
+            let mySelect = document.getElementById('myID');
+            mySelect.innerHTML = '';
+            for (let fruit of filteredFruits) {
+                mySelect.innerHTML += '<option value="' + fruit + '">' + fruit + '</option>';
+            }
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick ='startWithA();'>Starts With A</button>
+</body>
+
+</html>
