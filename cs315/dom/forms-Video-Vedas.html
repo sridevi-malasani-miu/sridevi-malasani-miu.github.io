@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let myDIV = document.createElement('div');
+            myDIV.innerHTML = "<label>Scriptures</label>" +
+                '<select>'
+                + '<option value="vedas">Vedas</option>'
+                + '<option value="upanishads">Upanishads</option>'
+                + '</select>'
+                + "<button onclick='show();'>Show</button>"
+                +'<div id ="checkboxDIV"></div>'
+                +"<hr/>"
+                +"<button onclick='getCheckboxValue();'>Submit</button>";
+            document.body.append(myDIV)
+        }
+        function show() {
+            let selection = document.querySelector('select option:checked').value;
+            let checkboxDIV = document.getElementById('checkboxDIV');
+            checkboxDIV.innerHTML='';
+           
+            let html;
+            if (selection == 'upanishads') {
+                html = '<input type="checkbox" name="upa" value="Aiterya">Aiterya'
+                    + '<input type="checkbox" name="upa"  value="Brihadarankya">Brihadarankya'
+                    + '<input type="checkbox" name="upa"  value="Chandogya">Chandogya'
+                    + '<input type="checkbox" name="upa"  value="Mandukya">Mandukya';
+            } else if(selection=='vedas'){
+                html = '<input type="checkbox" name="ved"  value="Rig">Rig'
+                    + '<input type="checkbox" name="ved" value="Yajur">Yajur'
+                    + '<input type="checkbox" name="ved" value="Adarvana">Adarvana'
+                    + '<input type="checkbox" name="ved" value="Sama">Sama';
+            }else{
+                html ='<label style="color:red;">* Select Valid Opiton</label>'
+            }
+            checkboxDIV.innerHTML = html;
+        }
+
+        function getCheckboxValue(){
+            let selection = document.querySelectorAll('input:checked');
+            
+            let checkboxDIV = document.getElementById('checkboxDIV');
+            checkboxDIV.innerHTML='';
+
+            for(let sel of selection){
+                checkboxDIV.innerHTML+=' '+sel.value;
+            }
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
