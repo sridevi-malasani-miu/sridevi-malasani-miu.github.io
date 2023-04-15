@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let myFun = new URLSearchParams(location.search);
+            let doc = document.createElement('img');
+            for (const [key, value] of myFun) {
+                if (key == 'address')
+                    doc.src = '/images/'+value;
+                else if (value == 'round')
+                    doc.setAttribute('style', 'object-fit:cover;border-radius:50%;height:100px;width:100px;')
+                else
+                    doc.setAttribute('style', 'object-fit:cover;height:100px;width:100px;')
+
+            }
+            console.log(doc)
+            document.body.append(doc);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
