@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function buildForm() {
+            let checkboxValue = document.querySelector('input:checked');
+            if (checkboxValue) {
+                let myDIV = document.querySelector('div');
+                if(!myDIV){
+                    myDIV = document.createElement('div');
+                    document.body.append(myDIV);
+                }
+                myDIV.innerHTML = '<form action="./q12.html">'
+                    + "Image address <input type='text' name='address'/>"
+                    + '<br />'
+                    + ' Image Shape <select name="shape">'
+                    + ' <option value="round">round</option>'
+                    + '<option value="square">square</option>'
+                    + '</select>'
+                    + '<input type="submit" />'
+                    + '</form>';
+                
+            }else
+                document.querySelector('div').innerHTML='';
+        }
+    </script>
+</head>
+
+<body>
+    <h1>Preferences</h1>
+    Show Image <input type="checkbox" onclick='buildForm();' />
+</body>
+
+</html>
