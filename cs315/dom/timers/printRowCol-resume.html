@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+
+        let fruits = ['apple', 'pear', 'banana'];
+        let interval;
+        let run = 'stop';
+        let i = 0;
+        let order = 'col';
+        function togglePrint() {
+            console.log(" RUN ", run)
+            if (run == 'start') {
+                run = 'stop';
+                clearInterval(interval);
+                return;
+            }
+            run = 'start';
+            let div = document.getElementById('myDIV');
+
+            // let myTime = parseInt(document.querySelector('input').value);
+
+            interval = setInterval(function () {
+                console.log(" HERE ", i);
+                if (i == fruits.length) {
+                    if (order == 'col')
+                        order = 'row';
+                    else
+                        order = 'col';
+                    // order = order == 'col' ? 'row' : 'col';
+                    i = 0;
+                }
+                let ele;
+                if (order == 'col')
+                    ele = document.createElement('div');
+                else
+                    ele = document.createElement('label');
+                // let ele = order == 'col' ? document.createElement('div') : document.createElement('label');
+                ele.innerHTML = fruits[i++] + " ";
+                div.append(ele)
+            },  1000)
+        }
+    </script>
+
+</head>
+
+<body>
+    <h1>Heading</h1>
+    <div id="myDIV"> Printing....</div>
+    <!-- <input type="text" /> -->
+    <button onclick='togglePrint()'>Toggle</button>
+</body>
+
+</html>
