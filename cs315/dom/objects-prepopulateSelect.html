@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // let form = {Name:'Ram',Age:30,Profession:'Developer'};
+        // let form = { Name: 'Ram', Age: 30, Profession: ['Developer', 'Java'] };
+        let form = {Name:'Ram',Age:30,Profession:{list:['Developer','Tester'],selected:'Tester'}};
+        function createForm() {
+            let div = document.getElementById('container');
+            if (!div) {
+                div = document.createElement('div');
+                div.setAttribute('id', 'container');
+            }
+            let html = '';
+            for (let key in form) {
+                html+= '<label>' + key + '</label>'
+                if (typeof form[key]=='object') {
+                    html+= '<select name="' + key + '">';
+                    html+= form[key].list.reduce(function (prev, value) {
+                        let selected = (value==form[key].selected) ? 'selected':''
+                        return prev + '<option value ="' + value + '"'+selected+'>' + value + '</option>';
+                    }, '');
+                    html += '</select>';
+                } else{
+                    html+= '<input type="text" id="' + key + '" value="' + form[key] + '"/>';
+                }
+                html+= '<br/><br/>';
+                div.innerHTML=html;
+            }
+            document.body.append(div);
+            let myDIV = document.createElement('div');
+            myDIV.innerHTML = "<button onclick='saveValues();'>Submit</button><button onclick='reloadForm();'>Reload</button>";
+            div.append(myDIV);
+        }
+        window.onload = function () {
+            createForm();
+        }
+        function saveValues() {
+            form.Name = document.getElementById('Name').value;
+            form.Age = document.getElementById('Age').value;
+        }
+        function reloadForm() {
+            createForm();
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
