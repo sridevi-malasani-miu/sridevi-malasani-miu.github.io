@@ -90,3 +90,34 @@ function getHighestSalary(company){
      return maxSalary;
  }
  console.log(getHighestSalary(company));
+//{sales:1600, development: 000000}
+function sumSalFirstLevelDept(company) {
+    let deptSalary = {};
+    for (let deptName in company) {
+        let dept = company[deptName];
+        if (Array.isArray(dept)) {
+            deptSalary[deptName] = dept.reduce(function (prev, emp) {
+                return prev + emp.salary;
+            }, 0);
+            if (company.parent)
+                deptSalary.parent = company.parent;
+            delete company.parent;
+        }
+        else if (typeof dept == 'object') {
+            dept.parent = deptName;
+            let subDept = sumSalFirstLevelDept(dept);
+            let aggregrateSalary = {}
+            if (subDept.parent) {
+                aggregrateSalary[subDept.parent] = 0;
+                for (let eachDept in subDept) {
+                    if(eachDept!='parent')
+                    aggregrateSalary[subDept.parent] += subDept[eachDept];
+                }
+            }
+            delete subDept.parent;
+            deptSalary = { ...deptSalary, ...aggregrateSalary };
+        }
+    }
+    return deptSalary;
+}
+console.log(sumSalFirstLevelDept(company));
