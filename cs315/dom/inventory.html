@@ -25,6 +25,10 @@
         }
     </style>
     <script>
+         var prodcutArray = [{ name: 'dd', price: 30,image:'/ddd.jpeg' }, { name: 'dddd', price: 30 }];
+        //Set Item on every change to the object array, add, delete and edit
+         localStorage.setItem('inventory', JSON.stringify(prodcutArray));
+        
         function add() {
             let itemName = document.getElementById('itemName').value
             let itemPrice = document.getElementById('itemPrice').value
