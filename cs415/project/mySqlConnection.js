@@ -9,7 +9,13 @@ var con = mysql.createConnection({
   password: "root"
 });
 
-con.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-});
+var sql = {};
+sql.selectQuery = function(query,callback){
+  con.connect(function(err) {
+    if (err) throw err;
+    console.log("Connected!");
+    con.query(query, callback);
+  });
+}
+
+module.exports = sql;
