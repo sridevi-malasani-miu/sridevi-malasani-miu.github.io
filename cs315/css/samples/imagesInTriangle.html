@@ -1,0 +1,84 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        img {
+            width: 20px;
+            height: 20px;;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        .marginRight {
+            margin-right: 20px;
+        }
+
+        .contentDiv {
+            margin-top: 10px;
+            gap: 10px;
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+        }
+
+        .footerOuterDiv {
+            border: 1px solid red;
+            width: 80%;
+            height: 50px;
+            margin-top: 10px;
+            float: right;
+            font-size:14px;
+        }
+
+        .footerInnerDiv {
+            margin: 2%;
+            border: 1px solid red;
+            height: 90%;
+            width: 90%;
+        }
+    </style>
+</head>
+
+<body>
+    <div style="width:50%;text-align: center;margin:auto;">
+        <div>
+            <img src="../../images/boquet.jpeg" />
+        </div>
+        <div>
+            <img src="../../images/boquet.jpeg" class='marginRight' />
+            <img src="../../images/boquet.jpeg" />
+        </div>
+        <div>
+            <img src="../../images/boquet.jpeg" class='marginRight' />
+            <img src="../../images/boquet.jpeg" class='marginRight' />
+            <img src="../../images/boquet.jpeg" />
+        </div>
+    </div>
+    <div class="contentDiv">
+        <div style="padding:10px;background-color: lightcyan;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus debitis id nostrum facilis, dolorem
+            non mollitia provident consectetur beatae ab possimus cupiditate, magnam eum tenetur ratione velit a, rerum
+            corporis!
+        </div>
+        <div style="align-self:start;padding:10px;background-color: antiquewhite;">
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus debitis id nostrum facilis, dolorem
+            non mollitia provident consectetur beatae ab possimus cupiditate, magnam eum tenetur ratione velit a, rerum
+            corporis!
+        </div>
+    </div>
+    <div class="footerOuterDiv">
+        <div class="footerInnerDiv">
+            <div class="footerInnerDiv">
+                <div style="height:100%;display:flex;align-items: center; justify-content: center;">The End</div>
+            </div>
+        </div>
+    </div>
+    </div>
+</body>
+
+</html>
