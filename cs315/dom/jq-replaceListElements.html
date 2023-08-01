@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+          width: 100%;
+          border: 1px solid green;
+        }
+        
+        th, td {
+          padding: 16px;
+          border: 1px solid blue;
+        }
+        
+        tr:nth-child(even) {
+          background-color: #f2f2f2;
+        }
+        </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function listToTable() {
+            let myList = $('ul li');
+            let myTable = $('<table></table>');
+            // $('ul').after(myTable);
+            myList.each(function (idx, element) {
+                let jqElement = $(element);
+                let trElement = $('<tr></tr>');
+                myTable.append(trElement);
+                jqElement.html().trim().split('-').forEach(function(value){
+                    trElement.append('<td>' + value + "</td>");
+                })
+            })
+            $('#flowers').replaceWith(myTable);
+        }
+
+        function tableToList() {
+            let myTable = $('#myTable tr td');
+            let myUl = $('<ul></ul>');
+            myTable.each(function (idx, element) {
+                let html = $(element).html();
+                myUl.append('<li>' + html + '</li>')
+            })
+            $('#myTable').replaceWith(myUl);
+        }
+
+    </script>
+</head>
+
+<body>
+    <ul id="flowers">
+        <li> Rose - Red</li>
+        <li> Chamoline - Yellow </li>
+        <li> lily- white</li>
+    </ul>
+    <button onclick="listToTable();">Convert List to Table </button>
+    <div style='margin-top:20px;'></div>
+    <table id="myTable">
+        <tr>
+            <td>First Col</td>
+            <td>Second Col</td>
+        </tr>
+        <tr>
+            <td> 2 First Col</td>
+            <td>2 Second Col</td>
+        </tr>
+    </table>
+    <button onclick="tableToList();">Convert Table to List </button>
+</body>
+
+</html>
