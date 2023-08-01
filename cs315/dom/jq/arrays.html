@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        let flowers = ['Rose', 'lily', 'Jinnia'];
+        $('document').ready(function () {
+            buildList(flowers)
+        });
+
+        function buildList(flowers) {
+
+            let mySelect = $("#myList");
+            if (mySelect.length == 0) {
+                mySelect = $("<select id='myList'></select>");
+                $("body").append(mySelect)
+            }
+            mySelect.html("")
+
+            for (let flower of flowers) {
+                mySelect.append('<option>' + flower + '</option>')
+            }
+        }
+        function filterList() {
+            let myFlowers = flowers.filter(function (value) {
+                return value.length >= 5
+            })
+            buildList(myFlowers);
+        }
+
+    </script>
+</head>
+
+<body>
+    <button onclick="filterList()"> Filter</button>
+</body>
+
+</html>
