@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select{
+            width:60px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function move(src,dest,all){
+            let query = !all? 'select[name="'+src+'"] option:checked' :'select[name="'+src+'"] option'
+            let sourceSelOptions = $(query);
+            let destination = $('select[name="'+dest+'"]');
+            sourceSelOptions.each(function(idx,element){
+                destination.append($(element));
+            });
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display:flex;gap:10px;justify-content:space-around">
+        <select multiple name="source">
+            <option>rose</option>
+            <option>lily</option>
+            <option>daffodil</option>
+        </select>
+        <div style="display:flex;flex-direction:column">
+            <button onclick="move('source','destination');">></button>
+            <button onclick="move('source','destination',true);">>></button>
+            <button onclick="move('destination','source');"><</button>
+            <button onclick="move('destination','source',true);"><<</button>
+        </div>
+        <select multiple name="destination">
+    
+        </select>
+    </div>
+   
+</body>
+
+</html>
