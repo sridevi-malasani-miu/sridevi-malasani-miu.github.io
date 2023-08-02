@@ -1,0 +1,82 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        select{
+            display:block;
+            margin-bottom:10px;
+        }
+
+    </style>
+     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function readValues() {
+            let selectedValues = $("#selectedValues")
+            selectedValues.html("");
+            var e = $("select[name='country'] option:selected");
+            selectedValues.append("<label>Country: "+e.val()+"</label><br/>");
+
+            var prefOptions = $("select[name='preference'] option:selected");
+            var prefArray = [];
+            prefOptions.each(function(idx,ele){
+                prefArray.push($(ele).val());
+            })
+            selectedValues.append("<label>Preference: "+prefArray+"</label><br/>");
+
+            var gender = document.querySelector("input[name='gender']:checked");
+            console.log(gender);
+            let genderValue = gender?gender.value:'';
+            selectedValues.append("<label>Gender: "+genderValue+"</label><br/>");
+
+            var checkedDiet = $("input[name='diet']:checked");
+            let values =[];
+            checkedDiet.each(function(idx,ele){
+                values.push($(ele).val());
+            })
+            selectedValues.append("<label>Diet: "+values+"</label>");
+        }
+    </script>
+</head>
+
+<body>
+    Country
+    <select name="country" >
+        <option value="USA">United States of America</option>
+        <option value="IN">Other</option>
+    </select>
+
+    Room Preferences
+    <select name="preference" multiple >
+        <option value="Single">Single</option>
+        <option value="Shared">Shared</option>
+    </select>
+    <br/>
+
+    <div>
+        <label>Gender</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Male</label>
+        <input type="radio" value="male" name='gender'/>
+        <label>Female</label>
+    </div>
+
+    <div>
+        <label>Diet Restriction</label>
+        <input type="checkbox" value="vegan" name='diet'/>
+        <label>Vegan</label>
+        <input type="checkbox" value="nut" name='diet'/>
+        <label>Nut Allergy</label>
+    </div>
+    <button onclick="readValues()">My Button</button>
+<hr/>
+<h2> Selected Values</h2>
+<div id="selectedValues"></div>
+</body>
+
+</html>
