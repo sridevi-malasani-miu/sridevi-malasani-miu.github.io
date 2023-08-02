@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function preview(){
+            let nameText =$('#nameId');
+            change(nameText,nameText.val());
+
+            let textAreaField =$('#textArea');
+            change(textAreaField,textAreaField.val())
+
+            let selectField =$('select[name="hobbies"] option:selected');
+            let selects ='';
+            selectField.each(function(idx,element){
+                selects+=' '+$(element).val();
+            })
+            change($('select[name="hobbies"]'),selects)
+        }
+
+        function change(ele, newValue){
+            ele.replaceWith('<label>'+newValue+'</label>');
+        }
+    </script>
+</head>
+
+<body>
+    <div id="nameDiv">
+        Name <input type="text" id='nameId'/>
+    </div>
+    
+    <div>
+        Textarea <textarea id="textArea"></textarea>
+    </div>
+    
+    <div>
+        <label>Hobbies</label>
+        <select multiple name="hobbies">
+            <option value="programming">Programming</option>
+            <option value="running">Running</option>
+        </select>
+    </div>
+
+    
+    <input type="button" value='Submit' onclick ='preview();'/>
+</body>
+
+</html>
