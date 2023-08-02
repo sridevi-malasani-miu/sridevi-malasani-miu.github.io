@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        // let myObj = { name: 'Ram', scores: [10, 20, 30] };
+
+        let myObj = { name: 'Shyam', scores: [10, 20, 30], age:30, skills:["java","javascript"] };
+
+        $("document").ready(function () {
+            let div = $("<div></div>");
+            let html = "";
+
+            for (let prop in myObj) {
+                if (typeof myObj[prop] != 'object') {
+                    html += "<label>" + prop + "</label>" +
+                        "<input type='text' value='" + myObj[prop] + "'/>" +
+                        "<br/>" +
+                        "<label>Scores</label>";
+                }
+
+                if (Array.isArray(myObj[prop])) {
+                    for (let score of myObj[prop]) {
+                        let checked='';
+                        if(score=='javascript'){
+                            checked="checked";
+                        }
+                        html += "<input type='checkbox' value='10' "+checked+"/>" +
+                            " <label>" + score + "</label >";
+                    }
+                    html+="<br/>";
+                }
+
+            }
+            div.html(html);
+            console.log(div.html())
+            $('body').append(div);
+
+        })
+
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
