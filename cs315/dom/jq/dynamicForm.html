@@ -10,44 +10,41 @@
     <script>
         // let myObj = { name: 'Ram', scores: [10, 20, 30] };
 
-        let myObj = { name: 'Shyam', scores: [10, 20, 30], age:30, skills:["java","javascript"] };
+        let myObj = { name: 'Shyam', scores: [10, 20, 30], age: 30, skills: ["java", "javascript"] };
 
         $("document").ready(function () {
             let div = $("<div></div>");
             let html = "";
 
-            for (let prop in myObj) {
-                if (typeof myObj[prop] != 'object') {
-                    html += "<label>" + prop + "</label>" +
-                        "<input type='text' value='" + myObj[prop] + "'/>" +
-                        "<br/>" +
-                        "<label>Scores</label>";
-                }
+            let selectedValue = "Ram";
 
+
+            for (let prop in myObj) {
+                html += "<label>" + prop + "</label>";
+                if (typeof myObj[prop] != 'object') {
+                    html += "<input type='text' value='" + myObj[prop] + "'/>" +
+                        "<br/>";
+                }
                 if (Array.isArray(myObj[prop])) {
                     for (let score of myObj[prop]) {
-                        let checked='';
-                        if(score=='javascript'){
-                            checked="checked";
-                        }
-                        html += "<input type='checkbox' value='10' "+checked+"/>" +
-                            " <label>" + prop + "</label >";
+                        let checked = '';
+                        if (score == 'javascript') 
+                            checked = "checked";
+                        html += "<input type='checkbox' value='10' " + checked + "/>" +
+                            " <label>" + score + "</label >";
                     }
-                    html+="<br/>";
+                    html += "<br/>";
                 }
-
             }
             div.html(html);
             console.log(div.html())
             $('body').append(div);
-
         })
-
     </script>
 </head>
 
 <body>
-
+    
 </body>
 
 </html>
