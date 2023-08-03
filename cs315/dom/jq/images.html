@@ -6,39 +6,42 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
         let list = [{ id: 2, fname: 'John', lname: 'Doe', img: '/images/chrysanthumum.jpeg' },
-        { id: 4, fname: 'Maharishi', lname: 'Mahesh', img: '/images/jinnia.jpeg' },
+        { id: 4, fname: 'Maharishi', lname: 'Mahesh', img: '/images/purple.jpeg' },
         { id: 3, fname: 'Arya', lname: 'Batt', img: '/images/longImage.jpeg' },
-        { id: 1, fname: 'Aakash', lname: 'Chatterji', img: '/images/tulips.jpeg' }]
+        { id: 1, fname: 'Aakash', lname: 'Chatterji', img: '/images/zenTable.jpeg' }]
 
         window.onload = function () {
-            let div = document.getElementById('container');
-            div.setAttribute('style', 'display:flex;gap:10px;flex-wrap:wrap;');
+            let div = $('#container');
+            div.attr('style', 'display:flex;gap:10px;flex-wrap:wrap;');
 
-            let sort = document.createElement('button');
-            sort.innerHTML = 'Sort';
-            sort.setAttribute('onclick', 'sort()')
+            let sort = $('<button></button>');
+            sort.html('Sort');
+            sort.attr('onclick', 'sort()')
             div.before(sort);
             create(list);
         }
 
         function create(list) {
-            let div = document.getElementById('container');
-            div.innerHTML = '';
+            let div = $('#container');
+            div.html('');
+            let html='';
             for (let myobj of list) {
-                div.innerHTML += '<div style="display:flex;gap:10px;">'
+                html+='<div style="display:flex;gap:10px;">'
                     + "<img src ='" + myobj.img + "' style='height:100px;width:100px;object-fit: cover;'/>"
                     + '<div>'
                     + '<div>' + myobj.fname + '</div>'
                     + '<p>' + myobj.lname + '</p>'
                     + '<button onclick="deleteCol(this);">Delete</button>'
-                    + '</div></div>'
+                    + '</div></div>';
             }
+            div.html(html);
         }
 
         function deleteCol(any) {
-            any.parentElement.parentElement.remove();
+            $(any).parent().parent().remove();
         }
         let sortCol = 'id'//To remember previous sort
         //Sort by ID
