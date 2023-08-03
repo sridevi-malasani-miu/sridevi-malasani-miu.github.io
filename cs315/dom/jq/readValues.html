@@ -19,6 +19,9 @@
         function readValues() {
             let selectedValues = $("#selectedValues")
             selectedValues.html("");
+
+            selectedValues.append("<label>Name: "+$('#inputText').val()+"</label><br/>");
+            selectedValues.append("<label>Description: "+$("#textArea").val()+"</label><br/>");
             var e = $("select[name='country'] option:selected");
             selectedValues.append("<label>Country: "+e.val()+"</label><br/>");
 
@@ -45,6 +48,10 @@
 </head>
 
 <body>
+    <label>Name</label>
+    <input type="text" id="inputText"/><br/><br/>
+    Description
+    <textarea id="textArea"> </textarea><br/>
     Country
     <select name="country" >
         <option value="USA">United States of America</option>
@@ -80,3 +87,4 @@
 </body>
 
 </html>
+<!-- diff between remove and replace and empty div -->
