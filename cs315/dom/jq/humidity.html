@@ -1,0 +1,59 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        let obj = [{ humidity: 20, speed: 30 }, { humidity: 10, speed: 40 }];
+        // let obj = [{ color: "red", flower:"rose",plant:'Shrub' }, { color: "red", flower:"jinnia",plant:'shrub' }];
+
+        window.onload = function () {
+            let myDIV = $("<div id='myDIV'></div>");
+            $('body').append(myDIV)
+            let mySelect = $("<select name='mySelect' multiple></select>");
+            myDIV.append(mySelect);
+            for (let key in obj[0]) {
+                mySelect.append($("<option value='" + key + "'>" + key + "</option>"));
+            }
+            myDIV.append($("<button onclick='mySubmit();'>Submit</button>"))
+        }
+
+        function mySubmit() {
+            let button = $("button");
+            let selection = getValues();
+            $("#labelsDIV").remove();
+            let labelsDIV = $('<div id="labelsDIV"></div>');
+            button.after(labelsDIV);
+
+            for (let item of obj) {
+                for (let key in item) {
+                    let text = '';
+                    if (selection.indexOf(key) >= 0) {
+                        text+='<br/><br/><label>' + key + '</label>';
+                        text+='<input type="text" value="' + item[key] + '"/><br/>';
+                        labelsDIV.append($(text))
+                    }
+                }
+            }
+        }
+
+        function getValues() {
+            let selectedOptions = $('[name="mySelect"] option:selected');
+            let values = [];
+            for (let option of selectedOptions) {
+                values.push($(option).val());
+            }
+            return values;
+        }
+    </script>
+</head>
+
+<body>
+</body>
+
+</html>
