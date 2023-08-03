@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+            let objs = { tags: ['div', 'label'], text: ['Welcome', 'DIFFFF'], color: ['blue', 'orange'] }
+
+            let tagSelect = ' <label>Select Tag: </label> <select id="tagId">';
+            let text = '<label>Select Text: </label>';
+            let color = '<label>Select Color: </label><select id="colorId">';
+
+
+            for (let mytags of objs.tags) {
+                tagSelect += '<option value="' + mytags + '">' + mytags + "</option>"
+            }
+
+            for (let mytags of objs.text) {
+                text += mytags + '<input type="radio" name="textId" value="' + mytags + '"/>'
+            }
+            for (let mytags of objs.color) {
+                color += '<option value="' + mytags + '">' + mytags + "</option>";
+            }
+            $('body').append($(tagSelect + "</select>"));
+            $('body').append($('<br/><br/>'));
+
+            $('body').append($(text));
+            $('body').append($('<br/><br/>'));
+            $('body').append($(color + "</select>"));
+            $('body').append($('<br/><br/>'));
+
+            $('body').append($('<input type="button" onclick="clickMe();" value="myButton">'));
+        }
+
+        function clickMe() {
+            let mytag = $('#tagId option:selected').val();
+            let myText = $('[name="textId"]:checked').val();
+            let myColor = $('#colorId option:selected').val();
+            alert($('#textId option:selected').val());
+            $('body').append($('<' + mytag + ' style ="color:' + myColor + ';">' + myText + '</label>'));
+        }
+        
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
