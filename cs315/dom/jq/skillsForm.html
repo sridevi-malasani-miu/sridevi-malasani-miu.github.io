@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        let objectArray = [{ Name: 'Ram', Age: 30, Skills: ['java', 'javascript'] },
+        { Name: 'Shyam', Age: 20, Skills: ['python', 'c'] }]
+        $('document').ready(function () {
+            let options = ''
+            for (let ele of objectArray) {
+                options += '<option>' + ele.Name + '</option>';
+            }
+            $('#selectId').html(options)
+        })
+
+        function populate() {
+            console.log($('#selectId').val());
+            for (let ele of objectArray) {
+                if (ele.Name == $('#selectId').val())
+                    $('#body').html(buildRow(ele));
+            }
+        }
+
+        function submitAction() {
+            if ($('input:checked').val() == 'java') {
+                if ($('#subSkillsId').length == 0) {
+                    let html = '<div id="subSkillsId"><label>Sub Skills</label>' +
+                        '<select><option>Spring</option>' +
+                        '<option>Hibernate</option></select></div>';
+                    $('#body').append(html);
+                }
+            } else
+                $('#subSkillsId').remove();
+        }
+
+        function buildRow(ele) {
+            let html = '';
+            for (let key in ele) {
+                if (key == 'Name')
+                    continue;
+                html += '<label>' + key + "</label>"
+                if (typeof ele[key] == 'object') {
+                    for (let value1 of ele[key]) {
+                        console.log(value1)
+                        html += '<input type="checkbox" value="' + value1 + '"/>' + "<label>"
+                            + value1 + "</label>";
+                    }
+                } else
+                    html += '<input type="text" value=' + ele[key] + '>';
+                html += '<br/><br/>';
+            }
+            console.log(html)
+            return html;
+        }
+    </script>
+</head>
+
+<body>
+    <label>Select Student</label>
+    <select id="selectId">
+
+    </select>
+    <button onclick="populate()">Populate</button>
+    <br />
+    <br />
+    <div id="body">
+
+    </div>
+
+    <button onclick="submitAction()" id="submitBtn">Submit</button>
+
+</body>
+
+</html>
