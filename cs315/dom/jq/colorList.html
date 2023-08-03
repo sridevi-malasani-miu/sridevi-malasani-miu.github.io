@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
+    <script>
+        function submitAction() {
+            let value = $('#row').val().trim();
+            let myValues = value.split("-");
+            if (value == 'smaller')
+                $('h4').replaceWith('<h5>Color Me</h5>')
+            else if (myValues.length == 2) {
+                console.log(" exists ", exists(myValues[1]))
+                if (!exists(myValues[1])) {
+                    $('ul').append('<li>' + myValues[1] + '</li>');
+                    arr.push(myValues[1]);
+                }
+            }
+            else {
+                $('h4').css('color', value.trim());
+                $('h5').css('color', value.trim());
+            }
+        }
+
+        function exists(item) {
+            let found = false;
+            $('li').each(function (id, element) {
+                console.log(item, $(element).html().trim(), $(element).html().trim() == item);
+                if ($(element).html().trim() == item) {
+                    found = true;
+                }
+            })
+            return found;
+        }
+
+    </script>
+</head>
+
+<body>
+    Input <input id='row' type='text' />
+    <h4>Color Me</h4>
+    <input id='buttonId' type="submit" onclick=" submitAction()" value="Submit" />
+    <ul>
+
+    </ul>
+
+</body>
+
+</html>
