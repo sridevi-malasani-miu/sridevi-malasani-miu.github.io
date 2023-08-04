@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $("document").ready(function () {
+            let pos = 0; dir = 'right';
+            let trackWidth = window.innerWidth - 100;
+            let trackHeight = parseInt($('img').css("margin-top"));
+            console.log(" my track ", trackHeight)
+
+            let myId = setInterval(function () {
+                if (dir == 'right') {
+                    if (pos <= trackWidth) {
+                        pos = pos + 5;
+                        $('img').css("margin-left", pos + "px");
+                    } else {
+                        dir = 'up';
+                        pos = trackHeight;
+                        $('img').css('transform', 'rotate(-90deg)');
+                    }
+                }
+                if (dir == 'up') {
+                    console.log(" Here up", pos)
+                    if (pos >= 0) {
+                        $('img').css("margin-top", pos + "px");
+                        pos = pos - 5;
+                    } else {
+                        dir = 'left';
+                        pos = trackWidth;
+                        $('img').css('transform', 'scaleX(-1)');
+                    }
+                }
+                if (dir == 'left') {
+                    if (pos >= 0) {
+                        $('img').css("margin-left", pos + "px");
+                        pos = pos - 5;
+                    } else {
+                        dir = 'down';
+                        $('img').css('transform', 'rotate(90deg)');
+                    }
+                }
+                if (dir == 'down') {
+                    if (pos <= trackHeight) {
+                        $('img').css("margin-top", pos + "px");
+                        pos = pos + 5;
+                    } else {
+                        dir = 'left';
+                        $('img').css('transform', '');
+                        clearInterval(myId);
+                    }
+                }
+            }, 50)
+        })
+
+    </script>
+</head>
+
+<body>
+    <div style="height:500px;border:1px solid blue;">
+        <img src="/images/redCar.jpeg" style="width:100px;margin-top:400px;" />
+    </div>
+
+</body>
+</html>
