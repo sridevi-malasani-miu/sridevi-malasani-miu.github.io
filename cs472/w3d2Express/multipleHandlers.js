@@ -12,18 +12,22 @@ app.listen(80, function() {
 
 app.get('/edit',function(req,res,next){
     console.log("edit get 1")
+    next();
 })
 app.post('/edit',function(req,res,next){
     console.log("edit post")
+    next();
 })
 
 app.get('/edit',function(req,res,next){
     console.log(" edit get 2")
+    next();
 })
 
 
 app.use("/edit",function(req,res,next){
     console.log(" app.use /edit  3 ");
+    next();
 })
 
 app.use(function(req,res,next){
