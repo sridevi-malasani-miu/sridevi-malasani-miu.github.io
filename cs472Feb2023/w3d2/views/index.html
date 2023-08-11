@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+  <script>
+    function doAjax() {
+      $.ajax({
+        "url": "/ajaxToggleColor",
+        "type": "GET",
+        // "data":{inputText:$('#myText').val()},
+        "success": myAjaxSuccessFunction,
+        "error": ajaxFailure
+      });
+      function myAjaxSuccessFunction(data) {
+        // do something with the data
+        console.log(" HERE  ",data);
+        console.log($('button'))
+        $("button").css('color',data.color);
+      }
+      function ajaxFailure(xhr, status, exception) {
+        $("button").html("Error");
+        console.log(xhr, status, exception);
+      }
+    }
+  </script>
+</head>
+
+
+<body>
+  <button onclick="doAjax();">Ajax call</button>
+  <form action="/save" method="post">
+    <input type="hidden" value="myValue" name="hiddenField">
+    <input type="text" value="text" name="textField" id="myText">
+    <input type="submit" value="submit" />
+  </form>
+</body>
+
+</html>
