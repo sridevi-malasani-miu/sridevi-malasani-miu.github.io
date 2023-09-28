@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    Fixed width columns
+    <div style="border:1px solid black;display:grid;grid-template-columns:40px 40px 40px;gap:10px;">
+        <div style="background-color: aqua;">Col 1</div>
+        <div style="background-color:burlywood  ">Col 2</div>
+        <div style="background-color:lightgreen;">Col 3</div>
+    </div>
+    Equal sized columns
+    <div style="border:1px solid black;display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;">
+        <div style="background-color: aqua;">Col 1</div>
+        <div style="background-color:burlywood  ; ">Col 2</div>
+        <div style="background-color:lightgreen;">Col 3</div>
+    </div>
+    Auto sized columns( size according to content)
+    <div style="border:1px solid black;display:grid;grid-template-columns:auto auto auto;gap:10px;">
+        <div style="background-color: aqua;">Col 1</div>
+        <div style="background-color:burlywood  ;">Col 2</div>
+        <div style="background-color:lightgreen;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            delectus maxime quis id adipisci blanditiis, illum quos officia beatae consequatur, ipsa excepturi esse nisi
+            harum alias aut similique voluptatibus earum.</div>
+        <div style="background-color:lightgreen;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Quaerat
+            delectus maxime quis id adipisci blanditiis, illum quos officia beatae consequatur, ipsa excepturi esse nisi
+            harum alias aut similique voluptatibus earum.</div>
+        <div style="background-color:burlywood  ;">Col 3</div>
+    </div>
+
+</body>
+
+</html>
