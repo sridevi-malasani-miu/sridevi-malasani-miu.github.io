@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div > section.blueBorder{
+            border:1px solid blue;
+        }
+        /* div > section.blueBorder{
+            border:1px solid blue;
+        }
+
+        section:nth-child(1){
+            color:yellow;
+        }
+
+        div .blueBorder{
+            color:blue;
+        }
+
+        div.blueBorder{
+            color:blue;
+        }
+
+        article+section{
+            color:yellow;
+        }
+        
+        article ~ section {
+            color:blue;
+        } */
+
+    </style>
+</head>
+<body>
+    <div>
+        <article class="blueBorder">My Article</article>
+        <section class="blueBorder"> My Section</section>
+        <header>
+            <section>Second Section</section>
+            <article>
+                <section class="blueBorder"> Third Section</section>
+            </article>
+        </header>
+    </div>
+    
+</body>
+</html>
