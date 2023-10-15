@@ -1,106 +1,127 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
 <body>
+    <div style="display:flex; gap:10px;flex-wrap: wrap;">
+        <div>
+            <h1>House</h1>
+            <svg width="200" height="200" style="border:1px solid red;">
+                <polygon points="10,190 10,150 35,115 60,150 60,190" style="fill:lime;stroke:purple;stroke-width:1" />
+                <rect x="25" y="160" width="20" height="30" style="fill:brown;" />
+                <line x1="35" y1="115" x2="35" y2="80" style="stroke:blue;stroke-width:2" />
 
-<h1>House</h1>
+                <rect x="35" y="80" width="20" height="10" style="fill:orange;" />
+            </svg>
+        </div>
+        <div>
+            <h1>Face</h1>
 
-<svg width="200" height="200" style="border:1px solid red;">
-  <polygon points="10,190 10,150 35,115 60,150 60,190" style="fill:lime;stroke:purple;stroke-width:1" />
-  <rect  x="25" y="160" width="20" height="30" style="fill:brown;" />
-  <line x1="35" y1="115" x2="35" y2="80" style="stroke:blue;stroke-width:2" />
+            <svg width="200" height="100" style="border:1px solid red;">
+                <circle cx="150" cy="50" r="40" stroke-width="3" fill="yellow" />
+                <circle cx="130" cy="40" r="5" stroke-width="3" fill="black" />
+                <circle cx="170" cy="40" r="5" stroke-width="3" fill="black" />
+                <polyline points="150,45 150,65 155,55 " style="fill:none;stroke:black;stroke-width:3" />
 
-  <rect  x="35" y="80" width="20" height="10" style="fill:orange;" />
-</svg>
+                <polyline points="138,72 140,75  160,75 163,72 " style="fill:none;stroke:black;stroke-width:3" />
 
-<h1>Face</h1>
+            </svg>
+        </div>
+        <div>
+            <h1>Truck</h1>
+            <svg width="200" height="200" style="border:1px solid red;">
+                <rect x="10" y="130" width="170" height="40" style="fill:brown;" />
+                <circle cx="30" cy="170" r="20" stroke="black" stroke-width="3" fill="white" />
+                <circle cx="30" cy="170" r="4" stroke="black" stroke-width="3" fill="" />
+                <line x1="30" y1="170" x2="40" y2="154" style="stroke:black;stroke-width:2" />
+                <line x1="30" y1="170" x2="50" y2="174" style="stroke:black;stroke-width:2" />
+                <line x1="30" y1="170" x2="10" y2="174" style="stroke:black;stroke-width:2" />
+                <line x1="30" y1="170" x2="25" y2="190" style="stroke:black;stroke-width:2" />
+                <line x1="30" y1="170" x2="20" y2="152" style="stroke:black;stroke-width:2" />
+                <line x1="30" y1="170" x2="40" y2="188" style="stroke:black;stroke-width:2" />
 
-<svg width="200" height="100" style="border:1px solid red;">
-  <circle cx="150" cy="50" r="40"  stroke-width="3" fill="yellow" />
-  <circle cx="130" cy="40" r="5"  stroke-width="3" fill="black" />
-  <circle cx="170" cy="40" r="5"  stroke-width="3" fill="black" />
-  <polyline points="150,45 150,65 155,55 " style="fill:none;stroke:black;stroke-width:3" />
-  
-  <polyline points="138,72 140,75  160,75 163,72 " style="fill:none;stroke:black;stroke-width:3" />
- 
-</svg>
 
-<h1>Truck</h1>
-<svg width="200" height="200" style="border:1px solid red;">
-  <rect  x="10" y="130" width="170" height="40" style="fill:brown;" />
-  <circle cx="30" cy="170" r="20" stroke="black" stroke-width="3" fill="white" />
-  <circle cx="30" cy="170" r="4" stroke="black" stroke-width="3" fill="" />
-  <line x1="30" y1="170" x2="40" y2="154" style="stroke:black;stroke-width:2" />
-  <line x1="30" y1="170" x2="50" y2="174" style="stroke:black;stroke-width:2" />
-  <line x1="30" y1="170" x2="10" y2="174" style="stroke:black;stroke-width:2" />
-  <line x1="30" y1="170" x2="25" y2="190" style="stroke:black;stroke-width:2" />
-  <line x1="30" y1="170" x2="20" y2="152" style="stroke:black;stroke-width:2" />
-  <line x1="30" y1="170" x2="40" y2="188" style="stroke:black;stroke-width:2" />
+                <circle cx="150" cy="170" r="20" stroke="black" stroke-width="3" fill="white" />
+                <circle cx="150" cy="170" r="5" stroke-width="3" fill="black" />
+                <line x1="150" y1="170" x2="160" y2="154" style="stroke:black;stroke-width:2" />
+                <line x1="150" y1="170" x2="170" y2="174" style="stroke:black;stroke-width:2" />
+                <line x1="150" y1="170" x2="130" y2="174" style="stroke:black;stroke-width:2" />
+                <line x1="150" y1="170" x2="145" y2="190" style="stroke:black;stroke-width:2" />
+                <line x1="150" y1="170" x2="140" y2="152" style="stroke:black;stroke-width:2" />
+                <line x1="150" y1="170" x2="160" y2="188" style="stroke:black;stroke-width:2" />
+            </svg>
+        </div>
+        <div>
+            <h3 style="display:in">Fish</h3>
+            <svg width="150" height="60" style="border:1px solid red;">
+                <ellipse cx="65" cy="30" rx="50" ry="20" stroke-width="3" fill="lightblue" />
+                <circle cx="30" cy="30" r="5" stroke-width="3" fill="black" />
 
-  
-  <circle cx="150" cy="170" r="20" stroke="black" stroke-width="3" fill="white" />
-  <circle cx="150" cy="170" r="5"  stroke-width="3" fill="black" />
-  <line x1="150" y1="170" x2="160" y2="154" style="stroke:black;stroke-width:2" />
-  <line x1="150" y1="170" x2="170" y2="174" style="stroke:black;stroke-width:2" />
-  <line x1="150" y1="170" x2="130" y2="174" style="stroke:black;stroke-width:2" />
-  <line x1="150" y1="170" x2="145" y2="190" style="stroke:black;stroke-width:2" />
-  <line x1="150" y1="170" x2="140" y2="152" style="stroke:black;stroke-width:2" />
-  <line x1="150" y1="170" x2="160" y2="188" style="stroke:black;stroke-width:2" />
-</svg>
-<h3 style="display:in">Fish</h3>
-<svg width="150" height="60" style="border:1px solid red;">
-  <ellipse cx="65" cy="30" rx="50" ry="20"  stroke-width="3" fill="lightblue" />
-  <circle cx="30" cy="30" r="5"  stroke-width="3" fill="black" />
-  
-  <polyline points=" 40,20 40,40 37,43 " style="fill:none;stroke:black;stroke-width:3" />
-  <polygon points="115,30 130,20 130,40" style="fill:none;stroke:black;stroke-width:3" />
-</svg>
-<h3>Fly</h3>
-    <svg height="250" width="300" style="border:1px solid blue;">
-        <ellipse cx="150" cy="55" rx="25" ry="50" style="fill:brown;stroke:purple;stroke-width:2" />
-        <ellipse cx="150" cy="155" rx="25" ry="50" style="fill:brown;stroke:purple;stroke-width:2" />
-        <line x1="155" y1="105" x2="200" y2="50" style="stroke:blue;stroke-width:2" />
-        <circle cx="200" cy="50" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+                <polyline points=" 40,20 40,40 37,43 " style="fill:none;stroke:black;stroke-width:3" />
+                <polygon points="115,30 130,20 130,40" style="fill:none;stroke:black;stroke-width:3" />
+            </svg>
+        </div>
+        <div>
+            <h3>Fly</h3>
+            <svg height="250" width="300" style="border:1px solid blue;">
+                <ellipse cx="150" cy="55" rx="25" ry="50" style="fill:brown;stroke:purple;stroke-width:2" />
+                <ellipse cx="150" cy="155" rx="25" ry="50" style="fill:brown;stroke:purple;stroke-width:2" />
+                <line x1="155" y1="105" x2="200" y2="50" style="stroke:blue;stroke-width:2" />
+                <circle cx="200" cy="50" r="5" stroke="pink" stroke-width="2" fill="yellow" />
 
-        <line x1="155" y1="105" x2="210" y2="100" style="stroke:blue;stroke-width:2" />
-        <circle cx="210" cy="100" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+                <line x1="155" y1="105" x2="210" y2="100" style="stroke:blue;stroke-width:2" />
+                <circle cx="210" cy="100" r="5" stroke="pink" stroke-width="2" fill="yellow" />
 
-        <line x1="155" y1="105" x2="200" y2="150" style="stroke:blue;stroke-width:2" />
-        <circle cx="200" cy="150" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+                <line x1="155" y1="105" x2="200" y2="150" style="stroke:blue;stroke-width:2" />
+                <circle cx="200" cy="150" r="5" stroke="pink" stroke-width="2" fill="yellow" />
 
-        <line x1="145" y1="105" x2="100" y2="50" style="stroke:blue;stroke-width:2" />
-        <circle cx="100" cy="50" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+                <line x1="145" y1="105" x2="100" y2="50" style="stroke:blue;stroke-width:2" />
+                <circle cx="100" cy="50" r="5" stroke="pink" stroke-width="2" fill="yellow" />
 
-        <line x1="145" y1="105" x2="90" y2="110" style="stroke:blue;stroke-width:2" />
-        <circle cx="90" cy="110" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+                <line x1="145" y1="105" x2="90" y2="110" style="stroke:blue;stroke-width:2" />
+                <circle cx="90" cy="110" r="5" stroke="pink" stroke-width="2" fill="yellow" />
 
-        <line x1="145" y1="105" x2="100" y2="150" style="stroke:blue;stroke-width:2" />
-        <circle cx="100" cy="150" r="5" stroke="pink" stroke-width="2" fill="yellow" />
-    </svg>
-    <h3>Parachute</h3>
-    <svg height="300" width="200" style="border:1px solid blue;">
-        <polygon points="100,200 50,100 150,100 " style="fill:lime;" />
-        <circle cx="100" cy="100" r="50" fill="lime" />
-        <polyline points="100,100 70,60 120,55 " style="fill:yellow;" />
-        <polyline points="100,100 120,60 150,90 " style="fill:coral;" />
-        <polyline points="100,100 130,130 150,100" style="fill:rgb(192, 105, 192);" />
-        <polyline points="100,100 60,70 60,130 " style="fill:pink;" />
+                <line x1="145" y1="105" x2="100" y2="150" style="stroke:blue;stroke-width:2" />
+                <circle cx="100" cy="150" r="5" stroke="pink" stroke-width="2" fill="yellow" />
+            </svg>
+        </div>
+        <div>
+            <h3>Parachute</h3>
+            <svg height="300" width="200" style="border:1px solid blue;">
+                <polygon points="100,200 50,100 150,100 " style="fill:lime;" />
+                <circle cx="100" cy="100" r="50" fill="lime" />
+                <polyline points="100,100 70,60 120,55 " style="fill:yellow;" />
+                <polyline points="100,100 120,60 150,90 " style="fill:coral;" />
+                <polyline points="100,100 130,130 150,100" style="fill:rgb(192, 105, 192);" />
+                <polyline points="100,100 60,70 60,130 " style="fill:pink;" />
 
-        <polyline points="100,199 120,230 130,260 90,300  " style="fill:none;stroke:black;stroke-width:2" />
+                <polyline points="100,199 120,230 130,260 90,300  " style="fill:none;stroke:black;stroke-width:2" />
 
-    </svg>
+            </svg>
+        </div>
+        <div>
+            <h3>Ship</h3>
+            <svg height="300" width="200" style="border:1px solid blue;">
+                <rect width="300" height="50" x="0" y='250' style="fill:lightblue;" />
+                <polyline points="0,290 50,280 100,290 200,280 " style="fill:none;stroke:white;" />
+                <polyline points="200,275 150,270 100,265 0,270 " style="fill:none;stroke:white;" />
 
-    <h3>Ship</h3>
-    <svg height="300" width="200" style="border:1px solid blue;">
-        <rect width="300" height="50" x="0" y='250' style="fill:lightblue;" />
-        <polyline points="0,290 50,280 100,290 200,280 " style="fill:none;stroke:white;" />
-        <polyline points="200,275 150,270 100,265 0,270 " style="fill:none;stroke:white;" />
+                <polygon points="10,210 40,250 140,250 170,210 " style="fill:lightgreen;;" />
+                <line x1="40" y1="210" x2="40" y2="50" style="stroke:blue;stroke-width:3" />
+                <polygon points="40,80 70,80 40,60 " style="fill:yellow;" />
+            </svg>
+        </div>
+    </div>
 
-        <polygon points="10,210 40,250 140,250 170,210 " style="fill:lightgreen;;" />
-        <line x1="40" y1="210" x2="40" y2="50" style="stroke:blue;stroke-width:3" />
-        <polygon points="40,80 70,80 40,60 " style="fill:yellow;" />
-    </svg>
+
+
+
 </body>
-</html>
 
-</body>
 </html>
