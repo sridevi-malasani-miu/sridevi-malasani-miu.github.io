@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea.textArea{
+            background-color: green;;
+        }
+        input {
+            background-color: coral;
+        }
+
+    </style>
+    <script>
+        function swap() {
+            let nameText = document.getElementById('nameText');
+            let alias = document.getElementById('alias');
+
+            console.log(nameText.value, alias.value);
+            console.log()
+            let nameValue = nameText.value;
+            nameText.value = alias.value;
+            alias.value = nameValue;
+
+        }
+
+       
+
+        function add(){
+            let input1 = document.getElementById('number1')
+            let input2 = document.getElementById('number2');
+            
+            let input3 = document.getElementById('result');
+            console.log(input1,input2,input3)
+            input3.value = parseInt(input1.value)+parseInt(input2.value);
+
+                console.log(input1.value+input2.value)
+            // //Read Attributes
+            // console.log(input1.getAttribute('sri'))
+            // console.log(input1.getAttribute('type'));
+
+            // //Set Attributes
+            // console.log(input1.setAttribute('class','apiClass'))
+            // console.log(input1.setAttribute('type','radio'));
+
+            // //Content
+            // let myP = document.getElementById('myId');
+            // console.log(document.getElementById('myId'));
+            // console.log(myP.innerHTML);
+
+            // //Set Content
+            // myP.innerHTML=  "Change from Code"+myP.innerHTML;
+            // console.log(myP.innerHTML);
+        }
+
+        function useQuery(){
+            // let inputs = document.querySelectorAll('textarea.textArea');
+            // console.log(inputs);
+            // for(let i=0;i<inputs.length;i++){
+            //     console.log(" Inside for loop ",inputs[i]);
+            //     inputs[i].innerHTML= "From Script";
+            // }
+
+            // let inputs = document.querySelectorAll('input');
+            //     // console.log(inputs.value);
+            // for(let i=0;i<inputs.length;i++){
+            //     let eachInput = inputs[i];
+            //     if(i>2){
+            //         eachInput.style.color='white';
+            //     }
+             
+            // }
+
+            // let classSelect = document.getElementsByClassName("NatnaelClass");
+            // for(let i=0;i<classSelect.length;i++){
+            //     classSelect[i].style.backgroundColor='blue'
+            // }
+
+            let div = document.createElement('div');
+            div.innerHTML=" Hello World";
+            div.setAttribute('id','myDiv');
+
+            // document.body.append(div);
+            // document.getElementById('addBtn').after(div);
+
+            //remove
+            // document.getElementById('addBtn').remove();
+//hide
+            document.getElementById('addBtn').style.display='none'
+
+        }
+        
+    </script>
+</head>
+
+<body>
+    <img src="/images/Alaska.webp" style="width:190px;"/>
+    <a href="ssdfdsf">dsfdsfsdf</a>
+    <button onclick="useQuery()"> Query Selector</button>
+    <p id="myId"> <label>Label</label> <label>Labeldfdfd</label> </p>
+    Name<input id='nameText' type="text" value="name" class="NatnaelClass"/>
+    <br />
+    Alias <input id='alias' type="text" />
+    <button onclick="swap();" class="NatnaelClass"> Swap</button>
+<hr/>
+    Number 1<input id='number1' class="myClass" type="number" sri="sri" />
+    <br />
+    Number 2 <input id='number2' type="number" />
+    <br />
+    Number 3 <textarea class="textArea" id="result">dfdsfsfsdfsdfsfs</textarea>
+    <br/>
+    <br/>
+    <button id="addBtn" onclick="add();"> Add</button>
+   
+
+
+</body>
+
+</html>
