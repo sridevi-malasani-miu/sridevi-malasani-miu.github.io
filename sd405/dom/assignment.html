@@ -6,32 +6,105 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script>
-        function clearText() {
-            let myInput = document.querySelector('input[type="text"]');
-            myInput.value = "";
-            // myInput.style.display = 'none'
+        function clickMe() {
+            //Edit DIV
+            let divs = document.querySelector('div');
+            divs.innerHTML = " Edit My DIV";
+
+            // Edit Paragraph
+            let para = document.querySelectorAll('p')[0];
+            console.log(para)
+            para.innerHTML = " EDITED " + para.innerHTML;
+
+            //Edit href and link name
+            let anchorTag = document.querySelector('a');
+            anchorTag.innerHTML = "Apple";
+            anchorTag.setAttribute("href", 'http://www.apple.com');
+
+            // Edit Image Address
+            let myImage = document.querySelector('img');
+            myImage.setAttribute("src", '/images/Alaska.webp');
+
+            //Edit TextArea
+            let myTextAra = document.querySelector('textarea');
+            myTextAra.value = ' EDIT';
+
+            //Change label and input
+            let label = document.querySelector('label');
+            label.innerHTML = ' Edit Skills';
+
+            let inputBox = document.querySelector('input');
+            inputBox.value = ' my radio';
+            inputBox.setAttribute("type", "radio");
         }
 
-        function appendText() {
-            let inputText = document.getElementById('myInput');
+        function createHtmlElement() {
+            //Create DIV
+            let myDIV = document.createElement('div');
+            myDIV.innerHTML = " Created DIV";
+            myDIV.setAttribute('id', 'myDIVID');
+            document.body.append(myDIV);
 
-            let textAreaEle = document.querySelector('textarea');
-            textAreaEle.value =  textAreaEle.value+" "+inputText.value;
-            // myInput.style.display = 'none'
+            //Input Text
+            let inputText = document.createElement('input');
+            inputText.value = 'Created from Input';
+
+            //Add input after para
+            let myParagraph = document.querySelector('p');
+            myParagraph.setAttribute('id', 'myPara')
+            document.getElementById('myPara').after(inputText)
+
+            // Add another list item
+            let lastItem = document.querySelector('ul li:nth-child(2)');
+            console.log(lastItem);
+            let liEle = document.createElement('li');
+            liEle.innerHTML = "gauva";
+            // lastItem.after(liEle);
+            document.querySelector('ul').append(liEle);
+
+            let newRow = document.createElement('tr');
+            // let newOneTd = document.createElement('td');
+            // newOneTd.innerHTML="Three";
+            // newRow.append(newOneTd);
+            newRow.innerHTML = " <td> Three</td>" +
+                "<td> Four</td>";
+            document.querySelector('table').append(newRow);
         }
-
     </script>
 </head>
 
 <body>
-    <input type="text" value="rama" />
-    <input type="button" onclick="clearText();" value="Clear" />
+
+    <ul>
+        <li>Apple</li>
+        <li>Pear</li>
+        <li>Grapes</li>
+    </ul>
+<hr/>
+    <table>
+        <tr>
+            <td> One</td>
+            <td> Two</td>
+        </tr>
+    </table>
+    <hr/>
+    <div> My DIV</div>
     <hr />
-    <input type="text" value="Apple" id="myInput"/>
-    <br/>
-    <textarea></textarea>
-    <input type="button" onclick="appendText();" value="Append" />
+    <label> Skills</label>
+    <input type="checkbox" name="myCheckbox" />
     <hr />
+    <textarea>TEXT AREA</textarea>
+    <hr />
+    <img src="/images/longImage.jpeg" style="width:100px;" />
+    <p> Lorem ipsum dolor sit, amet consectetur adipisicing elit. Tempore, quam? Neque aspernatur amet consectetur,
+        quidem suscipit dolorem harum minima perspiciatis ducimus dolore corporis unde magni sequi enim impedit laborum
+        non?</p>
+    <a href="http://www.google.com">My LInk </a>
+    <hr />
+
+    <button onclick="clickMe()"> Click </button>
+
+    <button onclick="createHtmlElement()"> Create Element </button>
 </body>
 
 </html>
