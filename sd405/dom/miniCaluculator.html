@@ -11,7 +11,20 @@
         }
 
         function execute(){
-            alert(document.querySelector('textarea').value)
+            let myTextAreaValue = document.querySelector('textarea').value;
+            let lhs,rhs,op;
+            for(let i =0;i<myTextAreaValue.length;i++){
+                if(i==0)
+                    lhs = parseInt(myTextAreaValue[0]);
+                else if(myTextAreaValue[i]=='+'|| myTextAreaValue[i]=='-'){
+                    op = myTextAreaValue[i];
+                }else{
+                    rhs =parseInt(myTextAreaValue[i]);
+                }
+            }
+            let result = op=='+'?lhs+rhs: lhs-rhs;
+            document.querySelector('textarea').value = result;
+            
         }
     </script>
 </head>
