@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clearText() {
+            let myInput = document.querySelector('input[type="text"]');
+            myInput.value = "";
+            // myInput.style.display = 'none'
+        }
+
+        function appendText() {
+            let inputText = document.getElementById('myInput');
+
+            let textAreaEle = document.querySelector('textarea');
+            textAreaEle.value =  textAreaEle.value+" "+inputText.value;
+            // myInput.style.display = 'none'
+        }
+
+    </script>
+</head>
+
+<body>
+    <input type="text" value="rama" />
+    <input type="button" onclick="clearText();" value="Clear" />
+    <hr />
+    <input type="text" value="Apple" id="myInput"/>
+    <br/>
+    <textarea></textarea>
+    <input type="button" onclick="appendText();" value="Append" />
+    <hr />
+</body>
+
+</html>
