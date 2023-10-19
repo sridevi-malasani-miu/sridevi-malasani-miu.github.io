@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            let myDIV = document.createElement('div');
+            myDIV.innerHTML = '<label>Name</label><input type="text" id="textId"/>' 
+                +'<br/>'
+                + '<label>Skills</label>'
+                + '<select name="skills" multiple>'
+                + '<option value="js">javascript</option>'
+                + '<option value="ts" selected>Typescript</option>'
+                + '<option value="rct">react</option>'
+                + '<option value="rct native">react native</option>'
+                +'</select>'
+                +'<br/>'
+                + '<label>Status: </label>'
+               
+                +'<input type="checkbox" value="active" name="status" />'
+                + '<label>Active</label>'
+                
+                +'<input type="checkbox" value="inactive" name="status"/>'
+                + '<label>Inactive</label>'
+
+           ;
+            document.body.append(myDIV);
+        }
+        function getValues(){
+            let nameField = document.querySelector('input');
+            let nameEntered = nameField.value;
+
+            let skills = document.querySelectorAll('select[name="skills"] option:checked');
+            let skillValues = [];
+            for(let eachEle of skills){
+                skillValues.push(eachEle.value)
+            }
+            console.log(skillValues);
+            
+
+            let status = document.querySelectorAll('input[name="status"]:checked');
+            let values = [];
+            for(let eachEle of status){
+                values.push(eachEle.value)
+            }
+            console.log(values);
+
+            let myValues = document.querySelector('select');
+            document.body.append(myValues.value)
+        }
+    </script>
+    <style>
+        a:hover{
+            color:black;
+        }
+    </style>
+</head>
+
+<body>
+    <a href="sfsd"> Anchor</a>
+    <button onclick ="getValues();"> Get Values </button>
+</body>
+
+</html>
