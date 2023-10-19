@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function toggleDisplay(){
+            let myButton  = document.querySelector('p');
+            let displayValue = myButton.style.display;
+            myButton.style.display = displayValue=='none'?'':'none';
+        }
+    </script>
+</head>
+<body>
+    <p> My Paragraph</p>
+    <button onclick="toggleDisplay();"> My Button</button>
+</body>
+</html>
