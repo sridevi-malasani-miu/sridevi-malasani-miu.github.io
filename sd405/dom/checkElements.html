@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function uncheck() {
+            let myElements = document.querySelectorAll('div option');
+            console.log(myElements);
+            console.log(myElements);
+            for (let ele of myElements) {
+                ele.selected = false;
+            }
+            console.log("Here")
+        }
+    </script>
+</head>
+
+<body>
+    <select>
+        <option>ADDIDAS</option>
+        <option>puma</option>
+        <option selected>nike</option>
+        <option>reebok</option>
+    </select>
+    <div>
+        <select name="shoe">
+            <option>ADDIDAS</option>
+            <option>puma</option>
+            <option selected>nike</option>
+            <option>reebok</option>
+
+        </select>
+    </div>
+
+    <button onclick="uncheck();">Uncheck</button>
+</body>
+
+</html>
