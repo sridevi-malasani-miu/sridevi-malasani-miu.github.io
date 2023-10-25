@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        window.onload = function () {
+            //Read and change simple string
+            let userName = localStorage.getItem("myUser");
+            localStorage.setItem('myUser', 'Belay');
+
+            //Get object 
+            let users = localStorage.getItem('users');
+            users = users ? JSON.parse(users) : [];
+            console.log(users)
+            //change the object
+            users.push({user:'third',email:"sd"});
+            localStorage.setItem('users',JSON.stringify(users))
+
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
