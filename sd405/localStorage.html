@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function store(){
+            //storing simple strings
+            localStorage.setItem('myUser',document.querySelector("input").value)
+
+            //storing objects and arrays
+            let obj = [{user:'tewi',email:'tewi#'},{user:'belay',email:'belay#'}];
+            localStorage.setItem('users',JSON.stringify(obj));
+        }
+    </script>
+</head>
+<body>
+    <input type="text"/>
+    <button onclick="store()">Button</button>
+    <a href="./readStorage.html">Read and Change the Values</a>
+</body>
+</html>
