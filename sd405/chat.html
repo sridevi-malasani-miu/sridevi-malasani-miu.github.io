@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        let myName = '';
+        function enter() {
+            myName = document.querySelector('option:checked').value;
+            document.querySelector('#enterDiv').style.display = 'none';
+            document.body.prepend("Hi "+myName);
+            document.querySelector('#chatDiv').style.display = '';
+
+            //Remove himself from the list
+            let myOptions = document.querySelectorAll('#destId option')
+            for(let myOption of myOptions){
+                if(myOption.value==myName)
+                    myOption.remove();
+            }
+        }
+        function send() {
+            let dest = document.querySelector('#destId option:checked').value;
+            let myMsg = { dest: dest, msg: document.querySelector('textarea').value }
+            localStorage.setItem("msg", JSON.stringify(myMsg));
+        }
+        setInterval(function () {
+            let myMsg = localStorage.getItem("msg") ? JSON.parse(localStorage.getItem("msg")) : {};
+            console.log(myMsg)
+            if (myMsg && myMsg.dest == myName) {
+                //clear message
+                localStorage.removeItem('msg');
+                document.querySelector('textarea').append(myMsg.msg + "\n");
+            }
+
+        }, 1000);
+    </script>
+</head>
+
+<body>
+    <div id="enterDiv">
+        Enter Name:
+        <select>
+            <option>sagar</option>
+            <option>sahrfear</option>
+        </select>
+        <button onclick="enter()"> Enter</button>
+    </div>
+
+    <hr />
+    <div id="chatDiv" style="display:none;">
+        <select id="destId">
+            <option>sagar</option>
+            <option>sahrfear</option>
+        </select>
+        <textarea rows="10"></textarea>
+        <button onclick="send()"> Send</button>
+    </div>
+   
+</body>
+
+</html>
