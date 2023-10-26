@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+       
+        function changeType(){
+            let myInputText = document.querySelector('input');
+            let myType = myInputText.getAttribute('type')
+            let newType = myType=='text'?'password':'text'
+            // myInputText.setA
+            myInputText.setAttribute('type',newType);
+            
+            let myImag = document.querySelector('img');
+            let mySrc = myImag.getAttribute('src');
+            let urlOfImage = '/sd405/project/img/';
+            let newSrc = mySrc==urlOfImage+'search.svg'?urlOfImage+'loginlogo.jpg':urlOfImage+'search.svg';
+            // myInputText.setA
+            console.log(newSrc,mySrc);
+            myImag.setAttribute('src',newSrc);
+            // document.querySelector('input').setAttribute('type','text');
+        }
+    </script>
+</head>
+
+<body>
+<input type="password"/>
+<img src="/sd405/project/img/loginlogo.jpg" style="width:20px;" onclick ='changeType()'/>
+</body>
+
+</html>
