@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-kenU1KFdBIe4zVF0s0G1M5b4hcpxyD9F7jL+jjXkk+Q2h455rYXK/7HAuoJl+0I4"
+        crossorigin="anonymous"></script>
+    <style>
+        .row {
+            margin-top: 30px;
+            ;
+        }
+
+        .lavender {
+            margin-top: 30px;
+            background-color: rgb(186, 124, 228);
+            color: white;
+        }
+
+        .blueColor {
+            background-color: rgb(119, 230, 238);
+        }
+    </style>
+    <script>
+        window.onload = function () {
+            var items = [{ name: 'rana', link: 'https://ranasaber.github.io/' }, { name: 'Jhonatan', link: 'https://jhonatanbellaiza.github.io/' },
+                        { name: 'Billy', link: 'https://wilbill.github.io/' }, { name: 'Nkansah', link: 'https://wirekobrobbey.github.io/nkansah-wireko-brobbey-miu.github.io/' },
+                        { name: 'Muneeb', link: 'https://muneeb02.github.io/' },{name:'Abenezer',link:'https://aben-wg.github.io/index.html'},
+                        { name: 'Davaa', link: 'https://davaasurenorgodol.github.io/davaasuren.github.io/' },
+                         {name:'Duy',link:'https://nhvduy.github.io/'}, {name:'Phi',link:'https://ngoducphi12761.github.io/'},
+                         {name:'Ephrem',link:'https://ephremg.github.io/'},{name:'Walid',link:'https://walid-physics.github.io/'},
+                         {name:'Nasan',link:'https://nasamoskva.github.io/index.html'}];
+            
+            
+            //Set Item on every change to the object array, add, delete and edit
+
+            // localStorage.setItem('students', JSON.stringify(prodcutArray));
+            // let items = JSON.parse(localStorage.getItem('students'));
+            for (let i = 0; i < items.length; i++) {
+                let anchor = document.createElement('a');
+                anchor.setAttribute('href', items[i].link);
+                anchor.innerHTML = items[i].name;
+                document.getElementById('list').append(anchor);
+            }
+            document.getElementById('badgeId').innerHTML = document.getElementById('list').children.length
+        }
+        function testLink() {
+            // let address = document.getElementById('address').value.trim();
+            
+            // let items = JSON.parse(localStorage.getItem('students'));
+            // items.push()
+            let siteAddress = document.getElementById('address').value.trim();
+            let anchor = document.createElement('a');
+            anchor.setAttribute('href', siteAddress);
+            anchor.innerHTML = document.getElementById("name").value.trim();
+            document.getElementById('linkRow').append(anchor);
+            // document.getElementById('badgeId').innerHTML = document.getElementById('list').children.length
+        }
+    </script>
+</head>
+
+<body>
+    <div class="container">
+        <nav class="navbar navbar-light  blueColor">
+            <a class="navbar-brand" href="#">
+                <img src="/images/github.png" width="30" height="30" class="d-inline-block align-top" alt="">
+                Github Links
+            </a>
+        </nav>
+        <div class="row" id="linkRow">
+            <div class="col">
+                <input type="text" id="name" class="form-control" placeholder="Enter your Name">
+            </div>
+            <div class="col">
+                <input type="text" id="address" class="form-control" placeholder="Enter your github Url">
+            </div>
+            <div class="col">
+                <button type="submit" onclick="testLink();" class="btn btn-primary btn-sm mb-2">Test</button>
+            </div>
+        </div>
+
+        <button type="button" class="btn  lavender">
+            Students <span id='badgeId' class="badge text-bg-secondary">0</span>
+        </button>
+        <div id="list" class="row row-cols-2">
+
+        </div>
+    </div>
+
+</body>
+
+</html>
