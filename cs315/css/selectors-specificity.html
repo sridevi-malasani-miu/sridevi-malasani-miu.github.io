@@ -3,21 +3,90 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <style>
+        .question {
+            width: 300px;
+            object-fit: contain;
+        }
+
+        .answer {
+            width: 300px;
+            object-fit: contain;
+        }
+    </style>
+    <script>
+        function showAns(mySelf) {
+            let answer = mySelf.parentElement.children[4];
+            let displayValue = answer.style.visibility;
+            if (displayValue == 'hidden') {
+                mySelf.innerHTML = 'Hide';
+                answer.style.visibility = 'visible';
+            } else {
+                mySelf.innerHTML = 'Show Answer';
+                answer.style.visibility = 'hidden';
+            }
+        }
+    </script>
 </head>
 
 <body>
-    <div style="display:flex;flex-direction:column;">
-        <a href="./selectors.html">Selectors</a>
-        <a href="./specificity/cascade.html">Cascade</a>
-        <a href="./specificity/inheritance.html">Inheritance</a>
-        <a href="./specificity/inlineVsInternal.html">Inline vs Internal CSS</a> 
-        <a href="./specificity/specificVsInherited.html">Specific Style vs Inherited Style</a>
-        <a href="./specificity/specificity.html">Specificity Count</a>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div>
+            <div>What are the styles applied to 'p' and 'div'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <a href="specificity/inheritance.html"  style="margin-left:10px;">View Code</a>
+            <div>
+                <img class='question' src="/images/code/inheritance.png" />
+            </div>
+            <img style='visibility:hidden;' class='answer' src="/images/code/inheritance-ans.png" />
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'Header'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <a href="specificity/cascade.html"  style="margin-left:10px;">View Code</a>
+            
+            <div>
+                <img class='question' src="/images/code/specificity2.png" />
+            </div>
+            <img style='visibility:hidden;' class='answer' src="/images/code/specificity2-ans.png" />
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'My Paragraph'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <a href="specificity/specificity.html"  style="margin-left:10px;">View Code</a>
+            <div>
+                <img class='question' src="/images/code/specifity.png" />
+            </div>
+            <img style='visibility:hidden;' class='answer' src="/images/code/specificity-ans.png" />
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'Content'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <a href="specificity/inlineVsInternal.html"  style="margin-left:10px;">View Code</a>
+            <div>
+                <img class='question' src="/images/code/inlinevsInternal.png" />
+            </div>
+            <img style='visibility:hidden;' class='answer' src="/images/code/inlinevsInternal-ans.png" />
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'My Label' and 'My Paragraph'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <a href="specificity/specificVsInherited.html"  style="margin-left:10px;">View Code</a>
+            <div>
+                <img class='question' src="/images/code/specificVsInherited.png" />
+            </div>
+            <img style='visibility:hidden;' class='answer' src="/images/code/specificvsInherited-ans.png" />
+        </div>
+
+       
+
     </div>
-   
 </body>
 
 </html>
