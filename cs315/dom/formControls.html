@@ -1,71 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
     <script>
-        function readValues(){
+        function readValues() {
             let inputId = $('#name');
-            $('body').append(inputId.val());
+            $('#valueDiv').append("<div> <b>Name: </b>" + inputId.val() + "</div>");
 
             let radioGender = $("input[name='gender']:checked");
-            $('body').append(radioGender.val());
+            $('#valueDiv').append("<div> <b>Gender: </b>" + radioGender.val() + "</div>");
 
             let checkboxValue = $("input[name='skills']:checked");
             let values = [];
-            checkboxValue.each(function(idx,ele){
+            checkboxValue.each(function (idx, ele) {
                 values.push($(ele).val());
             })
-            $('body').append(values);
+            $('#valueDiv').append("<div> <b>Skills: </b>" + values + "</div>");
 
             let selectBox = $("select[name='singleselect'] option:selected");
-            // $('body').append(selectBox.val());
-            console.log(selectBox.val())
-            // let values = [];
-            // checkboxValue.each(function(idx,ele){
-            //     values.push($(ele).val());
-            // })//
+            $('#valueDiv').append("<div> <b>Country: </b>" + selectBox.val() + "</div>");
+            
 
             let selectBoxes = $("select[name='multiSelect'] option:selected");
-            // $('body').append(selectBox.val());
             let multiValues = [];
-            selectBoxes.each(function(idx,ele){
+            selectBoxes.each(function (idx, ele) {
                 multiValues.push($(ele).val());
             })
-            $('body').append(multiValues);
-            
-            
+            $('#valueDiv').append("<div> <b>Random Options: </b>" + multiValues + "</div>");
+            let textAreaId = $('#textAreaId');
+            $('#valueDiv').append("<div> <b>Description: </b>" + textAreaId.val() + "</div>");
         }
     </script>
 </head>
+
 <body>
-    <button onclick ='readValues();'> Submit</button>
-    <input type="text" id="name"/>
-    <br/>
-    Gender
-    <input type="radio" name="gender" value="male" />male
-    <input type="radio" name="gender" value="female"/>female
-    <br/>
-    Skills
-    <input type="checkbox" name="skills" value="java" />java
-    <input type="checkbox" name="skills" value="javascript" />javascript
-    <br/>
-    <select name="singleselect">
-        <option value="usa"> United States of America</option>
-        <option selected value="ca">Canada</option>
-    </select>
-    <br/>
-    <select multiple name="multiSelect">
-        <option selected > Option 1</option>
-        <option selected >Option 2</option>
-    </select>
-    <br/>
-    <textarea>
-        dfdfd
+    <div style="gap:20px;display:grid;grid-template-columns:150px auto;">
+        Name<input type="text" id="name" />
+        Gender
+        <div>
+            <input type="radio" name="gender" value="male" checked />male
+            <input type="radio" name="gender" value="female" />female
+        </div>
+        Skills
+        <div>
+            <input type="checkbox" name="skills" value="java" />java
+            <input type="checkbox" name="skills" value="javascript" checked />javascript
+        </div>
+        Country
+        <select name="singleselect">
+            <option value="usa"> United States of America</option>
+            <option selected value="ca">Canada</option>
+        </select>
+
+        Random Options
+        <select multiple name="multiSelect">
+            <option selected> Option 1</option>
+            <option selected>Option 2</option>
+        </select>
+        <br />
+        Descripton
+        <textarea id="textAreaId">
+        Description
     </textarea>
 
+    </div>
+    <button onclick='readValues();'> Submit</button>
+    <hr />
+    <h5>Selected Values</h5>
+    <hr />
+    <div id="valueDiv"></div>
 
 </body>
+
 </html>
