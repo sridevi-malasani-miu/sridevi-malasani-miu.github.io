@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        window.onload = function () {
+            let myDIV = $('<div></div>');
+            myDIV.html("<label>Scriptures</label>" +
+                '<select>'
+                + '<option value="vedas">Vedas</option>'
+                + '<option value="upanishads">Upanishads</option>'
+                + '</select>'
+                + "<button onclick='show();'>Show</button>"
+                +'<div id ="checkboxDIV"></div>'
+                +"<hr/>"
+                +"<button onclick='getCheckboxValue();'>Submit</button>");
+            $('body').append(myDIV)
+        }
+        function show() {
+            let selection = $('select option:checked').val();
+            let checkboxDIV = $('#checkboxDIV');
+            checkboxDIV.html('');
+           
+            let html;
+            if (selection == 'upanishads') {
+                html = '<input type="checkbox" name="upa" value="Aiterya">Aiterya'
+                    + '<input type="checkbox" name="upa"  value="Brihadarankya">Brihadarankya'
+                    + '<input type="checkbox" name="upa"  value="Chandogya">Chandogya'
+                    + '<input type="checkbox" name="upa"  value="Mandukya">Mandukya';
+            } else if(selection=='vedas'){
+                html = '<input type="checkbox" name="ved"  value="Rig">Rig'
+                    + '<input type="checkbox" name="ved" value="Yajur">Yajur'
+                    + '<input type="checkbox" name="ved" value="Adarvana">Adarvana'
+                    + '<input type="checkbox" name="ved" value="Sama">Sama';
+            }else{
+                html ='<label style="color:red;">* Select Valid Opiton</label>'
+            }
+            checkboxDIV.html(html);
+        }
+
+        function getCheckboxValue(){
+            console.log(" HRREE ")
+            let selection = $('input:checked');
+            
+            let checkboxDIV =$('#checkboxDIV');
+            let html='';
+            selection.each(function(idx,sel){
+                console.log(" RERE",sel)
+                 html += sel.value
+            });
+            checkboxDIV.html(html);
+        }
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
