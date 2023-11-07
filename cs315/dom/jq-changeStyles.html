@@ -1,0 +1,43 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .dark{
+            color:white;
+            background-color: black;
+        }
+        .light{
+            color:red;
+            background-color: yellow;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function toggleClass() {
+            let fruit = $('select[name="theme"] option:checked');
+            let myP = $('p');
+
+            myP.removeClass(fruit.val()=='dark'?'light':"dark");
+            myP.addClass(fruit.val()=='dark'?'dark':"light");
+            console.log(myP.attr('class'))
+        }
+    </script>
+</head>
+
+<body>
+
+    <select name="theme">
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+    </select>
+    <p > Bananas are yellow in color</p>
+    <input type="button" onclick="toggleClass();" value="Submit"/>
+</body>
+
+</html>
