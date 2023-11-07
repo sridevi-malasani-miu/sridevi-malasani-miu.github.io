@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function readValues(){
+            let inputId = $('#name');
+            $('body').append(inputId.val());
+
+            let radioGender = $("input[name='gender']:checked");
+            $('body').append(radioGender.val());
+
+            let checkboxValue = $("input[name='skills']:checked");
+            let values = [];
+            checkboxValue.each(function(idx,ele){
+                values.push($(ele).val());
+            })
+            $('body').append(values);
+
+            let selectBox = $("select[name='singleselect'] option:selected");
+            // $('body').append(selectBox.val());
+            console.log(selectBox.val())
+            // let values = [];
+            // checkboxValue.each(function(idx,ele){
+            //     values.push($(ele).val());
+            // })//
+
+            let selectBoxes = $("select[name='multiSelect'] option:selected");
+            // $('body').append(selectBox.val());
+            let multiValues = [];
+            selectBoxes.each(function(idx,ele){
+                multiValues.push($(ele).val());
+            })
+            $('body').append(multiValues);
+            
+            
+        }
+    </script>
+</head>
+<body>
+    <button onclick ='readValues();'> Submit</button>
+    <input type="text" id="name"/>
+    <br/>
+    Gender
+    <input type="radio" name="gender" value="male" />male
+    <input type="radio" name="gender" value="female"/>female
+    <br/>
+    Skills
+    <input type="checkbox" name="skills" value="java" />java
+    <input type="checkbox" name="skills" value="javascript" />javascript
+    <br/>
+    <select name="singleselect">
+        <option value="usa"> United States of America</option>
+        <option selected value="ca">Canada</option>
+    </select>
+    <br/>
+    <select multiple name="multiSelect">
+        <option selected > Option 1</option>
+        <option selected >Option 2</option>
+    </select>
+    <br/>
+    <textarea>
+        dfdfd
+    </textarea>
+
+
+</body>
+</html>
