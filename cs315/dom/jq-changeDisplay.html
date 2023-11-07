@@ -1,0 +1,34 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function displayP() {
+            let myP = $('p');
+            myP.css('display' , myP.css('display') == 'none' ? '' : 'none');
+        }
+
+        function visibilityToggle() {
+            let myInput = $('input[type="text"]');
+            myInput.css('visibility' , myInput.css('visibility') == 'hidden' ? 'visible' : 'hidden');
+        }
+    </script>
+</head>
+
+<body>
+    <div>Display</div>
+    <p style="display:none;"> Bananas are yellow in color</p>
+    <input type="button" onclick="displayP();" value="Submit"/>
+
+    <div>Visibility</div>
+    <input type="text" />
+    <input type="button" onclick="visibilityToggle();" value="Submit"/>
+</body>
+
+</html>
