@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            margin-bottom:10px;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        $(function () {
+            let myInputDIV = $("<div></div>");
+            myInputDIV.html('<label>Name</label>' +
+                '<input type="text"/>'
+            );
+            $('body').append(myInputDIV);
+
+            let myTextAreaDIV = $("<div></div>");
+            myTextAreaDIV.html('<label>Description</label>' +
+                '<textarea >Description</textarea>'
+            );
+            $('body').append(myTextAreaDIV);
+
+            let mySelectDIV = $("<div></div>");
+            mySelectDIV.html('<label>Country</label>' +
+                '<select name="skills" >'
+                + '<option value="java">Java</option>'
+                + '<option value="javascript">Javascript</option>'
+                + '<option value="python" selected>Python</option>'
+                + '</select > ');
+            $('body').append(mySelectDIV);
+
+            let multiSelectDIV = $("<div></div>");
+            multiSelectDIV.html('<label>Address</label>' +
+                '<select name="address" multiple >'
+                + '<option value="HOme">HOme</option>'
+                + '<option value="Office">Office</option>'
+                + '<option value="Work" selected>Work</option>'
+                + '</select > ');
+            $('body').append(multiSelectDIV);
+
+            let myRadioDIV = $("<div></div>");
+            myRadioDIV.html('<label>Gender</label>' +
+                '<input type="radio" value="male" name="gender"/><label>Male</label>' +
+                '<input type="radio" value="female" name="gender" checked/><label>Female</label>');
+            $('body').append(myRadioDIV);
+
+            let checkboxDIV = $("<div></div>");
+            checkboxDIV.html('<label>Skills</label>' +
+                '<input type="checkbox" value="java" /><label>Java</label>' +
+                '<input type="checkbox" value="javascript" checked/><label>Javascript</label>');
+            $('body').append(checkboxDIV);
+
+
+        });
+    </script>
+</head>
+
+<body>
+
+</body>
+
+</html>
