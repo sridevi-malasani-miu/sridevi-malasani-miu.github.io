@@ -44,10 +44,21 @@
 <body>
 <h3 style='color:red;'>READ ME -- THIS IS NOT PART OF DESIGN</h3>
 <pre>These 3 actions should happen
-1. Input is 'smaller', reduce the font size of 'Color Me'
-2. Input is a color, eg. red,blue... , change 'Color Me' to given Color
-3. Input has '-', create a unordered list with the text after '-'. Please note the list should be unique.
-For eg: red-rose, should add, rose to the list. </pre>
+On click of submit, do the following actions based on input
+1. If User enter color, Color the text, 'Color Me'. If User enters, 'red' -> color the text to red, 'blue' -> color the text to blue.
+NOTE: If the User entered text has spelling mistakes in colors or non-existing colors, then no change occurs.
+    
+2.  If User enters, 'smaller' -> 'Color Me' element should be h5 instead of h4 but with same content
+    
+3. If User enters , 'list-rose' -> Add Unordered list with the value 'rose'.
+'list-tulips' -> Add 'tulips'
+'list-jasmine' -> Add 'jasmine'
+NOTE: Each item in the list should be added only once. If it already exists in the list , should not be added.
+Watch Video
+<video width="320" height="240" controls>
+        <source src="videos/colorText.mp4" type="video/mp4">
+        Your browser does not support the video tag.
+      </video> 
 <hr style="border:2px solid red;"/>   
 Input <input id='row' type='text' />
     <h4>Color Me</h4>
