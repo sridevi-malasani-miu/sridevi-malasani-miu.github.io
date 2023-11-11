@@ -1,0 +1,169 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .question {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid blue;
+        }
+
+        .answer {
+            background-color: yellow;
+            visibility: hidden;
+        }
+
+        .answerVisible {
+            background-color: yellow;
+            visibility: visible;
+        }
+    </style>
+    <script>
+        function showAns(mySelf) {
+            let answer = mySelf.parentElement.children[3];
+            console.log(mySelf.parentElement.children)
+            let displayValue = answer.getAttribute('class');
+            if (displayValue == 'answer') {
+                mySelf.innerHTML = 'Hide';
+                answer.setAttribute('class', 'answerVisible');
+            } else {
+                mySelf.innerHTML = 'Show Answer';
+                answer.setAttribute('class', 'answer');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div>
+            <div>1. Destructure object into varibles car,make.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let ship = {cruise:"Titan",ocean:"Atlantic"};
+                <br /><br />
+                console.log("expect Titan",cruise)
+                console.log("expect Atlantic",ocean);
+            </div>
+            <div class="answer"> let{ocean,cruise} = ship;</div>
+        </div>
+        <div>
+            <div>2. What is the output</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let carObject = {car:"Toyota",make:2020};
+                let{make,car} = carObject;
+                console.log(make)//_______
+                console.log(car);//____________
+            </div>
+            <div class="answer"> 2020<br />Toyota</div>
+        </div>
+        <div>
+            <div>3. Create another obejct</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let swimming = ["ring","goggles"]
+                <br /><br />
+                console.log("expect ring ",swimmingObj.ring);
+                console.log("expect goggles ",swimmingObj.goggles)
+            </div>
+            <div class="answer"> let swimmingObj={};<br />
+                [swimmingObj.ring,swimmingObj.goggles] = swimming;</div>
+        </div>
+        <div>
+            <div>4.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let javelin = {distance:133};
+                <br /><br />
+                console.log("expect 133 ",myDistance)
+            </div>
+            <div class="answer"> let myDistance;<br />
+                ({distance:myDistance} = javelin);</div>
+        </div>
+        <div>
+            <div>5.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let football = ["shoes"];
+                let myShoes;
+                <br /><br />
+                console.log("expect shoes ",myShoes)
+            </div>
+            <div class="answer"> let [myShoes] = football;</div>
+        </div>
+        <div>
+            <div>6.Destructure array into varibles with default values.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let twoElements = [1,2];
+                <br /><br />
+                console.log("expect 1 ",onekey)
+            </div>
+            <div class="answer"> let[onekey] = twoElements;</div>
+        </div>
+        <div>
+            <div>7.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let singleElementArray = [1];
+                <br /><br />
+                console.log("expect 1 ",base)
+                console.log("expect undefined",code);
+            </div>
+            <div class="answer"> let[base,code] = singleElementArray;</div>
+        </div>
+        <div>
+            <div>8. Destructure array into varibles with default values.</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let numberArray = [,,1,2];
+                <br /><br />
+                console.log("expect true ",one)
+                console.log("expect second",two);
+                console.log("expect 1",third);
+            </div>
+            <div class="answer"> let[one=true,two="second",third = "four"] = numberArray;</div>
+        </div>
+        <div>
+            <div>9. Destructure array into varibles, second, fifth</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let multipleItems = [45, "Maharishi",{consciousnes:{inner:true}},777,"Bye"];
+                <br /><br />
+                console.log("expect Maharishi ",second)
+                console.log("expect Bye",fifth);
+            </div>
+            <div class="answer"> let[,second,,,fifth] = multipleItems;</div>
+        </div>
+        <div>
+            <div>10. Destructure object into varibles, innerValue, message</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let obj = {a:1, b: "hi",c:true, d:{inner:"object"}}
+                <br /><br />
+                console.log("expect {inner:'object'} ",innerValue)
+                console.log("expect hi",message);
+            </div>
+            <div class="answer"> let {d:innerValue,b:message} = obj</div>
+        </div>
+        <div>
+            <div>11. Destructure object into varibles, innerValue, message</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <div class="question">
+                let nestedObj = {nested:{inner:{i:"object"}, another: "Hello!"}}
+                <br /><br />
+                console.log("expect 'object' ",i)
+                console.log("expect Hello!",a);
+
+            </div>
+            <div class="answer">let {nested:{inner:{i}, another:a}} = nestedObj ;</div>
+        </div>
+    </div>
+</body>
+
+</html>
