@@ -86,4 +86,4 @@ let[,second,,,fifth] = multipleItems;
 //10
 let {d:innerValue,b:message} = obj
 //11
-let {nested:{inner:i, another:a}} = nestedObj ;
+let {nested:{inner:{i}, another:a}} = nestedObj ;
