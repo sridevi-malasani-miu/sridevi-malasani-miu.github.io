@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .question {
+            width: 300px;
+            padding:10px;
+           border:1px solid blue;
+        }
+
+        .answer {
+            background-color: yellow;
+            visibility: hidden;
+        }
+        .answerVisible {
+            background-color: yellow;
+            visibility: visible;
+        }
+    </style>
+    <script>
+        function showAns(mySelf) {
+            let answer = mySelf.parentElement.children[2];
+            console.log(mySelf.parentElement.children)
+            let displayValue = answer.getAttribute('class');
+            if (displayValue == 'answer') {
+                mySelf.innerHTML = 'Hide';
+                answer.setAttribute('class','answerVisible');
+            } else {
+                mySelf.innerHTML = 'Show Answer';
+                answer.setAttribute('class','answer');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div>
+            1.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+let grapes = "green"; 
+function fruits(){ 
+    return function(message){ 
+        return grapes; 
+    } 
+} 
+console.log(fruits()()); 
+</pre>
+            <div class="answer">green</div>
+        </div>
+
+        <div>
+            2.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+let x = 10; 
+function globalVar(){ 
+    return function(){ 
+        return x; 
+} 
+x = 20; 
+let fn = globalVar(); 
+console.log(fn ()); 
+</pre>
+            <div class="answer">20</div>
+        </div>
+        <div>
+            3.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function sport(message){ 
+    message = "Hi"; 
+    return function(message){ 
+        return message; 
+    } 
+} 
+let sportFn = sport("Hello"); 
+console.log(sportFn ()); 
+</pre>
+            <div class="answer">undefined</div>
+        </div>
+        <div>
+            4.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function test(x){ 
+    x = 10; 
+    x++; 
+    return function(){ 
+        return x++; 
+    } 
+} 
+console.log(test(2)())  
+</pre>
+            <div class="answer">11</div>
+        </div>
+        <div>
+            5.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function car(){ 
+    let color = "white"; 
+    function seat(){ 
+        let color = "brown"; 
+        console.log(color)//___________
+    } 
+    console.log(color)//___________
+} 
+car("black")  
+</pre>
+            <div class="answer">white</div>
+        </div>
+        <div>
+            6.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function department(){ 
+    let numberOfDepartments = 5; 
+    console.log(numberOfDepartments);
+    function software(){ 
+        let language = "javascript"; 
+        console.log(language)
+    } 
+    console.log(language) 
+} 
+department() 
+</pre>
+            <div class="answer">ReferenceError: language is not defined</div>
+        </div>
+        <div>
+            7.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function department(language){ 
+    let numberOfDepartments = 5; 
+    console.log(numberOfDepartments)
+    function software(){ 
+        let language = "javascript"; 
+        console.log(language);
+    } 
+    console.log(language) 
+} 
+department("java"); 
+</pre>
+            <div class="answer">5<br/>java</div>
+        </div>
+
+
+    </div>
+</body>
+
+</html>
