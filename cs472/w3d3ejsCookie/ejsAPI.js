@@ -18,5 +18,5 @@ app.engine('html', ejs.renderFile);
 // app.set('views', path.join(__dirname,"myDir"));
 
 app.get("/admin", function (req, res, next) {
-    res.render("myFile", { list: ["apple", "banana"] })
+    res.render("myFile",  { list: {name:"Jane",age:20, skills:['java','javascript']}})
 });
