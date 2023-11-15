@@ -3,22 +3,28 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-
+   
 </head>
 
 <body>
-
-    <ul class="loop_example">
-        <% for (const item of list) { %>
-            <% if (item=="bla" ) continue; %>
-                <li class="item">
-                    <%= item %>
-                </li>
+    <% for(let key in list){ %> 
+        <label>
+            <%=key%></label>
+            <% if(Array.isArray(list[key])){ %>
+                <% let value1=list[key]; %>
+                <select>
+                    <% for(let item of value1 ){ %>
+                        <option>
+                            <%= item%>
+                        </option>
+                    <% }%>
+                </select>
+            <% } else { %>
+                <input type="text" value="<%= list[key]%>" />
                 <% } %>
-    </ul>
+     <% } %>
 
 </body>
 
