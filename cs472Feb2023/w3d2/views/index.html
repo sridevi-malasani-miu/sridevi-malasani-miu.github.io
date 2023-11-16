@@ -8,11 +8,51 @@
   <title>Document</title>
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
   <script>
+    // setInterval(doAjax,1000)
     function doAjax() {
       $.ajax({
         "url": "/ajaxToggleColor",
         "type": "GET",
-        // "data":{inputText:$('#myText').val()},
+        "data":{inputText:$('#myText').val()},
+        "success": myAjaxSuccessFunction,
+        "error": ajaxFailure
+      });
+      function myAjaxSuccessFunction(data) {
+        // do something with the data
+        console.log(" HERE  ",data);
+        console.log($('button'))
+        $("button").css('color',data.color);
+      }
+      function ajaxFailure(xhr, status, exception) {
+        $("button").html("Error");
+        console.log(xhr, status, exception);
+      }
+    }
+
+    function doAjaxParameter() {
+        let paramRequest = $('#myText').val()+"/" +$('#hiddenId').val();
+      $.ajax({
+        "url": "/ajax/"+ paramRequest,
+        "type": "GET",
+        "success": myAjaxSuccessFunction,
+        "error": ajaxFailure
+      });
+      function myAjaxSuccessFunction(data) {
+        // do something with the data
+        console.log(" HERE  ",data);
+        console.log($('button'))
+        $("button").css('color',data.color);
+      }
+      function ajaxFailure(xhr, status, exception) {
+        $("button").html("Error");
+        console.log(xhr, status, exception);
+      }
+    }
+
+    function ajaxServerError() {
+      $.ajax({
+        "url": "/ajaxError",
+        "type": "GET",
         "success": myAjaxSuccessFunction,
         "error": ajaxFailure
       });
@@ -32,9 +72,10 @@
 
 
 <body>
-  <button onclick="doAjax();">Ajax call</button>
+  <button onclick="doAjaxParameter()">Ajax call</button>
   <form action="/save" method="post">
-    <input type="hidden" value="myValue" name="hiddenField">
+    Previous Value: <%=data%>
+    <input type="hidden" value="hiddenValue" name="hiddenField" id="hiddenId">
     <input type="text" value="text" name="textField" id="myText">
     <input type="submit" value="submit" />
   </form>
