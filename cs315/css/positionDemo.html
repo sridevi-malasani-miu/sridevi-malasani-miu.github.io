@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div{
+            width:70px;
+            border:1px solid blue;
+            display:inline-block;
+
+        }
+    </style>
+</head>
+<body>
+    <h4>Relative</h4>
+    <div> Box 1</div>
+    <div style="position: relative;top:30px;"> Relative</div>
+    <div> Box 3</div>
+    
+<hr style="margin-top:40px;"/>
+<h4>Absolute</h4>
+    <div> Box 1</div>
+    <div style="position: absolute;bottom:30px;"> Absolute</div>
+    <div> Box 3</div>
+
+
+    <hr style="margin-top:40px;"/>
+    <h4>Absolute with relative parent</h4>
+    <header style="position: relative; border:1px solid orange;">
+        <div> Box 1</div>
+        <div style="position: relative;bottom:0px;"> Absolute -relative</div>
+        <div> Box 3</div>
+    </header>
+
+    <hr style="margin-top:40px;"/>
+    <h4>Fixed</h4>
+    <div> Box 1</div>
+    <div style="position: fixed;top:10px;right:10px;"> Fixed</div>
+    <div> Box 3</div>
+    
+</body>
+</html>
