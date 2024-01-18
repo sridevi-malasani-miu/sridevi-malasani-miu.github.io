@@ -1,0 +1,108 @@
+ 
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .question {
+            width: 300px;
+            object-fit: contain;
+        }
+
+        .answer {
+            width: 300px;
+            object-fit: contain;
+        }
+    </style>
+    <script>
+        function showAns(mySelf) {
+            let answer = mySelf.parentElement.children[3];
+            let displayValue = answer.style.visibility;
+            if (displayValue == 'hidden') {
+                mySelf.innerHTML = 'Hide';
+                answer.style.visibility = 'visible';
+            } else {
+                mySelf.innerHTML = 'Show Answer';
+                answer.style.visibility = 'hidden';
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <img class='question' style="width:550px;" src="/images/code/selectors.png" />
+    <h4>For the above html, answer the following questions</h4>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div>
+            <div>Which element has border <strong>blue</strong></div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                div > section.blueBorder{
+                    border:1px solid blue;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>My Section</p>
+        </div>
+
+        <div>
+            <div>Which element is 'yellow' color</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                section:nth-child(1){
+                    color:yellow;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>Second Section,Third Section</p>
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'My Paragraph'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                div .blueBorder{
+                    color:blue;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>My Article,My Section,Third Section</p>
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'Content'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                div.blueBorder{
+                    color:blue;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>Nothing selected!</p>
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'My Label' and 'My Paragraph'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                article+section{
+                    color:yellow;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>My Section</p>
+        </div>
+
+        <div>
+            <div>What are the styles applied to 'My Label' and 'My Paragraph'</div>
+            <a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre style="background-color: lightblue;">
+                article~section{
+                    color:yellow;
+                }
+            </pre>
+            <p style='visibility:hidden;' class='answer'>My Section</p>
+        </div> 
+
+    </div>
+</body>
+
+</html>
