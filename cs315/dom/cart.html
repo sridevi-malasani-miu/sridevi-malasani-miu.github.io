@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function checkout(direction) {
+            let string = "<b>" + $('option:selected').val() + "</b> of <b>" + $('input:checked').val() + "</b>"
+            $('div:nth-child(1)').html("Ordered " + string);
+        }
+
+        function changeImage(flavor) {
+            if (flavor == 'pumpkin')
+                $('img:nth-child(2)').attr('src', 'https://m.media-amazon.com/images/I/81C7ZQHz+4L._SX679_.jpg')
+            else
+                $('img:nth-child(2)').attr('src', 'https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg')
+
+        }
+        let obj = [{ flavor: 'Pike Place', price: '43.04',checked:true }, { flavor: 'Pumpkin spice', price: '52.08' }]
+        function zoomIn(view) {
+            let selected =  $('input:checked').val() ;
+            let img =$('#pumpkinId');
+            if(selected=='Pike Place')
+                img = $('#pikeId');
+            if (view)
+                img.show();
+            else
+                img.hide();
+        }
+
+    </script>
+</head>
+
+<body>
+    <div></div>
+    <img onmouseover="zoomIn(true)" onmouseleave="zoomIn(false)"
+        src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg"
+        style="width:100px;" />
+    <img id="pikeId" src="https://m.media-amazon.com/images/I/814-cZVGojL._SX679_PIbundle-4,TopRight,0,0_AA679SH20_.jpg"
+        style="width:200px;display:none;position: absolute;" />
+    <img id="pumpkinId" src="https://m.media-amazon.com/images/I/81C7ZQHz+4L._SX679_.jpg"
+        style="width:200px;display:none;position: absolute;" />
+    <div>Pick Flavors</div>
+    <div onclick="changeImage('pike')"
+        style="display:inline-block;width:100px;padding:10px;border-radius:10px;border:1px solid goldenrod;">
+        <input type="radio" name="flavor" value="Pike Place" checked/>
+        <label>Pike Place</label>
+        <div>43.04</div>
+    </div>
+    <div onclick="changeImage('pumpkin')"
+        style="display:inline-block;width:150px;padding:10px;border-radius:10px;border:1px solid goldenrod;">
+        <input type="radio" name="flavor" value="Pumpkin spice" />
+        <label>Pumpkin spice</label>
+        <div>52.08</div>
+    </div>
+    <div style="margin-top:10px;margin-bottom: 10px;" name="quantity">Quantity
+        <select>
+            <option> 24 Count (pack of 4)</option>
+            <option> 10 Count (pack of 6)</option>
+        </select>
+        <input type="button" value="Checkout" onclick="checkout()" />
+</body>
+
+</html>
