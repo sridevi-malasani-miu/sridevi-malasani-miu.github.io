@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .question {
+            width: 300px;
+            padding: 10px;
+            border: 1px solid blue;
+        }
+
+        .answer {
+            background-color: yellow;
+            visibility: hidden;
+        }
+
+        .answerVisible {
+            background-color: yellow;
+            visibility: visible;
+        }
+    </style>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function autoScroll(name, animated, distance) {
+            var scrollDistance = distance;
+            var scrollTarget = $("*[name='" + name + "']");
+            console.log(scrollTarget)
+            if (animated) {
+                $('html, body').animate({ scrollTop: (scrollTarget.offset().top - scrollDistance) }, 500);
+            }
+            else {
+                $('html, body').scrollTop(scrollTarget.offset().top - scrollDistance);
+            }
+        }
+        function showAns(mySelf,scroll) {
+            // var getHash = window.location.hash.substring(1);
+            //Do the scroll function to the desired section
+            if(scroll)
+                autoScroll("myLink", true, 0);
+            let answer = mySelf.parentElement.children[2];
+            console.log(mySelf.parentElement.children)
+            let displayValue = answer.getAttribute('class');
+            if (displayValue == 'answer') {
+                mySelf.innerHTML = 'Hide';
+                answer.setAttribute('class', 'answerVisible');
+            } else {
+                mySelf.innerHTML = 'Show Answer';
+                answer.setAttribute('class', 'answer');
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div style="display:flex;gap:10px;flex-wrap:wrap;">
+        <div>
+            1.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function returnObject(){
+    function inner(){
+        console.log(this);
+    }
+    inner();
+    return {innerFn:inner}
+}
+returnObject().innerFn();
+</pre>
+            <div class="answer">Global object</div>
+        </div>
+        <div>
+            2.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+let myObject = {a:1, b:2, print:()=>{
+    console.log(this);
+    return "I am an arrow function"
+}}
+console.log(myObject.print());
+</pre>
+            <div class="answer">{}
+                I am an arrow function</div>
+        </div>
+        <div>
+            3.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+let gameOfChance = {
+    dice:2,
+    spinningTops: false,
+    playerOne: function(){
+        let gameOfSkill ={
+            playerTwo:function(){
+                console.log(this);
+            }
+        }
+        gameOfSkill.playerTwo();
+    }
+}
+gameOfChance.playerOne();
+</pre>
+            <div class="answer">{ playerTwo: [Function: playerTwo] }</div>
+        </div>
+        <div>
+            4.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function kathak(){
+    let jaipur = {
+        origin:true,
+        expression: function (){
+            console.log(this);
+        }
+    }
+    let innerFn = jaipur.expression;
+    innerFn();
+}
+kathak();
+</pre>
+            <div class="answer">Global object</div>
+        </div>
+        <div>
+            5.<a href="#" onclick="showAns(this);">Show Answer</a>
+            <pre class="question">
+function river(){
+    function ribbon(){
+        console.log(this);
+    }
+    return {ribbon:ribbon}
+}
+function flow(){
+    river().ribbon();
+}
+flow();
+</pre>
+            <div class="answer">{ ribbon: [Function: ribbon] }</div>
+        </div>
+        <div>
+            6.<a href="#myLink" name="myLink" onclick="showAns(this,true);">Show Answer</a>
+            <pre class="question">
+let sea = {
+    deposit:"sodium chloride",
+    tides:function(){
+        console.log(this.deposit);
+        let moonCycles= () => 
+        this.deposit="magnesium";
+        moonCycles();
+        console.log(this.deposit);
+    }    
+}
+sea.tides();
+</pre>
+            <div class="answer">sodium chloride
+                magnesium</div>
+        </div>
+        <div>
+            7.<a href="#myLink" name="myLink" onclick="showAns(this,true);">Show Answer</a>
+            <pre class="question">
+let sea = {
+    deposit:"sodium chloride",
+    tides:function(){
+        console.log(this)
+    }    
+}
+sea.tides()
+</pre>
+            <div class="answer">{ deposit: 'sodium chloride', tides: [Function: tides] }</div>
+        </div>
+        <div>
+            8.<a href="#myLink" name="myLink" onclick="showAns(this,true);">Show Answer</a>
+            <pre class="question">
+let sea = {
+    deposit:"sodium chloride",
+    tides:function(){
+        console.log(this)
+    }    
+}
+let fn = sea.tides;
+tides();
+</pre>
+            <div class="answer">Global object</div>
+        </div>
+
+    </div>
+</body>
+
+</html>
