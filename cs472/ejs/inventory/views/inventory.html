@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            border-spacing: 0;
+            width: 100%;
+            border: 1px solid #ddd;
+        }
+
+        th,
+        td {
+            text-align: left;
+            padding: 16px;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f2f2f2;
+        }
+    </style>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.4/jquery.min.js"></script>
+    <script>
+        function editRow(self, itemId) {
+            console.log(self, itemId)
+            let selectedRow = $(self).parent().parent();
+            selectedRow.children().each(function (idx, element) {
+                let child = $(element);
+                let content = child.html().trim();
+                let itemId = child.attr('for');
+                $('#' + itemId).val(content);
+            });
+            $('input[name="action"]').val('edit')
+            $('input[name="itemId"]').val(itemId);
+            //change button name to 'Edit'
+            $('#actionBtn').html('Edit');
+            $('#actionBtn').css('background-color','blue');
+            //Prevent Form Submission
+            event. preventDefault();
+        }
+
+        function deleteRow(itemId) {
+            $('input[name="action"]').val('delete')
+            $('input[name="itemId"]').val(itemId)
+        }
+    </script>
+</head>
+
+<body>
+    <form action="/" method="post">
+        <input type="hidden" value="add" name="action" />
+        <input type="hidden" value="" name="itemId" />
+        Name:<input type="text" id='itemName' name="itemName" />
+        Price:<input type="text" id='itemPrice' name="itemPrice" />
+        Quantity:<input type="text" id='itemQuantity' name="itemQuantity" />
+        <button id="actionBtn" style="background-color:green;color:white;">Add</button>
+
+        <table id='myTable'>
+            <tr>
+                <th>Name</th>
+                <th>Price</th>
+                <th>Quantity</th>
+            </tr>
+            <% for( let product of products) { %>
+                <tr>
+                    <td for="itemName">
+                        <%= product.itemName %>
+                    </td>
+                    <td for="itemPrice">
+                        <%= product.itemPrice %>
+                    </td>
+                    <td for="itemQuantity">
+                        <%= product.itemQuantity %>
+                    </td>
+                    <td><button onclick="editRow(this,'<%= product.itemId%>')">Edit</button></td>
+                    <td><button onclick="deleteRow('<%= product.itemId%>')">Delete</td>
+                </tr>
+                <% } %>
+        </table>
+    </form>
+</body>
+
+</html>
