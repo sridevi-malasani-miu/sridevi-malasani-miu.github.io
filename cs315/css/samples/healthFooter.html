@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .menu {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 30px;
+        }
+
+        .links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .content {
+            display: grid;
+            grid-template-columns: 3fr 3fr 1fr;
+            gap: 30px;
+        }
+
+        .imgClass {
+            width: 300px;
+            height: 300px;
+            border-radius: 50%;
+        }
+
+        @media screen and (max-width: 600px) {
+            .menu {
+                display: flex;
+                flex-direction: column;
+            }
+
+            .links {
+                display: none;
+            }
+
+            .content {
+                display: grid;
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div style="background-color: #eda596;border-top-left-radius: 20px;padding:20px;width:60%;margin:auto;">
+        <div class="menu">
+            <div>
+                <div style="font-size:20px;">Embodied</div>
+                <div>Health</div>
+            </div>
+
+            <div class='links'>
+                <label>Home</label>
+                <label>About</label>
+                <label style="border:1px solid grey; padding:10px;">Contact</label>
+            </div>
+        </div>
+        <div class='content' >
+            <img src="/images/boquet.jpeg" class="imgClass" />
+            <div style="margin-top:30px;">
+                <label style="font-size:32px;">a safe space for healing</label>
+                <div style="margin-top:30px;">Individual Therapy</div>
+            </div>
+            <div style="align-self: end;">
+                <img src="/images/boquet.jpeg" style="width:100px;" />
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
