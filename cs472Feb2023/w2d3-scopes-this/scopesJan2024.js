@@ -10,7 +10,11 @@ let newArray = [...sequences,obj1,...steps]
 console.log('Array',newArray);
 //3
 function print1(){
-    return 1;
+    let sum  =0;
+    for(let i=0;i<arguments.length;i++){
+        sum+=arguments[i]
+    }
+    return sum;
 }
 console.log(print1(5,6,7,10));//28
 console.log(print1(5,6));//11
