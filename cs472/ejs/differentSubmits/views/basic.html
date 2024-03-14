@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function clickMe(){
+            let value = document.getElementById('inputId').value;
+            if(value.trim().length<=0){
+                //Prevent submitting form.
+                event.preventDefault();
+                // document.getElementById('formId').setAttribute('method','get')
+                // document.getElementById('formId').setAttribute('action','/req')
+            }else{
+                document.getElementById('myId').value='Lakshman';
+            }
+        }
+
+        function paraClick(){
+            //Add fields to fomr
+            let formId = document.getElementById('formId3');
+            let hiddenField = document.createElement('input');
+            formId.append(hiddenField);
+            hiddenField.type='hidden';
+            hiddenField.name='hiddenID';
+            hiddenField.value='hidden3';
+            formId.setAttribute('method','get')
+            formId.setAttribute('action','/req')
+            console.log(formId);
+            setTimeout(function(){
+                formId.submit();
+            },10000)
+           
+            
+            //Submitting Form
+            // document.getElementById('formId2').submit();
+            //Get Request
+            // window.location.href='/req?id='+document.getElementById('inputId').value;
+        }
+    </script>
+</head>
+<body>
+    <form id="formId3">
+
+    </form>
+    <form action="/postReq" method="post" id="formId">
+        <input type="text" id="inputId" name="normalField"/>
+        <input type="hidden" value="Ram" id="myId" name="hiddenField"/>
+        <button onclick="clickMe()">Submit</button>
+       
+    </form>
+    
+    <form action="/req" method="get" id="formId2">
+        <input type="text" id="inputId" name="normalField"/>
+        <input type="hidden" value="Ram" id="myId" name="hiddenField"/>
+        <button onclick="clickMe()">Submit</button>
+    </form>
+    <p onclick="paraClick();"> My Paragraph</p>
+</body>
+</html>
