@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .hideH1{
+            display:none;
+        }
+        .changeStyle{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <form action="/" method="post">
+        <input type="text" name="fruit"/>
+        <input type = "submit"/>
+    </form>
+                <% if(data.length>0){ %>
+                    <h1 class="<%= hideMe%>">Values</h1>
+                <select >
+                    <% for(let ele of data){ %>
+                        <option value = '<%= ele%>'><%= ele%></option>
+                    <% } %>
+                </select>
+                <% } %>
+            
+</body>
+</html>
