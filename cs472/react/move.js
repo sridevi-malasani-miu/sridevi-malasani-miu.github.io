@@ -1,5 +1,4 @@
 import React, { useState } from 'react';
-
 const App = () => {
   // Initial state for source and destination lists
   const [sourceList, setSourceList] = useState(['rose', 'lily', 'daffodil']);
@@ -34,9 +33,10 @@ const App = () => {
   return (
     <div style={{
       display: 'grid',
+      padding:'20px',
       gap: '30px',
-      gridTemplateColumns: '1fr 1fr 1fr',
-      border: '1px solid blue'
+      gridTemplateColumns: '200px 40px 200px',
+      justifyContent:'center',
     }}>
       <select
         multiple
@@ -73,3 +73,4 @@ const App = () => {
 };
 
 export default App;
+
