@@ -3,10 +3,10 @@ import React, { useState, useEffect } from 'react';
 const InventoryTable = () => {
     // State for managing the list of items
     const [items, setItems] = useState([
-        { name: 'dd', price: 30, image: '/ddd.jpeg' },
+        { name: 'dd', price: 30, quantity: 200 },
         { name: 'dddd', price: 30 }
     ]);
-    
+
     // State for managing form input values
     const [itemName, setItemName] = useState('');
     const [itemPrice, setItemPrice] = useState('');
@@ -14,28 +14,29 @@ const InventoryTable = () => {
     const [editingIndex, setEditingIndex] = useState(null);
 
     console.log(" HHEE")
-    
+
     useEffect(() => {
-      // Define the function to fetch data
-      const fetchData = async () => {
-        try {
-          const response = await fetch('http://localhost:5000/api/hello');
-          const result = await response.json();
-          console.log(result)
-        } catch (error) {
-          console.log(error);
-          // setError(error);
-        } finally {
-          // setLoading(false);
-        }
-      };
-      // Call the fetchData function
-      fetchData();
+        // Define the function to fetch data
+        const fetchData = async () => {
+            try {
+                const response = await fetch('http://localhost:5000/list', { data: { item: 'item1' } });
+                const result = await response.json();
+                console.log(" RESULT ",result);
+                setItems(result);
+            } catch (error) {
+                console.log(error);
+                // setError(error);
+            } finally {
+                // setLoading(false);
+            }
+        };
+        // Call the fetchData function
+        fetchData();
     }, []); // Empty dependency array means this effect runs once on mount
     // Handle form submission   
     const addOrUpdate = () => {
-      // Add new item
-      const newItem = { name: itemName, price: itemPrice, quantity: itemQuantity };
+        // Add new item
+        const newItem = { name: itemName, price: itemPrice, quantity: itemQuantity };
         if (editingIndex !== null) {
             // Update existing item
             const updatedItems = [...items];
@@ -49,6 +50,35 @@ const InventoryTable = () => {
         setItemName('');
         setItemPrice('');
         setItemQuantity('');
+
+
+
+        const baseURL = 'http://localhost:5000/add';
+        const params = {
+            name:itemName,
+            price:itemPrice,
+            quantity: itemQuantity
+        };
+
+        // Convert the params object to a query string
+        const queryString = new URLSearchParams(params).toString();
+
+        // Construct the full URL with query string
+        const url = `${baseURL}?${queryString}`;
+
+        const fetchData = async () => {
+            try {
+                const response = await fetch(url);
+                const result = await response.json();
+                console.log(" ITEMS ", result)
+                setItems(result);
+            } catch (error) {
+                console.log(error);
+            } finally {
+            }
+        };
+        // Call the fetchData function
+        fetchData();
     };
 
     const editRow = (index) => {
