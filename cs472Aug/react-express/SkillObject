@@ -1,0 +1,15 @@
+[
+  { label: 'Major', value: 'Computer Science', type: 'text' },
+  {
+    label: 'scores',
+    list: [ 10, 20, 30, 40 ],
+    type: 'checkbox',
+    selected: [ 10, 20, 30 ]
+  },
+  {
+    label: 'skills',
+    list: [ 'C++', 'C#', 'JavaScript' ],
+    type: 'selectSingle',
+    selected: 'C#'
+  }
+]
