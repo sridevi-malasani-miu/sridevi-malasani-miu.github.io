@@ -21,12 +21,12 @@
             // If 'script' parameter exists, create a <script> tag and append to the document
             if (scriptName) {
                 const script = document.createElement('script');
-                script.src = `/script/fillInBlanks/${scriptName}.js`;  // Assuming the JS file is in the same directory
+                script.src = `./script/fillInBlanks/${scriptName}.js`;  // Assuming the JS file is in the same directory
                 console.log(" HERERE ", script.src)
                 document.body.prepend(script);
 
                 const script2 = document.createElement('script');
-                script2.src = `script/fillInBlank.js`;  // Assuming the JS file is in the same directory
+                script2.src = `./script/fillInBlank.js`;  // Assuming the JS file is in the same directory
                 console.log(" HERERE ", script2.src)
                 document.body.append(script2);
 
