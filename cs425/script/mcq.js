@@ -2,6 +2,7 @@ $(document).ready(function() {
     let quizContainer = $('#quiz-container');
 
     // Render questions
+    setTimeout(function(){
     questionsArray.forEach((item, index) => {
         let questionDiv = $(`
             <div class="question">
@@ -41,5 +42,5 @@ $(document).ready(function() {
             $(`#feedback-${index}`).text(`Incorrect! Correct answer: ${correctAnswers.join(', ')}`)
                 .addClass('incorrect').removeClass('correct').show();
         }
-    });
+    });}, 100)
 });
