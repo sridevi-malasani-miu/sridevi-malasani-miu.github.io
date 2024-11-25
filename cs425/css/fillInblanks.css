@@ -1,0 +1,35 @@
+body {
+    margin: 20px;
+}
+.question {
+    margin-bottom: 20px;
+}
+.answer-feedback, .feedback {
+    display: none;
+    margin-top: 10px;
+}
+.choices {
+    list-style-type: none;
+    padding: 0;
+}
+.choices li {
+    margin-bottom: 5px;
+}
+.correct {
+    color: green;
+}
+.incorrect {
+    color: red;
+}
+.show-answer {
+    display: none;
+    color: blue;
+}
+.check-answer-btn {
+    margin-top: 10px;
+    padding: 5px 10px;
+    background-color: #007BFF;
+    color: white;
+    border: none;
+    cursor: pointer;
+}
