@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fill-in-the-Blank Quiz</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <link rel="stylesheet" href="../css/fillInblanks.css">
+</head>
+
+<body>
+    <h4>Fill in the Blanks</h4>
+    <div id="quiz-container"></div>
+    <script>
+        function loadScriptFromQuery() {
+            // Get query parameters from URL
+            const params = new URLSearchParams(window.location.search);
+            const scriptName = params.get('lesson'); // Get 'lesson' parameter
+
+            // If 'script' parameter exists, create a <script> tag and append to the document
+            if (scriptName) {
+                const script = document.createElement('script');
+                script.src = `/script/fillInBlanks/${scriptName}.js`;  // Assuming the JS file is in the same directory
+                console.log(" HERERE ", script.src)
+                document.body.prepend(script);
+
+                const script2 = document.createElement('script');
+                script2.src = `script/fillInBlank.js`;  // Assuming the JS file is in the same directory
+                console.log(" HERERE ", script2.src)
+                document.body.append(script2);
+
+            } else {
+                console.log("No 'script' parameter found in URL.");
+            }
+        }
+        // Call the function to load the script dynamically
+        loadScriptFromQuery();
+    </script>
+</body>
+</html>
