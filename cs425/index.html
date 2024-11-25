@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Software Engineering Lessons</title>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f9;
+            background-image: url('/soft-eng.jpeg');
+            color: #333;
+        }
+        .container {
+            width: 90%;
+            background-color: white;
+            border: 5px solid lightyellow;
+            padding:20px;
+            max-width: 1200px;
+            margin: 50px auto;
+        }
+        h1 {
+            text-align: center;
+            color: #9000ff;
+            margin-bottom: 30px;
+            font-size: 2.5rem;
+        }
+        .lessons-grid {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr); /* Two columns by default */
+            grid-gap: 10px;
+        }
+        .lesson {
+            background-color: white;
+           
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: background-color 0.2s;
+            cursor: pointer;
+        }
+        .lesson:hover {
+            background-color: #f1f1f1;
+        }
+        h2 {
+            color: #a7a328;
+            margin-bottom: 1px;
+            font-size: 1.5rem;
+        }
+        .lesson-content {
+            display: none; /* Hidden by default */
+            margin-top: 15px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            margin-bottom: 0px;
+        }
+        a {
+            text-decoration: none;
+            color: #007BFF;
+            font-weight: 500;
+            font-size: 1.1rem;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .lessons-grid {
+                grid-template-columns: 1fr; /* One column on smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Software Engineering</h1>
+
+        <div class="lessons-grid">
+            <!-- Lesson 1 -->
+            <div class="lesson">
+                <h2>Lesson 1: Software Development Methodologies</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="mcq.html?lesson=waterfall" target="_blank">Waterfall Methodology - Quiz</a></li>
+                        <li><a href="mcq.html?lesson=rup" target="_blank">RUP Methodology & UML- Quiz</a></li>
+                        <li><a href="mcq.html?lesson=agile" target="_blank">Agile Methodology - Quiz</a></li>
+                        <li><a href="mcq.html?lesson=methodologies" target="_blank">All- Multiple Choice Quiz</a></li>
+                        <li><a href="fillInBlanks.html?lesson=methodologies" target="_blank">All- Fill in the Blank Quiz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 2 -->
+            <div class="lesson">
+                <h2>Lesson 2: Git</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="mcq.html?lesson=git" target="_blank">Lesson 1 - Multiple Choice Quiz</a></li>
+                        <li><a href="fillInBlanks.html?lesson=git" target="_blank">Lesson 1 - Fill in the Blank Quiz</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="lesson">
+                <h2>Lesson 3: Requirements & Analysis</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="#">Coming soon...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="lesson">
+                <h2>Lesson 4: Basic Java Coding</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="#">Coming soon...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="lesson">
+                <h2>Lesson 5: Data Persistence</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="#">Coming soon...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="lesson">
+                <h2>Lesson 6: Spring MVC & Rest API</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="#">Coming soon...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            <!-- Lesson 4 -->
+            <div class="lesson">
+                <h2>Lesson 7: Software Testing</h2>
+                <div class="lesson-content">
+                    <ul>
+                        <li><a href="#">Coming soon...</a></li>
+                    </ul>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+
+    <script>
+        $(document).ready(function() {
+            // Toggle lesson content on title click
+            $('.lesson').on('click', function() {
+                $(this).find('.lesson-content').slideToggle(200);
+            });
+        });
+    </script>
+
+</body>
+</html>
