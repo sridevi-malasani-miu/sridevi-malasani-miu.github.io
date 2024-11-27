@@ -1,14 +1,5 @@
 const questionsArray = [
-    {
-        question: 'Which command is used to initialize a new Git repository?',
-        choices: ['git clone', 'git init', 'git commit', 'git add'],
-        answer: ['git init']
-    },
-    {
-        question: 'Which commands are used to stage files in Git?',
-        choices: ['git add', 'git status', 'git commit', 'git diff'],
-        answer: ['git add']
-    },
+    
     {
         question: 'Which of the following commands fetches changes from a remote repository?',
         choices: ['git fetch', 'git pull', 'git clone', 'git init'],
@@ -19,16 +10,8 @@ const questionsArray = [
         choices: ['git log', 'git commit', 'git status', 'git log --oneline'],
         answer: ['git log', 'git log --oneline']
     },
-    {
-        question: 'Which commands are used to push changes to a remote repository?',
-        choices: ['git pull', 'git push', 'git merge', 'git add'],
-        answer: ['git push']
-    },
-    {
-        question: 'Which of the following commands merge branches in Git?',
-        choices: ['git merge', 'git branch', 'git add', 'git commit'],
-        answer: ['git merge']
-    },
+
+
     {
         question: 'Which command creates a local copy of a remote repository?',
         choices: ['git clone', 'git fetch', 'git init', 'git log'],
@@ -36,7 +19,7 @@ const questionsArray = [
     },
     {
         question: 'Which command removes staged changes before committing?',
-        choices: ['git reset', 'git log', 'git checkout', 'git merge'],
+        choices: ['git reset', 'git restore', 'git revert', 'git merge'],
         answer: ['git reset']
     },
     {
@@ -84,19 +67,11 @@ const questionsArray = [
         choices: ['git tag -a', 'git checkout', 'git commit', 'git push'],
         answer: ['git tag -a']
     },
-    {
-        question: 'Which of the following commands display the configuration information of Git?',
-        choices: ['git config --list', 'git init', 'git config user.name', 'git push'],
-        answer: ['git config --list', 'git config user.name']
-    },
+    
     {
         question: 'Which commands are used to fetch changes from a remote repository but not merge them?',
         choices: ['git fetch', 'git pull', 'git log', 'git clone'],
         answer: ['git fetch']
-    },
-    {
-        question: 'Which of the following commands display all the commits in one line format?',
-        choices: ['git log --oneline', 'git status', 'git log', 'git branch'],
-        answer: ['git log --oneline']
     }
+    
 ];
