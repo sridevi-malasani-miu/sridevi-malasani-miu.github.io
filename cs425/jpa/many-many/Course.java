@@ -2,22 +2,18 @@ import jakarta.persistence.*;
 import java.util.List;
 
 @Entity
-public class Student {
+public class Course {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private String name;
+    private String courseName;
 
     @Column(nullable = false, unique = true)
-    private String email;
+    private String courseCode;
 
-    @ManyToMany
-    @JoinTable(
-      name = "Student_Course", 
-      joinColumns = @JoinColumn(name = "student_id"), 
-      inverseJoinColumns = @JoinColumn(name = "course_id"))
-    private List<Course> courses;
+    @ManyToMany(mappedBy = "courses")
+    private List<Student> students;
 
 }
