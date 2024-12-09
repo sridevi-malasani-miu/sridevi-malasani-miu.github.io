@@ -1,18 +1,19 @@
 import jakarta.persistence.*;
 
 @Entity
-public class LibraryMember {
+public class MembershipCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false)
-    private String name;
-
     @Column(nullable = false, unique = true)
-    private String email;
+    private String cardNumber;
 
-    @OneToOne(mappedBy = "libraryMember", cascade = CascadeType.ALL)
-    private MembershipCard membershipCard;
+    @Column(nullable = false)
+    private String issuedDate;
+
+    @OneToOne
+    @JoinColumn(name = "library_member_id", referencedColumnName = "id")
+    private LibraryMember libraryMember;
 
 }
