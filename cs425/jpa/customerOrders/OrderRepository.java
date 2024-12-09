@@ -10,4 +10,9 @@ public interface OrderRepository extends JpaRepository<Order, Long> {
            "JOIN o.customer c " +
            "GROUP BY c.name")
     List<Object[]> countTotalOrdersPerCustomer();
+
+    @Modifying
+    @Transactional
+    @Query("DELETE FROM Order o WHERE o.id = :orderId")
+    void deleteOrderById(Long orderId);
 }
