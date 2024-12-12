@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Preview Form</title>
+    <style>
+        .preview-box {
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Input Form</h1>
+    <!-- Form Section -->
+    <form th:if="${mode=='add'}" th:action="@{/form/preview}" th:object="${userInput}" method="post">
+        <label>Name: <input type="text" th:field="*{name}" required /></label><br /><br />
+        <label>Email: <input type="email" th:field="*{email}" required /></label><br /><br />
+        <label>Message: <textarea  th:field="*{message}" required></textarea></label><br /><br />
+
+       <label>Subscribe to Newsletter: <input type="checkbox"  th:field="*{subscribe}" /></label><br /><br />
+
+        <label>Gender:</label>
+        <label><input type="radio" th:field="*{gender}" value="Male" /> Male</label>
+        <label><input type="radio" th:field="*{gender}" value="Female" /> Female</label><br /><br />
+
+         <label>Country:
+            <select th:field="*{country}">
+                <option value="">Select a Country</option>
+                <option th:each="country : ${countries}" th:value="${country}" th:text="${country}"></option>
+            </select>
+        </label><br /><br />
+
+        <label>Interests:</label>
+        <select multiple th:field="*{interests}">
+            <option th:each="interest : ${interests}" th:value="${interest}" th:text="${interest}"></option>
+        </select><br /><br />
+
+        <button type="submit">Preview</button> 
+    </form>
+    <!-- Preview Section -->
+    <div class="preview-box" th:if="${mode!='add'}">
+        <h2>Preview</h2>
+        <p><strong>Name:</strong> <span th:text="${userInput.name}"></span></p>
+        <p><strong>Email:</strong> <span th:text="${userInput.email}"></span></p>
+        <p><strong>Message:</strong> <span th:text="${userInput.message}"></span></p>
+        <p><strong>Subscribe:</strong> <span th:text="${userInput.subscribe ? 'Yes' : 'No'}"></span></p>
+        <p><strong>Gender:</strong> <span th:text="${userInput.gender}"></span></p>
+        <p><strong>Country:</strong> <span th:text="${userInput.country}"></span></p>
+        <p><strong>Interests:</strong> <span th:text="${userInput.interests}"></span></p>
+
+        <!-- Save Button -->
+        <form th:action="@{/form/save}" th:object="${userInput}" method="post">
+            <input type="hidden" name="name" th:value="${userInput.name}"/>
+            <input type="hidden" name="email" th:value="${userInput.email}"/>
+            <input type="hidden" name="message" th:value="${userInput.message}"/>
+            <input type="hidden" name="subscribe" th:value="${userInput.subscribe}"/>
+            <input type="hidden" name="gender" th:value="${userInput.gender}"/>
+            <input type="hidden" name="country" th:value="${userInput.country}"/>
+            <input type="hidden" name="interests" th:value="${userInput.interests}"/>
+            <button type="submit">Save</button>
+        </form>
+    </div>
+
+    <!-- Message Section -->
+    <div th:if="${message}">
+        <p th:text="${message}"></p>
+    </div>
+</body>
+
+</html>
