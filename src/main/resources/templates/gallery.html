@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org" lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+</head>
+
+<body>
+    <a th:href="@{'/gallery/sort'}">Sort</a>
+    <!-- Container for Items -->
+    <div id="container" style="display: flex; gap: 10px; flex-wrap: wrap;">
+        <div th:each="item : ${images}" 
+             class="item" 
+             style="display: flex; gap: 10px;">
+
+            <!-- Image -->
+            <img th:src="@{${item.fullPath}}" style="height: 100px; width: 100px; object-fit: cover;" />
+
+            <!-- Details -->
+            <div>
+                <div th:text="${item.firstName}"></div>
+                <p th:text="${item.lastName}"></p>
+
+                <a th:href="@{'/gallery/delete/' + ${item.id}}">Delete</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
