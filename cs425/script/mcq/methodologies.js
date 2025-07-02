@@ -154,20 +154,7 @@ questionsArray = [
             'Predictable, large-scale projects'
         ]
     },
-    {
-        question: 'What are the key focuses of UML modeling?',
-        choices: [
-            'Visualization of complex systems',
-            'Communication among teams',
-            'Implementation of database queries',
-            'Abstraction of software systems'
-        ],
-        answer: [
-            'Visualization of complex systems',
-            'Communication among teams',
-            'Abstraction of software systems'
-        ]
-    },
+   
     {
         question: 'Which methodologies involve iterative development processes?',
         choices: ['Agile', 'RUP', 'Waterfall', 'Linux'],
