@@ -69,22 +69,7 @@ questionsArray = [
             'Iteration-based',
             'Architecture-centric'
         ]
-    },
-    {
-        question: 'What are the benefits of using the Unified Modeling Language (UML)?',
-        choices: [
-            'Provides abstraction and decomposition',
-            'Offers different views on the same model',
-            'Ensures perfect code implementation',
-            'Supports tools like StarUML and Lucidchart'
-        ],
-        answer: [
-            'Provides abstraction and decomposition',
-            'Offers different views on the same model',
-            'Supports tools like StarUML and Lucidchart'
-        ]
-    },
-    
+    },   
     {
         question: 'What are the core principles of Agile methodology?',
         choices: [
